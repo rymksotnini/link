@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 
 var testController = require('./testController');
+var connection = require('./connection');
 app.use('/', testController);
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:4200");

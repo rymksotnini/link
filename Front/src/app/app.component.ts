@@ -4,6 +4,11 @@ import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/filter';
 
 import { LocationStrategy, PlatformLocation, Location, DOCUMENT } from '@angular/common';
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
+//import {createSign} from "crypto";
+import {SignupComponent} from "./signup/signup.component";
+import {SignUpPopupComponent} from "./sign-up-popup/sign-up-popup.component";
+import {Observable} from "rxjs";
 
 var didScroll;
 var lastScrollTop = 0;
@@ -18,7 +23,8 @@ var navbarHeight = 0;
 export class AppComponent implements OnInit {
     private _router: Subscription;
 
-    constructor( private renderer : Renderer, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location) {}
+
+    constructor( private matDialog : MatDialog, private renderer : Renderer, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location) {}
     @HostListener('window:scroll', ['$event'])
     hasScrolled() {
 
@@ -73,4 +79,21 @@ export class AppComponent implements OnInit {
       });
       this.hasScrolled();
     }
+    //To move this to the navbar component + service in the constructor
+    openDialog() {
+        console.log("working");
+
+          let dialogRef = this.matDialog.open(SignUpPopupComponent, {
+            height: '400px',
+            width: '600px',
+        });
+        const sub = dialogRef.componentInstance.onClick.subscribe((value) => {
+            console.log(value);
+            this.router.navigate(['register'])
+        });
+
+    };
+
+
+
 }

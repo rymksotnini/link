@@ -1,7 +1,7 @@
 <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom headroom--top headroom--pinned">
   <div class="container">
     <a class="navbar-brand mr-lg-5" [routerLink]="['/home']">
-      <img src="./assets/img/brand/argon-white.png">
+      <img src="./assets/img/brand/longLogo.png">
     </a>
     <button class="navbar-toggler" type="button" (click)="isCollapsed = !isCollapsed"
           [attr.aria-expanded]="!isCollapsed" aria-controls="navbar_global">
@@ -25,6 +25,12 @@
         </div>
       </div>
       <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
+        <li class="nav-item">
+          <a routerLinkActive="active" [routerLink]="['home']" class="nav-link no-caret">
+            <i class="ni ni-ui-04 d-lg-none"></i>
+            <span class="nav-link-inner--text">Home</span>
+          </a>
+        </li>
         <li class="nav-item">
           <a routerLinkActive="active" [routerLink]="['events']" class="nav-link no-caret">
             <i class="ni ni-ui-04 d-lg-none"></i>
@@ -85,7 +91,7 @@
               </a>
             </div>
           </div>
-        </li>-->
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link no-caret" data-toggle="dropdown" role="button">
             <i class="ni ni-collection d-lg-none"></i>
@@ -97,10 +103,10 @@
             <a [routerLink]="['/login']" class="dropdown-item">Login</a>
             <a [routerLink]="['/register']" class="dropdown-item">Register</a>
           </div>
-        </li>
+        </li>-->
       </ul>
-      <ul class="navbar-nav align-items-lg-center ml-lg-auto">
-        <li class="nav-item">
+      <ul class="navbar-nav navbar-nav-hover align-items-lg-center ml-lg-auto">
+        <!--<li class="nav-item">
           <a class="nav-link nav-link-icon" href="https://www.facebook.com/creativetim" target="_blank" data-toggle="tooltip" title="Like us on Facebook">
             <i class="fa fa-facebook-square"></i>
             <span class="nav-link-inner--text d-lg-none">Facebook</span>
@@ -111,14 +117,30 @@
             <i class="fa fa-github"></i>
             <span class="nav-link-inner--text d-lg-none">Github</span>
           </a>
-        </li>
+        </li>-->
         <li class="nav-item dropdown">
           <a class="nav-link btn-default" data-toggle="dropdown" title="Get Started" role="button">
             <span class="nav-link-inner--text mb-md-1">Get Started</span>
           </a>
-          <div class="dropdown-menu">
-            <a [routerLink]="['/login']" class="dropdown-item">Login</a>
-            <button class="dropdown-item">Register</button>
+          <div class="dropdown-menu-lg dropdown-menu">
+            <div class="dropdown-menu-inner">
+              <a [routerLink]="['/login']" class="media d-flex align-items-center dropdown-item">
+                <div class="icon icon-shape bg-gradient-orange rounded-circle text-white">
+                  <i class="ni ni-button-power"></i>
+                </div>
+                <div class="media-body ml-3">
+                  <h6 class="heading text-gray-dark mb-md-1">Log In</h6>
+                </div>
+              </a>
+              <button class="media d-flex align-items-center dropdown-item">
+                <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
+                  <i class="ni ni-single-02"></i>
+                </div>
+                <div class="media-body ml-3">
+                  <h6 class="heading text-gray-dark mb-md-1">Register</h6>
+                </div>
+              </button>
+            </div>
           </div>
         </li>
       </ul>

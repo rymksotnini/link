@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnChanges, OnInit} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
     selector: 'app-signup',
@@ -7,14 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
     test : Date = new Date();
+    is_Organization : boolean;
+    is_User: boolean;
     focus;
     focus1;
     focus2;
 
-    constructor() { }
+    constructor(private activatedRoute :ActivatedRoute) {
+        activatedRoute.params.subscribe(parameters => {
+            this.is_Organization= this.activatedRoute.snapshot.paramMap.get("type")=="organization";
+            this.is_User= !this.is_Organization;
+            console.log(" organization ? " +this.is_Organization +" sponsor ?"+this.is_User);
+
+
+
+        });
+    }
 
     ngOnInit() {
 
-
     }
+
+
 }

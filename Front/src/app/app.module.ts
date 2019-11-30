@@ -31,7 +31,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
     NavbarComponent,
     FooterComponent,
     LoginComponent,
-    SignUpPopupComponent //here
+    SignUpPopupComponent,
     LoginComponent,
     EventsComponent,
     SponsorsComponent,
@@ -49,7 +49,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
     MatDialogModule
   ],
   providers: [],
-  entryComponents: [SignUpPopupComponent],//here
+  entryComponents: [SignUpPopupComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

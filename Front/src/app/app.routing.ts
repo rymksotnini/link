@@ -21,7 +21,7 @@ const routes: Routes =[
     { path: 'sponsors',         component: SponsorsComponent },
     { path: 'about-us',         component: AboutUsComponent },
     { path: 'user-profile',     component: ProfileComponent },
-    { path: 'register',         component: SignupComponent },
+    { path: 'register/:type',         component: SignupComponent },
     { path: 'landing',          component: LandingComponent },
     { path: 'login',            component: LoginComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' }

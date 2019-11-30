@@ -22,32 +22,27 @@
     <!-- main -->
     <div class="main-w3layouts wrapper">
 
-      <div *ngIf="is_User" class="main-agileinfo">
+      <div *ngIf="is_Sponsor" class="main-agileinfo">
         <div class="titreCustom">
           <p align="center">
             <br>
             SignUp as a sponsor
           </p>
         </div>
-        <div class="agileits-top">
+        <div class="agileits-top" >
           <form (ngSubmit)="onSubmit(formulaire)"  #formulaire="ngForm">
 
-            <input class="text " type="text" name="Username" placeholder="Username" ngModel >
+            <input class="text " type="text" name="Username" placeholder="Username" ngModel required="" >
             <input class="text email" type="email" name="email" placeholder="Email" ngModel>
             <input class="text" type="password" name="password" placeholder="Password" ngModel>
             <input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" ngModel>
-            <input
-                    type="text"
-                    placeholder="Your full name"
-                    ngModel>
 
-
-            <input class="btn btn-1 btn-danger changeColor " type="button" value="sign up">
+            <input class="btn btn-1 btn-danger changeColor " type="submit" value="sign up">
           </form>
           <p> Already have an Account? <a href="#"> Login Now!</a></p>
         </div>
       </div>
-      <div *ngIf="is_Organization" class="main-agileinfo">
+      <div *ngIf="is_Organization" class="main-agileinfo" >
         <div class="titreCustom">
           <p align="center">
             <br>
@@ -55,15 +50,16 @@
           </p>
         </div>
         <div class="agileits-top">
-          <form (ngSubmit)="onSubmit(formulaire)"  #formulaire="ngForm">
+          <form (ngSubmit)="onSubmit(formulaireOrganization)"  #formulaireOrganization="ngForm">
 
-            <input class="text" type="text" name="Username" placeholder="Username" ngModel >
-            <input class="text email" type="email" name="email" placeholder="Email" ngModel>
-            <input class="text" type="password" name="password" placeholder="Password" ngModel>
-            <input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" ngModel>
+            <input class="text" type="text" name="organizationName" placeholder="Organization Name" ngModel required="">
+            <input class="text email" type="email" name="organizationEmail" placeholder="Organization Email" ngModel required="">
+            <input class="text" type="password" name="password" placeholder="Password" ngModel required="">
+            <input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" ngModel required="">
+            <input class="text" type="text" name="organizationDomain" placeholder="Domain" ngModel required="">
 
 
-            <input class="btn btn-1 btn-danger changeColor " type="button" value="sign up">
+            <input class="btn btn-1 btn-danger changeColor " type="submit" value="sign up">
           </form>
           <p> Already have an Account? <a href="#"> Login Now!</a></p>
         </div>

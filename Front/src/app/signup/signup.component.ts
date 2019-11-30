@@ -10,7 +10,8 @@ import {NgForm} from "@angular/forms";
 export class SignupComponent implements OnInit {
     test : Date = new Date();
     is_Organization : boolean;
-    is_User: boolean;
+    is_Sponsor: boolean;
+    submitted : boolean = false;
     focus;
     focus1;
     focus2;
@@ -18,8 +19,8 @@ export class SignupComponent implements OnInit {
     constructor(private activatedRoute :ActivatedRoute) {
         activatedRoute.params.subscribe(parameters => {
             this.is_Organization= this.activatedRoute.snapshot.paramMap.get("type")=="organization";
-            this.is_User= !this.is_Organization;
-            console.log(" organization ? " +this.is_Organization +" sponsor ?"+this.is_User);
+            this.is_Sponsor= !this.is_Organization;
+            console.log(" organization ? " +this.is_Organization +" sponsor ?"+this.is_Sponsor);
 
 
 
@@ -29,7 +30,12 @@ export class SignupComponent implements OnInit {
     ngOnInit() {
 
     }
-    onSubmit(formulaire : NgForm){}
+    onSubmit(formulaire : NgForm){
+        console.log("testing");
+        console.log(formulaire.value);
+        this.submitted=formulaire.valid;
+
+    }
 
 
 }

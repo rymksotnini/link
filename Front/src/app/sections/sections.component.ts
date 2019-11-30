@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Route} from "@angular/router";
 
 @Component({
   selector: 'app-sections',
@@ -8,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class SectionsComponent implements OnInit {
   focus;
   focus1;
-  constructor() { }
+  constructor(private activatedRoute:ActivatedRoute) { }
 
   ngOnInit() {
+  }
+  fun(){
+    this.activatedRoute.params.subscribe(
+        (parm) => console.log("param ",parm)
+    )
   }
 
 }

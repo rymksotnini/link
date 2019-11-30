@@ -89,7 +89,7 @@ export class AppComponent implements OnInit {
         });
         const sub = dialogRef.componentInstance.onClick.subscribe((value) => {
             console.log(value);
-            this.router.navigate(['register'])
+            this.router.navigate(['/register'])
         });
 
     };

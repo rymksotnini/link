@@ -17,6 +17,10 @@ import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignUpPopupComponent } from './sign-up-popup/sign-up-popup.component';
+import { EventsComponent } from './events/events.component';
+import { SponsorsComponent } from './sponsors/sponsors.component';
+import { OrganizationsComponent } from './organizations/organizations.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +32,11 @@ import { SignUpPopupComponent } from './sign-up-popup/sign-up-popup.component';
     FooterComponent,
     LoginComponent,
     SignUpPopupComponent //here
+    LoginComponent,
+    EventsComponent,
+    SponsorsComponent,
+    OrganizationsComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,

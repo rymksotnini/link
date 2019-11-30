@@ -26,15 +26,20 @@
         <div class="titreCustom">
           <p align="center">
             <br>
-            SignUp as a user
+            SignUp as a sponsor
           </p>
         </div>
         <div class="agileits-top">
-          <form action="#" method="post">
-            <input class="text" type="text" name="Username" placeholder="Username" required="">
-            <input class="text email" type="email" name="email" placeholder="Email" required="">
-            <input class="text" type="password" name="password" placeholder="Password" required="">
-            <input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="">
+          <form (ngSubmit)="onSubmit(formulaire)"  #formulaire="ngForm">
+
+            <input class="text " type="text" name="Username" placeholder="Username" ngModel >
+            <input class="text email" type="email" name="email" placeholder="Email" ngModel>
+            <input class="text" type="password" name="password" placeholder="Password" ngModel>
+            <input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" ngModel>
+            <input
+                    type="text"
+                    placeholder="Your full name"
+                    ngModel>
 
 
             <input class="btn btn-1 btn-danger changeColor " type="button" value="sign up">
@@ -50,11 +55,12 @@
           </p>
         </div>
         <div class="agileits-top">
-          <form action="#" method="post">
-            <input class="text" type="text" name="Username" placeholder="Username" required="">
-            <input class="text email" type="email" name="email" placeholder="Email" required="">
-            <input class="text" type="password" name="password" placeholder="Password" required="">
-            <input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required="">
+          <form (ngSubmit)="onSubmit(formulaire)"  #formulaire="ngForm">
+
+            <input class="text" type="text" name="Username" placeholder="Username" ngModel >
+            <input class="text email" type="email" name="email" placeholder="Email" ngModel>
+            <input class="text" type="password" name="password" placeholder="Password" ngModel>
+            <input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" ngModel>
 
 
             <input class="btn btn-1 btn-danger changeColor " type="button" value="sign up">

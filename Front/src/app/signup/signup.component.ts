@@ -1,5 +1,6 @@
 import {Component, OnChanges, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
+import {NgForm} from "@angular/forms";
 
 @Component({
     selector: 'app-signup',
@@ -28,6 +29,7 @@ export class SignupComponent implements OnInit {
     ngOnInit() {
 
     }
+    onSubmit(formulaire : NgForm){}
 
 
 }

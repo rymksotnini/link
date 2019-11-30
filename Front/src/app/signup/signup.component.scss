@@ -169,31 +169,24 @@ input.email, input.text.w3lpass {
   background-position: 0 0;
 }
 
-.text:focus::-webkit-input-placeholder, .text:valid::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: .9em;
-  -webkit-transform: translateY(-30px);
-  -moz-transform: translateY(-30px);
-  -o-transform: translateY(-30px);
-  -ms-transform: translateY(-30px);
-  transform: translateY(-30px);
-  visibility: visible !important;
-}
+//
+//.text:focus::-webkit-input-placeholder, .text:valid::-webkit-input-placeholder {
+//  color: rgba(255, 255, 255, 0.7);
+//  font-size: .9em;
+//  -webkit-transform: translateY(-30px);
+//  -moz-transform: translateY(-30px);
+//  -o-transform: translateY(-30px);
+//  -ms-transform: translateY(-30px);
+//  transform: translateY(-30px);
+//  visibility: visible !important;
+//}
 
 ::-webkit-input-placeholder {
   color: #fff;
   font-weight: 100;
 }
 
-:-moz-placeholder {
-  /* Firefox 18- */
-  color: #fff;
-}
 
-::-moz-placeholder {
-  /* Firefox 19+ */
-  color: #fff;
-}
 
 :-ms-input-placeholder {
   color: #fff;
@@ -213,14 +206,7 @@ input.email, input.text.w3lpass {
   letter-spacing: 4px;
 }
 
-input[type="submit"]:hover {
-  -webkit-transition: .5s all;
-  -moz-transition: .5s all;
-  -o-transition: .5s all;
-  -ms-transition: .5s all;
-  transition: .5s all;
-  background: #8DC26F;
-}
+
 
 .agileits-top p {
   font-size: 1em;
@@ -239,7 +225,7 @@ input[type="submit"]:hover {
 }
 
 .agileits-top p a:hover {
-  color: #76b852;
+  color: deeppink;
 }
 
 /*-- //main --*/

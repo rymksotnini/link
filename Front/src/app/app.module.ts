@@ -12,7 +12,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
-
+import {HttpClientModule} from "@angular/common/http";
 import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -46,7 +46,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
     AppRoutingModule,
     HomeModule,
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule
   ],
   providers: [],
   entryComponents: [SignUpPopupComponent],

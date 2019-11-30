@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Location, PopStateEvent } from '@angular/common';
+import {SignUpPopupComponent} from "../../sign-up-popup/sign-up-popup.component";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
     selector: 'app-navbar',
@@ -12,7 +14,7 @@ export class NavbarComponent implements OnInit {
     private lastPoppedUrl: string;
     private yScrollStack: number[] = [];
 
-    constructor(public location: Location, private router: Router) {
+    constructor(public location: Location, private router: Router , private matDialog : MatDialog ) {
     }
 
     ngOnInit() {
@@ -52,5 +54,21 @@ export class NavbarComponent implements OnInit {
         else {
             return false;
         }
+    }
+    openDialog() {
+        console.log("working");
+
+        let dialogRef = this.matDialog.open(SignUpPopupComponent, {
+            height: '400px',
+            width: '600px',
+        });
+        const sub = dialogRef.componentInstance.onClick.subscribe((value) => {
+            console.log(value);
+            if(value.asOrganizer==true)
+                this.router.navigate(['/register/organization']);
+            else if (value.asOrganizer==false)
+                this.router.navigate(['/register/sponsor']);
+
+        });
     }
 }

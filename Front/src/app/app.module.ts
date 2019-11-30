@@ -15,6 +15,9 @@ import { FooterComponent } from './shared/footer/footer.component';
 
 import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
+import { UpcomingEventComponent } from './upcoming-event/upcoming-event.component';
+import { CarouselForEventsComponent } from './carousel-for-events/carousel-for-events.component';
+import {CarouselModule} from "ngx-carousel-lib";
 
 @NgModule({
   declarations: [
@@ -24,10 +27,13 @@ import { LoginComponent } from './login/login.component';
     ProfileComponent,
     NavbarComponent,
     FooterComponent,
-    LoginComponent
+    LoginComponent,
+    UpcomingEventComponent,
+    CarouselForEventsComponent
   ],
   imports: [
     BrowserModule,
+      CarouselModule,
     NgbModule.forRoot(),
     FormsModule,
     RouterModule,

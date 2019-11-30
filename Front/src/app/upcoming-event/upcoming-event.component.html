@@ -1,0 +1,23 @@
+<div class="card  h-100 card-lift--hover shadow border-0">
+    <img [src]="eventPhoto"  class="card-img-top">
+    <blockquote  class="card-blockquote">
+        <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 583 95" class="svg-bg" >
+            <polygon points="0,52 583,95  0,95"  class="fill-white" />
+            <polygon points="0,42 583,95 683,0 0,95" opacity=".2" class="fill-white" />
+        </svg>
+    </blockquote>
+    <div class="card-body h-100">
+        <h6 class="text-primary text-uppercase" style="
+    padding: initial;
+    margin-top: -45px;
+    margin-left: -10px;
+" >{{title}}</h6>
+        <p class="description mt-3">{{this.description}}</p>
+        <div>
+            <span class="badge badge-pill badge-primary">angular</span>
+            <span class="badge badge-pill badge-primary">ng-bootstrap</span>
+            <span class="badge badge-pill badge-primary">creative</span>
+        </div>
+        <a href="javascript:void(0)" class="btn btn-primary mt-4">Learn more</a>
+    </div>
+</div>

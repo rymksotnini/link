@@ -1,0 +1,18 @@
+<div class="container py-md">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-lg-5 mb-5 mb-lg-0">
+            <h1 class="text-white font-weight-light"> {{slogan}}</h1>
+            <p class="lead text-white mt-4">{{description}}</p>
+            <a [routerLink]="['/sponsors']" class="btn btn-white mt-4">See all details</a>
+        </div>
+        <div class="col-lg-6 mb-lg-auto">
+            <div class="rounded shadow-lg overflow-hidden transform-perspective-right">
+                <ngb-carousel (slide)="print($event)">
+                    <ng-template ngbSlide  *ngFor="let sponsor of top_sponsors; let  i=index;" >
+                        <img class="img-fluid" [src]="sponsor.image"/>
+                    </ng-template>
+                </ngb-carousel>
+            </div>
+        </div>
+    </div>
+</div>

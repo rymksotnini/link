@@ -1,0 +1,12 @@
+.rounded-circle {
+    border-radius: 50% !important;
+}
+.fixActionRow {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.spacer {
+    flex-grow: 0.5;
+}

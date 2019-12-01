@@ -37,13 +37,15 @@ import { TopSponsorsComponent } from './top-sponsors/top-sponsors.component';
     LoginComponent,
     UpcomingEventComponent,
     CarouselForEventsComponent,
+    LoginComponent,
     SignUpPopupComponent,
     LoginComponent,
     EventsComponent,
     SponsorsComponent,
     OrganizationsComponent,
     AboutUsComponent,
-    TopSponsorsComponent
+    TopSponsorsComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,

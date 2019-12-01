@@ -55,12 +55,13 @@ export class NavbarComponent implements OnInit {
             return false;
         }
     }
+
     openDialog() {
         console.log("working");
 
         let dialogRef = this.matDialog.open(SignUpPopupComponent, {
-            height: '400px',
-            width: '600px',
+            height: '300px',
+            width: '650px',
         });
         const sub = dialogRef.componentInstance.onClick.subscribe((value) => {
             console.log(value);

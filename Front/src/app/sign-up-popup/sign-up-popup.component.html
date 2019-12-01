@@ -1,31 +1,27 @@
-<div class="fixActionRow "  >
-    <h1 mat-dialog-title><br></h1>
-    <mat-dialog-content>
-
-       <div class="row " align="center" >
-        <div class="col-md-5">
-            <img src="./assets/img/icons/common/sponsor.png" alt="Raised circle image" class="img-fluid rounded-circle " style="width: 150px;">
-
-        </div>
-           <div class="col-md-7">
-               <img src="./assets/img/icons/common/organizer.png" alt="Raised circle image" class="img-fluid rounded-circle " style="width: 150px;">
-           </div>
-
-       </div>
-
-    </mat-dialog-content>
-    <div class="spacer"></div>
-    <mat-dialog-actions>
-
+<div>
+    <h1 mat-dialog-title class="display-3">Sign In</h1>
+    <mat-dialog-content style="margin-top:30px">
         <div class="row" align="center">
             <div class="col-md-6">
-                <button class="btn btn-1 btn-primary btn-inner--text" type="button" (click)="is_organizer(false)">Sign Up as a Sponsor</button>
+                <div class="icon icon-lg icon-shape icon-shape-success shadow rounded-circle">
+                    <i class="fa fa-dollar"></i>
+                </div>
+                <button class="btn btn-outline-success" type="button" (click)="is_organizer(false)">
+                    <i class="fa fa-plus"></i>
+                    <span>Sign Up as a Sponsor</span>
+                </button>
             </div>
             <div class="col-md-6">
-                <button class="btn btn-1 btn-info btn-inner--text" type="button" (click)="is_organizer(true)">Sign Up as an organization</button>
+                <div class="icon icon-lg icon-shape icon-shape-warning shadow rounded-circle">
+                    <i class="fa fa-users"></i>
+                </div>
+                <button class="btn btn-outline-warning" type="button" (click)="is_organizer(true)">
+                    <i class="fa fa-plus"></i>
+                    <span>Sign Up as an organization</span>
+                </button>
             </div>
-
         </div>
-
+    </mat-dialog-content>
+    <mat-dialog-actions>
     </mat-dialog-actions>
 </div>

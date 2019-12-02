@@ -61,6 +61,8 @@ export class NavbarComponent implements OnInit {
         let dialogRef = this.matDialog.open(SignUpPopupComponent, {
             height: '400px',
             width: '600px',
+            panelClass: 'myapp-no-padding-dialog',
+
         });
         const sub = dialogRef.componentInstance.onClick.subscribe((value) => {
             console.log(value);

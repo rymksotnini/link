@@ -1,8 +1,9 @@
-import {Component, EventEmitter, OnChanges, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
 import {User} from "../models/User";
 import {UserService} from "../services/user.service";
+import {Role} from "../../environments/environment";
 
 @Component({
     selector: 'app-signup',
@@ -11,8 +12,7 @@ import {UserService} from "../services/user.service";
 })
 export class SignupComponent implements OnInit {
     test : Date = new Date();
-    is_Organization : boolean;
-    is_Sponsor: boolean;
+
     submitted : boolean = false;
     user = new User();
 
@@ -20,14 +20,7 @@ export class SignupComponent implements OnInit {
     // public Login: EventEmitter<void> = new EventEmitter<void>();
 
     constructor(private activatedRoute :ActivatedRoute,private userService :UserService,private router :Router) {
-        activatedRoute.params.subscribe(parameters => {
-            this.is_Organization= this.activatedRoute.snapshot.paramMap.get("type")=="organization";
-            this.is_Sponsor= !this.is_Organization;
-            console.log(" organization ? " +this.is_Organization +" sponsor ?"+this.is_Sponsor);
 
-
-
-        });
     }
 
     ngOnInit() {
@@ -42,16 +35,12 @@ export class SignupComponent implements OnInit {
         this.submitted=formulaire.valid;
         if(!this.submitted)
             return  ;
-        if(this.is_Organization){
-             prefixType ="organization"
-        }else if (this.is_Sponsor)
-            prefixType="sponsor";
-        this.user.UserName=formulaire.controls[prefixType+'Name'].value;
+
+        this.user.UserName=formulaire.controls['organizationName'].value;
         console.log(formulaire.controls['password'].value);
-        this.user.email=formulaire.controls[prefixType+'Email'].value;
+        this.user.email=formulaire.controls['organizationEmail'].value;
         this.user.password=formulaire.controls['password'].value;
-        this.user.is_organization=this.is_Organization;
-        this.user.is_sponsor=this.is_Sponsor;
+        this.user.role=Role.Organization;
         console.log(this.user);
        // this.userService.create(this.user);
 

@@ -38,8 +38,10 @@
             <input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" ngModel>
 
             <input class="btn btn-1 btn-danger changeColor " type="submit" value="sign up"[disabled]="!formulaireSponsor.form.valid">
+            <input class="btn btn-1 btn-success changeColor " [disabled]="!formulaireSponsor.form.dirty" (click)="reset(formulaireSponsor)" value="reset">
+
           </form>
-          <p> Already have an Account? <a href="#"> Login Now!</a></p>
+          <p> Already have an Account? <a (click)="onLogin()"> Login Now!</a></p>
         </div>
       </div>
       <div *ngIf="is_Organization" class="main-agileinfo" >
@@ -63,7 +65,7 @@
             <input class="btn btn-1 btn-danger changeColor " [disabled]="!formulaireOrganization.form.valid"type="submit" value="sign up">
             <input class="btn btn-1 btn-success changeColor " [disabled]="!formulaireOrganization.form.dirty" (click)="reset(formulaireOrganization)" value="reset">
           </form>
-          <p> Already have an Account? <a href="#"> Login Now!</a></p>
+          <p> Already have an Account? <a (click)="onLogin()"> Login Now!</a></p>
         </div>
       </div>
 

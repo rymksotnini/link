@@ -1,5 +1,5 @@
-import {Component, OnChanges, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {Component, EventEmitter, OnChanges, OnInit, Output} from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
 import {User} from "../models/User";
 import {UserService} from "../services/user.service";
@@ -16,7 +16,10 @@ export class SignupComponent implements OnInit {
     submitted : boolean = false;
     user = new User();
 
-    constructor(private activatedRoute :ActivatedRoute,private userService :UserService) {
+    // @Output()
+    // public Login: EventEmitter<void> = new EventEmitter<void>();
+
+    constructor(private activatedRoute :ActivatedRoute,private userService :UserService,private router :Router) {
         activatedRoute.params.subscribe(parameters => {
             this.is_Organization= this.activatedRoute.snapshot.paramMap.get("type")=="organization";
             this.is_Sponsor= !this.is_Organization;
@@ -29,6 +32,9 @@ export class SignupComponent implements OnInit {
 
     ngOnInit() {
 
+    }
+    onLogin(){
+        this.router.navigate(['/login']);
     }
     onSubmit(formulaire : NgForm){
         console.log("testing");

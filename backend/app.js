@@ -28,6 +28,7 @@ Event.sync({ force: true }).then(() => {
 
 //test request GET
 app.use('/', testController);
+
 // les api relatives au controller user commencent par /user
 app.use('/user', userController);
 //

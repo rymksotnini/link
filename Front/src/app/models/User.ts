@@ -1,11 +1,12 @@
+import {Role} from "../../environments/environment";
+
 export class User {
 
     public id: number;
     public UserName: string;
     public email: string;
     public password: string;
-    public is_organization : boolean;
-    public is_sponsor:boolean;
+    public role : Role;
     constructor(
 
     ) {

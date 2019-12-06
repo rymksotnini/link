@@ -4,6 +4,7 @@ var sequelize = require('./connection');//DB Connection
 var testController = require('./testController');
 var Event = require('./models').Event;
 var userController = require('./controllers/UserController');
+var organizationController = require('./controllers/OrganizationController');
 const bodyParser =require ('body-parser');
 
 
@@ -18,19 +19,21 @@ sequelize.authenticate().then(() => {
         console.error('Unable to connect to the database:', err);
     });
 //add a line in event table
-Event.sync({ force: true }).then(() => {
+/*Event.sync({ force: true }).then(() => {
     // Now the `users` table in the database corresponds to the model definition
     return Event.create({
         Name: 'TOGETHER',
         Date: 1-12-2020
     });
-});
+});*/
 
 //test request GET
 app.use('/', testController);
 
 // les api relatives au controller user commencent par /user
 app.use('/user', userController);
+
+app.use('/organization', organizationController);
 //
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:4200");

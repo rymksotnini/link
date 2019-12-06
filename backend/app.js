@@ -3,7 +3,12 @@ var app = express();
 var sequelize = require('./connection');//DB Connection
 var testController = require('./testController');
 var Event = require('./models').Event;
+var userController = require('./controllers/UserController');
+const bodyParser =require ('body-parser');
 
+
+//Body Parser
+app.use(bodyParser.urlencoded({extended : false}));
 
 //connection test
 sequelize.authenticate().then(() => {
@@ -23,6 +28,9 @@ Event.sync({ force: true }).then(() => {
 
 //test request GET
 app.use('/', testController);
+
+// les api relatives au controller user commencent par /user
+app.use('/user', userController);
 //
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:4200");

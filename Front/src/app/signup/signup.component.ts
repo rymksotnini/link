@@ -30,8 +30,6 @@ export class SignupComponent implements OnInit {
         this.router.navigate(['/login']);
     }
     onSubmit(formulaire : NgForm){
-        console.log("testing");
-        let prefixType :string;
         this.submitted=formulaire.valid;
         if(!this.submitted)
             return  ;
@@ -42,7 +40,11 @@ export class SignupComponent implements OnInit {
         this.user.password=formulaire.controls['password'].value;
         this.user.role=Role.Organization;
         console.log(this.user);
-       // this.userService.create(this.user);
+
+        this.userService.create(this.user).subscribe(
+            res=> console.log("test add user",res)
+        )
+
 
     }
 

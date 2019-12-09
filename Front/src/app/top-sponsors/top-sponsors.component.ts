@@ -22,7 +22,7 @@ export class TopSponsorsComponent implements OnInit {
   top_sponsors : Sponsor[] = [
       { id: 1,
         name: 'Amazon',
-        image: './assets/img/sponsors/logo-sponsor-png-1.png',
+        image: 'https://www.pocketpc.ch/magazin/wp-content/uploads/2017/07/td-amazon-smile-logo-01-large.jpg',
         slogan: 'Work hard. Have fun. Make history.',
         description: 'It\'s meant to signify a company which is aspirational and enjoyable - but where the staff are still pulling their weight.'
       },

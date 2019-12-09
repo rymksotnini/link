@@ -1,4 +1,4 @@
-<div class="container py-md">
+<!--<div class="container py-md">
     <div class="row justify-content-between align-items-center">
         <div class="col-lg-5 mb-5 mb-lg-0">
             <h1 class="text-white font-weight-light"> {{slogan}}</h1>
@@ -12,6 +12,38 @@
                         <img class="img-fluid" [src]="sponsor.image"/>
                     </ng-template>
                 </ngb-carousel>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="container" >
+    <div class="row">
+        <div class="col-md-2 order-md-2 ">
+            <div class="icon icon-lg icon-shape  bg-gradient-blue text-white-50 shadow rounded-circle mb-5">
+                <i class="ni ni-trophy"></i>
+            </div>
+        </div>
+        <div class="col-md-10 order-md-2">
+            <h2 class="display-3" style="margin-left: -70px;">
+                Meet Our Top Sponsors
+            </h2>
+        </div>
+    </div>
+    <div class="row row-grid align-items-center">
+        <div class="col-md-6 order-md-2">
+            <div class="rounded shadow-lg overflow-hidden transform-perspective-right">
+                <ngb-carousel (slide)="print($event)">
+                    <ng-template ngbSlide *ngFor="let sponsor of top_sponsors; let  i=index;">
+                        <img class="img-fluid" [src]="sponsor.image"/>
+                    </ng-template>
+                </ngb-carousel>
+            </div>
+        </div>
+        <div class="col-md-6 order-md-1">
+            <div class="row">
+                <h3>{{slogan}}</h3>
+                <p>{{description}}</p>
+                <button [routerLink]="['/sponsors']"  class="btn btn-1 bg-gradient-orange text-white" type="button">Know More</button>
             </div>
         </div>
     </div>

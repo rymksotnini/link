@@ -12,10 +12,11 @@ import {EventsComponent} from "./events/events.component";
 import {OrganizationsComponent} from "./organizations/organizations.component";
 import {AboutUsComponent} from "./about-us/about-us.component";
 import {SponsorsComponent} from "./sponsors/sponsors.component";
+import {HomePageComponent} from "./home-page/home-page.component";
 
 const routes: Routes =[
 
-    { path: 'home',             component: HomeComponent },
+    { path: 'homee',             component: HomeComponent },
     { path: 'events',           component: EventsComponent },
     { path: 'organizations',    component: OrganizationsComponent },
     { path: 'sponsors',         component: SponsorsComponent },
@@ -24,6 +25,7 @@ const routes: Routes =[
     { path: 'register/:type',         component: SignupComponent },
     { path: 'landing',          component: LandingComponent },
     { path: 'login',            component: LoginComponent },
+    { path: 'home', component: HomePageComponent},
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
@@ -31,9 +33,12 @@ const routes: Routes =[
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes,{
-      useHash: false
-    })
+    RouterModule.forRoot(routes,
+        {    useHash: false,
+            anchorScrolling: 'enabled',
+            onSameUrlNavigation: 'reload',
+            scrollPositionRestoration: 'enabled'
+        })
   ],
   exports: [
   ],

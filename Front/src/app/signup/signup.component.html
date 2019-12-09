@@ -41,7 +41,7 @@
             <input class="text" type="text" name="organizationDomain" placeholder="Domain" ngModel required="">
 
 
-            <input class="btn btn-1 btn-danger changeColor " [disabled]="!formulaireOrganization.form.valid"type="submit" value="sign up">
+            <input class="btn btn-1 btn-danger changeColor " [disabled]="!formulaireOrganization.form.valid" type="submit" value="sign up">
             <input class="btn btn-1 btn-success changeColor " [disabled]="!formulaireOrganization.form.dirty" (click)="reset(formulaireOrganization)" value="reset">
           </form>
           <p> Already have an Account? <a (click)="onLogin()"> Login Now!</a></p>

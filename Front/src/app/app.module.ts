@@ -22,6 +22,8 @@ import { SponsorsComponent } from './sponsors/sponsors.component';
 import { OrganizationsComponent } from './organizations/organizations.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { TopSponsorsComponent } from './top-sponsors/top-sponsors.component';
+import { SponsorProfileComponent } from './sponsor-profile/sponsor-profile.component';
+import { SponsorManageProfileComponent } from './sponsor-manage-profile/sponsor-manage-profile.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { TopSponsorsComponent } from './top-sponsors/top-sponsors.component';
     SponsorsComponent,
     OrganizationsComponent,
     AboutUsComponent,
-    TopSponsorsComponent
+    TopSponsorsComponent,
+    SponsorProfileComponent,
+    SponsorManageProfileComponent
   ],
   imports: [
     BrowserModule,

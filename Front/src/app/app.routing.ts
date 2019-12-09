@@ -12,6 +12,8 @@ import {EventsComponent} from "./events/events.component";
 import {OrganizationsComponent} from "./organizations/organizations.component";
 import {AboutUsComponent} from "./about-us/about-us.component";
 import {SponsorsComponent} from "./sponsors/sponsors.component";
+import {SponsorProfileComponent} from "./sponsor-profile/sponsor-profile.component";
+import {SponsorManageProfileComponent} from "./sponsor-manage-profile/sponsor-manage-profile.component";
 
 const routes: Routes =[
 
@@ -24,6 +26,8 @@ const routes: Routes =[
     { path: 'register/:type',         component: SignupComponent },
     { path: 'landing',          component: LandingComponent },
     { path: 'login',            component: LoginComponent },
+    { path: 'sponsor-profile', component: SponsorProfileComponent},
+    { path: 'sponsor-manage-profile', component: SponsorManageProfileComponent},
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

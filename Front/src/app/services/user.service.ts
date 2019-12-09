@@ -7,10 +7,10 @@ import  {User} from "../models/User";
   providedIn: 'root'
 })
 export class UserService {
-  public resourceUrl =  'http://localhost:3000/api/user';
+  public resourceUrl =  'http://localhost:3000/user';
   constructor(private http: HttpClient) { }
   create(user: User): Observable<HttpResponse<User>> {
-    return this.http.post<User>(this.resourceUrl, user, { observe: 'response' });
+    return this.http.post<User>(this.resourceUrl+'/add', user, { observe: 'response' });
   }
 
   update(user: User): Observable<HttpResponse<User>> {

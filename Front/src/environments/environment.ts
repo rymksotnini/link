@@ -5,6 +5,10 @@
 export const environment = {
   production: false
 };
+export const enum Role {
+  Sponsor,
+  Organization,
+}
 
 /*
  * For easier debugging in development mode, you can import the following file

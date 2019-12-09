@@ -1,0 +1,53 @@
+<main>
+    <section class="section section-shaped section-lg">
+        <div class="shape shape-style-1 bg-gradient-default">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <head>
+            <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+            <!-- Custom Theme files -->
+
+            <!-- //Custom Theme files -->
+            <!-- web font -->
+            <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+            <!-- //web font -->
+        </head>
+        <!-- main -->
+        <div class="main-w3layouts wrapper">
+
+            <div  class="main-agileinfo">
+                <div class="titreCustom">
+                    <p align="center">
+                        <br>
+                        SignUp as a sponsor
+                    </p>
+                </div>
+                <div class="agileits-top" >
+                    <form (ngSubmit)="onSubmit(formulaireSponsor)"  #formulaireSponsor="ngForm">
+
+                        <input class="text " type="text" name="sponsorName" placeholder="SponsorName" ngModel required="" >
+                        <input class="text email" type="email" name="sponsorEmail" placeholder="SponsorEmail" ngModel>
+                        <input class="text" type="password" name="password" placeholder="Password" ngModel>
+                        <input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" ngModel>
+
+                        <input class="btn btn-1 btn-danger changeColor " type="submit" value="sign up"[disabled]="!formulaireSponsor.form.valid">
+                        <input class="btn btn-1 btn-success changeColor " [disabled]="!formulaireSponsor.form.dirty" (click)="reset(formulaireSponsor)" value="reset">
+
+                    </form>
+                    <p> Already have an Account? <a (click)="onLogin()"> Login Now!</a></p>
+                </div>
+            </div>
+
+        </div>
+        <!-- //main -->
+
+
+    </section>
+</main>

@@ -1,31 +1,35 @@
-<div class="fixActionRow "  >
+<div class="fixActionRow bg-gradient-danger"  >
     <h1 mat-dialog-title><br></h1>
-    <mat-dialog-content>
-
+        <br>
+        <br>
        <div class="row " align="center" >
-        <div class="col-md-5">
-            <img src="./assets/img/icons/common/sponsor.png" alt="Raised circle image" class="img-fluid rounded-circle " style="width: 150px;">
+        <div class="col-md-6">
+            <i class="ni ni-money-coins ni-9x " style="color:#DDDDDD;"></i>
+
+
 
         </div>
-           <div class="col-md-7">
-               <img src="./assets/img/icons/common/organizer.png" alt="Raised circle image" class="img-fluid rounded-circle " style="width: 150px;">
+           <div class="col-md-6">
+               <i class="ni ni-building  ni-8x " style="color:#DDDDDD;"></i>
+
            </div>
 
        </div>
 
-    </mat-dialog-content>
     <div class="spacer"></div>
-    <mat-dialog-actions>
 
         <div class="row" align="center">
             <div class="col-md-6">
-                <button class="btn btn-1 btn-primary btn-inner--text" type="button" (click)="is_organizer(false)">Sign Up as a Sponsor</button>
+                    <p class="text-white font-weight-bold">As a Sponsor</p>
+                <button class="btn btn-1 btn-white btn-inner--text" type="button" (click)="is_organizer(false)">REGISTER </button>
             </div>
             <div class="col-md-6">
-                <button class="btn btn-1 btn-info btn-inner--text" type="button" (click)="is_organizer(true)">Sign Up as an organization</button>
+                <p class="text-white font-weight-bold" >As an organization</p>
+
+                <button class="btn btn-1 btn-white btn-inner--text" type="button" (click)="is_organizer(true)">REGISTER</button>
             </div>
 
         </div>
 
-    </mat-dialog-actions>
 </div>
+

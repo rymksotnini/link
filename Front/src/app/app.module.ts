@@ -15,6 +15,9 @@ import { FooterComponent } from './shared/footer/footer.component';
 import {HttpClientModule} from "@angular/common/http";
 import { HomeModule } from './home/home.module';
 import { LoginComponent } from './login/login.component';
+import { UpcomingEventComponent } from './upcoming-event/upcoming-event.component';
+import { CarouselForEventsComponent } from './carousel-for-events/carousel-for-events.component';
+import {CarouselModule} from "ngx-carousel-lib";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SignUpPopupComponent } from './sign-up-popup/sign-up-popup.component';
 import { EventsComponent } from './events/events.component';
@@ -22,6 +25,7 @@ import { SponsorsComponent } from './sponsors/sponsors.component';
 import { OrganizationsComponent } from './organizations/organizations.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { TopSponsorsComponent } from './top-sponsors/top-sponsors.component';
+import { HomePageComponent } from './home-page/home-page.component';
 import { SignupSponsorComponent } from './signup-sponsor/signup-sponsor.component';
 
 @NgModule({
@@ -33,6 +37,9 @@ import { SignupSponsorComponent } from './signup-sponsor/signup-sponsor.componen
     NavbarComponent,
     FooterComponent,
     LoginComponent,
+    UpcomingEventComponent,
+    CarouselForEventsComponent,
+    LoginComponent,
     SignUpPopupComponent,
     LoginComponent,
     EventsComponent,
@@ -40,10 +47,14 @@ import { SignupSponsorComponent } from './signup-sponsor/signup-sponsor.componen
     OrganizationsComponent,
     AboutUsComponent,
     TopSponsorsComponent,
+    AboutUsComponent,
+    HomePageComponent,
+    AboutUsComponent,
     SignupSponsorComponent
   ],
   imports: [
     BrowserModule,
+      CarouselModule,
     NgbModule.forRoot(),
     FormsModule,
     RouterModule,

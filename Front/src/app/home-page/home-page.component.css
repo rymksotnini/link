@@ -1,0 +1,18 @@
+.btn-sponsor{
+    color: #f1f6fc;
+    border-color:  #fb6340;
+    background-color:  #fb6340;
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08)
+   
+}
+
+.btn-sponsor:hover {
+    color:  #f1f6fc;
+    border-color: #fb6340;
+    background-color: #fb6340
+}
+
+.btn-sponsor.focus,
+.btn-sponsor:focus {
+    box-shadow: 0 4px 6px rgba(50, 50, 93, .11), 0 1px 3px rgba(0, 0, 0, .08), 0 0 0 0 rgba(255, 255, 255, .5)
+}

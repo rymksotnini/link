@@ -14,20 +14,24 @@ import {AboutUsComponent} from "./about-us/about-us.component";
 import {SponsorsComponent} from "./sponsors/sponsors.component";
 import {SponsorProfileComponent} from "./sponsor-profile/sponsor-profile.component";
 import {SponsorManageProfileComponent} from "./sponsor-manage-profile/sponsor-manage-profile.component";
+import {SignupSponsorComponent} from "./signup-sponsor/signup-sponsor.component";
+import {HomePageComponent} from "./home-page/home-page.component";
 
 const routes: Routes =[
 
-    { path: 'home',             component: HomeComponent },
-    { path: 'events',           component: EventsComponent },
-    { path: 'organizations',    component: OrganizationsComponent },
-    { path: 'sponsors',         component: SponsorsComponent },
-    { path: 'about-us',         component: AboutUsComponent },
-    { path: 'user-profile',     component: ProfileComponent },
-    { path: 'register/:type',         component: SignupComponent },
-    { path: 'landing',          component: LandingComponent },
-    { path: 'login',            component: LoginComponent },
+    { path: 'homee',                          component: HomeComponent },
+    { path: 'events',                        component: EventsComponent },
+    { path: 'organizations',                 component: OrganizationsComponent },
+    { path: 'sponsors',                      component: SponsorsComponent },
+    { path: 'about-us',                      component: AboutUsComponent },
+    { path: 'user-profile',                  component: ProfileComponent },
+    { path: 'register/organization',         component: SignupComponent },
+    { path: 'register/sponsor',              component: SignupSponsorComponent },
+    { path: 'landing',                       component: LandingComponent },
     { path: 'sponsor-profile', component: SponsorProfileComponent},
     { path: 'sponsor-manage-profile', component: SponsorManageProfileComponent},
+    { path: 'login',                         component: LoginComponent },
+    { path: 'home', component: HomePageComponent},
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
@@ -35,9 +39,12 @@ const routes: Routes =[
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes,{
-      useHash: false
-    })
+    RouterModule.forRoot(routes,
+        {    useHash: false,
+            anchorScrolling: 'enabled',
+            onSameUrlNavigation: 'reload',
+            scrollPositionRestoration: 'enabled'
+        })
   ],
   exports: [
   ],

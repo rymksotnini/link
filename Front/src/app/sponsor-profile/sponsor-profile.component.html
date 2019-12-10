@@ -25,7 +25,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-3 order-lg-2">
                             <div class="card-profile-image">
-                                    <img src="./assets/img/sponsors/default-profile-sponsor.jpg" class="rounded-circle">
+                                <img src="./assets/img/sponsors/default-profile-sponsor.jpg" class="rounded-circle">
                             </div>
                         </div>
                         <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
@@ -44,7 +44,8 @@
                             <div class="card-profile-stats d-flex justify-content-center">
                                 <div>
                                     <span class="heading">22</span>
-                                    <a href="#"><span class="description" placement="bottom" ngbTooltip="Show the events sponsored previously">Events</span></a>
+                                    <a href="#"><span class="description" placement="bottom"
+                                                      ngbTooltip="Show the events sponsored previously">Events</span></a>
                                 </div>
                                 <div>
                                     <span class="heading">10</span>
@@ -52,7 +53,8 @@
                                 </div>
                                 <div>
                                     <span class="heading">5</span>
-                                    <a href="#"><span class="description" placement="bottom" ngbTooltip="Show the average rate">Rate</span></a>
+                                    <a href="#"><span class="description" placement="bottom"
+                                                      ngbTooltip="Show the average rate">Rate</span></a>
                                 </div>
                             </div>
                         </div>
@@ -78,7 +80,23 @@
                         </div>
                     </div>
                     <div id="profile-details" class="container">
-                        <div class="row">eveeeents !</div>
+                        <div class="row justify-content-center">
+                            <div *ngFor="let element of elements;" class=" col-lg-4 ">
+                                <app-upcoming-event [description]="element.description" [eventPhoto]="element.img"
+                                                    [title]="element.title"></app-upcoming-event>
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <nav aria-label="Page navigation example">
+                                <ngb-pagination [collectionSize]="totalItems" [(page)]="page"
+                                                (pageChange)="loadPage($event)" aria-label="Default pagination">
+                                    <ng-template ngbPaginationPrevious><i _ngcontent-c9="" class="fa fa-angle-left"></i>
+                                    </ng-template>
+                                    <ng-template ngbPaginationNext><i _ngcontent-c9="" class="fa fa-angle-right"></i>
+                                    </ng-template>
+                                </ngb-pagination>
+                            </nav>
+                        </div>
                         <div class="row">comments !</div>
                     </div>
                 </div>

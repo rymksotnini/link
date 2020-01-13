@@ -7,7 +7,7 @@ import {Observable} from "rxjs";
 })
 export class ImageService {
 
-  public resourceUrl =  'http://localhost:3000/';
+  public resourceUrl =  'http://localhost:3000';
 
   constructor(private http: HttpClient) { }
 

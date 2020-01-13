@@ -25,4 +25,8 @@ export class SponsorService {
     return this.http.post<Sponsor>(this.resourceUrl+'/add', JSON.parse(JSON.stringify(sponsor)), { observe: 'response' });
   }
 
+  updateSponsor(sponsor : Sponsor): Observable<any> {
+    return this.http.post(this.resourceUrl + '/update', sponsor);
+  }
+
 }

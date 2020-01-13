@@ -15,10 +15,11 @@ export class SponsorProfileComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.sponsorService.getSponsor(1)
+        this.sponsorService.getSponsor(6)
             .subscribe(sponsor => this.sponsor = sponsor);
         console.log(this.sponsor);
     }
+
 
 
 }

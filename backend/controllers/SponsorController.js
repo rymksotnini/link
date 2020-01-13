@@ -63,5 +63,16 @@ app.get('/delete/:id', (req, res) => {
     });
 });
 
+//update Sponsor
+app.post('/update',(req, res) => {
+    let sponsor = req.body;
+    let id = req.body.id;
+    models.Sponsor.update(sponsor,
+        { where: {id: id} }
+    ).then(() => {
+        res.status(200).json({msg:"updated successfully a customer with id = " + id});
+    });
+});
+
 // we should export this router !
 module.exports = app;

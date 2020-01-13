@@ -3,9 +3,12 @@ var app = express();
 var sequelize = require('./connection');//DB Connection
 var testController = require('./testController');
 var userController = require('./controllers/UserController');
+var eventController = require('./controllers/EventController');
 
-app.use(bodyParser.json());
+
 const bodyParser =require ('body-parser');
+app.use(bodyParser.json());
+
 let eventModel = require('../backend/models/event');
 const Sequelize = require('sequelize')
 
@@ -22,19 +25,14 @@ sequelize.authenticate().then(() => {
         console.error('Unable to connect to the database:', err);
     });
 //add a line in event table
-eventModel.sync().then(() => {
-    // Now the `users` table in the database corresponds to the model definition
-    return Event.create({
-        Name: 'TOGETHER',
-        Date: 1-12-2020
-    });
-});
-
 //test request GET
 app.use('/', testController);
 
 // les api relatives au controller user commencent par /user
 app.use('/user', userController);
+app.use('/event', eventController);
+
+
 //
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:4200");

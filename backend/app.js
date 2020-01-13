@@ -2,12 +2,14 @@ var express = require('express');
 var app = express();
 var sequelize = require('./connection');//DB Connection
 var testController = require('./testController');
-var Event = require('./models').Event;
 var userController = require('./controllers/UserController');
-let  bodyParser =require ('body-parser');
 
 app.use(bodyParser.json());
+const bodyParser =require ('body-parser');
+let eventModel = require('../backend/models/event');
+const Sequelize = require('sequelize')
 
+const events = eventModel(sequelize, Sequelize)
 
 //Body Parser
 app.use(bodyParser.urlencoded({extended : false}));
@@ -20,7 +22,7 @@ sequelize.authenticate().then(() => {
         console.error('Unable to connect to the database:', err);
     });
 //add a line in event table
-Event.sync({ force: true }).then(() => {
+eventModel.sync().then(() => {
     // Now the `users` table in the database corresponds to the model definition
     return Event.create({
         Name: 'TOGETHER',
@@ -45,12 +47,16 @@ app.get("/test", (req, res, next) => {
     res.json(["test","test"]);
 });
 
-app.get("/events", (req,res,next)=>{
+/*app.get("/events", (req,res,next)=>{
     Event.findAll().then(events => {
         res.json(JSON.stringify(events))
     })
     }
-);
+); */
 
+/*sequelize.sync({
+    force: true
+});
+*/
 
 module.exports = app;

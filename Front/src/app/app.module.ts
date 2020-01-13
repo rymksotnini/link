@@ -51,6 +51,7 @@ import { OrganizationProfileComponent } from './organization-profile/organizatio
     TopSponsorsComponent,
     SignupSponsorComponent,
     HomePageComponent,
+    OrganizationProfileComponent
   ],
   imports: [
     BrowserModule,

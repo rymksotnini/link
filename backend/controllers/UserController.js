@@ -28,10 +28,15 @@ app.get('/',(req,res)=>
 // Insert a user
 app.post('/add',(req, res) => {
 
-    if (req.body.role == "0")
+    if (req.body.role == "0"){
         role_='Sponsor';
-    else if (req.body.role == "1")
+    }
+
+
+    else if (req.body.role == "1"){
         role_='Organization';
+    }
+
 
     // Save to database
     models.User.create({

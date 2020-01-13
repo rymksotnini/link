@@ -6,6 +6,7 @@ export const environment = {
   production: false
 };
 export const enum Role {
+  simple,
   Sponsor,
   Organization,
 }

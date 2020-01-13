@@ -6705,7 +6705,7 @@ button.bg-dark:hover {
 }
 
 .bg-default {
-    background-color: #172b4d!important
+    background-color: #e2e2e2 !important
 }
 
 a.bg-default:focus,
@@ -7828,7 +7828,7 @@ button.bg-darker:hover {
 }
 
 .w-100 {
-    width: 100%!important
+    width: 15%!important
 }
 
 .w-auto {
@@ -11791,11 +11791,11 @@ button.section-darker:hover {
 }
 
 .fill-default {
-    fill: #172b4d
+    fill: white
 }
 
 .stroke-default {
-    stroke: #172b4d
+    stroke: #e2e2e2
 }
 
 .fill-white {
@@ -13353,13 +13353,14 @@ a.btn-icon-only {
 }
 
 .card-blockquote {
+    background-color:#adb5bd;
     position: relative;
-    padding: 2rem
+    margin: 0;
 }
 
 .card-blockquote .svg-bg {
-    position: absolute;
-    top: -94px;
+    position: relative;
+    top: -12px;
     left: 0;
     display: block;
     width: 100%;

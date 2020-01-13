@@ -126,12 +126,14 @@
 
 // Card image caps
 .card-img-top {
+  height: 200px;
   width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
   @include border-top-radius($card-inner-border-radius);
 }
 
 .card-img-bottom {
   width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
+  height: 50%;
   @include border-bottom-radius($card-inner-border-radius);
 }
 
@@ -199,11 +201,11 @@
 
           .card-img-top,
           .card-header {
-            border-top-right-radius: 0;
+            border-top-right-radius:  0;
           }
           .card-img-bottom,
           .card-footer {
-            border-bottom-right-radius: 0;
+            border-bottom-right-radius:0;
           }
         }
 

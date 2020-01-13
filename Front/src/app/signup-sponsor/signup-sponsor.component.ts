@@ -12,7 +12,7 @@ import {Role} from "../../environments/environment";
 })
 export class SignupSponsorComponent implements OnInit {
   test : Date = new Date();
-  
+
   submitted : boolean = false;
   user = new User();
 
@@ -21,7 +21,7 @@ export class SignupSponsorComponent implements OnInit {
 
   constructor(private userService :UserService,private router :Router) {
     }
-  
+
 
   ngOnInit() {
 
@@ -43,6 +43,10 @@ export class SignupSponsorComponent implements OnInit {
 
     console.log(this.user);
     // this.userService.create(this.user);
+    this.userService.create(this.user).subscribe(
+        res=> console.log("test add user",res)
+    )
+
 
   }
 

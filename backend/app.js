@@ -19,13 +19,13 @@ sequelize.authenticate().then(() => {
         console.error('Unable to connect to the database:', err);
     });
 //add a line in event table
-/*Event.sync({ force: true }).then(() => {
+Event.sync({ force: true }).then(() => {
     // Now the `users` table in the database corresponds to the model definition
     return Event.create({
         Name: 'TOGETHER',
         Date: 1-12-2020
     });
-});*/
+});
 
 //test request GET
 app.use('/', testController);

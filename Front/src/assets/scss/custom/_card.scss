@@ -43,7 +43,8 @@
                     display: block;
                 }
                 .description {
-                    font-size: .875rem;
+                    margin-top: -50px;
+                    font-size: .400rem;
                     color: $gray-500;
                 }
             }
@@ -71,7 +72,7 @@
 
 .card {
     .card-blockquote {
-        padding: 2rem;
+        padding: 0rem;
         position: relative;
 
         .svg-bg {

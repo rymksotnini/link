@@ -1,0 +1,25 @@
+        <div class="row justify-content-center">
+
+                <div *ngFor="let element of elements;" class=" col-lg-4 ">
+                            <app-upcoming-event  [description]="element.description" [eventPhoto]="element.img" [title]="element.title" ></app-upcoming-event>
+                </div>
+                      <!-- <div class=" col-lg-4 ">
+                            <app-upcoming-event></app-upcoming-event>
+                        </div>
+                    <div class=" col-lg-4 ">
+                        <app-upcoming-event></app-upcoming-event>
+                    </div>
+                        <div class="col-lg-4">
+                            <app-upcoming-event></app-upcoming-event>
+                        </div> -->
+
+                    </div>
+        <br>
+        <br>
+        <div class="row justify-content-center">
+            <nav aria-label="Page navigation example">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" (pageChange)="loadPage($event)"aria-label="Default pagination">
+                    <ng-template ngbPaginationPrevious><i _ngcontent-c9="" class="fa fa-angle-left"></i></ng-template>
+                    <ng-template ngbPaginationNext><i _ngcontent-c9="" class="fa fa-angle-right"></i></ng-template>
+                </ngb-pagination>
+            </nav>

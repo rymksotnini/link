@@ -2,6 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const Sponsor = sequelize.define('Sponsor', {
     name: DataTypes.STRING,
+    activity: DataTypes.STRING,
     city: DataTypes.STRING,
     country: DataTypes.STRING,
     slogan: DataTypes.STRING,

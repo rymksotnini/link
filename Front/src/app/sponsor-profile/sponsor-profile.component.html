@@ -25,7 +25,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-3 order-lg-2">
                             <div class="card-profile-image">
-                                <img src={{sponsor.image}} class="rounded-circle">
+                                <img src="{{sponsor.image}}" class="rounded-circle">
                             </div>
                         </div>
                         <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
@@ -62,7 +62,7 @@
                     </div>
                     <div class="text-center mt-5">
                         <h3>{{sponsor.name}}</h3>
-                        <div class="h6 mt-4"><i class="ni ni-building mr-2"></i>Activity ! tetzed BD!!</div>
+                        <div class="h6 mt-4"><i class="ni ni-building mr-2"></i>{{sponsor.activity}}</div>
                         <div><a href="#"><i class="ni ni-square-pin mr-2"></i>{{sponsor.city}}, {{sponsor.country}}</a>
                         </div>
                     </div>
@@ -78,26 +78,8 @@
                             </div>
                         </div>
                     </div>
-                    <div id="profile-details" class="container">
-                        <div class="row justify-content-center">
-                            <div *ngFor="let element of elements;" class=" col-lg-4 ">
-                                <app-upcoming-event [description]="element.description" [eventPhoto]="element.img"
-                                                    [title]="element.title"></app-upcoming-event>
-                            </div>
-                        </div>
-                        <div class="row justify-content-center">
-                            <nav aria-label="Page navigation example">
-                                <ngb-pagination [collectionSize]="totalItems" [(page)]="page"
-                                                (pageChange)="loadPage($event)" aria-label="Default pagination">
-                                    <ng-template ngbPaginationPrevious><i _ngcontent-c9="" class="fa fa-angle-left"></i>
-                                    </ng-template>
-                                    <ng-template ngbPaginationNext><i _ngcontent-c9="" class="fa fa-angle-right"></i>
-                                    </ng-template>
-                                </ngb-pagination>
-                            </nav>
-                        </div>
-                        <div class="row">comments !</div>
-                    </div>
+                    <app-carousel-for-events></app-carousel-for-events>
+                    <div class="row">comments !</div>
                 </div>
             </div>
         </div>

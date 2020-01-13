@@ -29,6 +29,7 @@ import { SponsorProfileComponent } from './sponsor-profile/sponsor-profile.compo
 import { SponsorManageProfileComponent } from './sponsor-manage-profile/sponsor-manage-profile.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SignupSponsorComponent } from './signup-sponsor/signup-sponsor.component';
+import { ImageUploadComponent } from './image-upload/image-upload.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { SignupSponsorComponent } from './signup-sponsor/signup-sponsor.componen
     SponsorProfileComponent,
     SponsorManageProfileComponent,
     HomePageComponent,
-    SignupSponsorComponent
+    SignupSponsorComponent,
+    ImageUploadComponent
   ],
   imports: [
     BrowserModule,

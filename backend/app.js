@@ -7,7 +7,6 @@ var userController = require('./controllers/UserController');
 var sponsorController = require('./controllers/SponsorController');
 const bodyParser =require ('body-parser');
 
-
 //Body Parser
 app.use(bodyParser.urlencoded({extended : false}));
 

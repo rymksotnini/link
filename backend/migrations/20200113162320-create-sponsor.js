@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Sponsors', {
@@ -11,6 +12,9 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
+      activity: {
+        type: Sequelize.STRING
+      },
       city: {
         type: Sequelize.STRING
       },
@@ -18,7 +22,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       slogan: {
-        type: Sequelize.STRING
+        type: Sequelize.ENUM('Sponsor','Organization')
       },
       description: {
         type: Sequelize.STRING

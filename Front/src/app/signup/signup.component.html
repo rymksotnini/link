@@ -34,10 +34,11 @@
           <form (ngSubmit)="onSubmit(formulaireOrganization)"  #formulaireOrganization="ngForm">
 
             <input class="text" type="text" name="organizationName" placeholder="Organization Name" ngModel required="">
-            <input class="text email" type="email" name="organizationEmail" placeholder="Organization Email" ngModel required="">
+            <input class="text email" type="email" name="organizationEmail" placeholder="Organization Email" ngModel required="" email>
 
             <input class="text" type="password" name="password" placeholder="Password" ngModel required="">
-            <input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" ngModel required="">
+            <input class="text w3lpass" type="password" name="ConfirmPassword" placeholder="Confirm Password" ngModel required="" >
+            <div class="mat-error" *ngIf="!valid"> Passwords do not match </div>
             <input class="text" type="text" name="organizationDomain" placeholder="Domain" ngModel required="">
 
 

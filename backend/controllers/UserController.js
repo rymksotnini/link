@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 // attention !! we should import the index and not directly the model user so that we can use the different crud methods findAll is not a function error ;)
 const models =require('../models/index');
 
+
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:4200");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");

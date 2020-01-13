@@ -14,9 +14,10 @@ import {AboutUsComponent} from "./about-us/about-us.component";
 import {SponsorsComponent} from "./sponsors/sponsors.component";
 import {SignupSponsorComponent} from "./signup-sponsor/signup-sponsor.component";
 import {HomePageComponent} from "./home-page/home-page.component";
+import {EventFormComponent} from "./event-form/event-form.component";
 
 const routes: Routes =[
-
+    { path: 'add',   component:    EventFormComponent},
     { path: 'homee',                          component: HomeComponent },
     { path: 'events',                        component: EventsComponent },
     { path: 'organizations',                 component: OrganizationsComponent },
@@ -28,7 +29,6 @@ const routes: Routes =[
     { path: 'landing',                       component: LandingComponent },
     { path: 'login',                         component: LoginComponent },
     { path: 'home', component: HomePageComponent},
-    { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({

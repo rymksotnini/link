@@ -10,12 +10,7 @@ export class User {
     constructor(
 
     ) {
-        // this.id = id ? id : null;
-        // this.UserName = UserName ? UserName : null;
-        // this.password = password ? password : null;
-        // this.is_organization = is_organization ? is_organization : null;
-        // this.is_sponsor = is_sponsor   ? is_sponsor : null;
-        // this.email = email ? email : null;
+
     }
 
 

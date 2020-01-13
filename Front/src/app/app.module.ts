@@ -27,6 +27,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { TopSponsorsComponent } from './top-sponsors/top-sponsors.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SignupSponsorComponent } from './signup-sponsor/signup-sponsor.component';
+import { EventFormComponent } from './event-form/event-form.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { SignupSponsorComponent } from './signup-sponsor/signup-sponsor.componen
     AboutUsComponent,
     HomePageComponent,
     AboutUsComponent,
-    SignupSponsorComponent
+    SignupSponsorComponent,
+    EventFormComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +64,7 @@ import { SignupSponsorComponent } from './signup-sponsor/signup-sponsor.componen
     HomeModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule ,
   ],
   providers: [],
   entryComponents: [SignUpPopupComponent],

@@ -76,13 +76,13 @@ app.put('/update/:id', (req, res) => {
 });
 
 
-// Delete an event by ID (tested with = > get to change later with delete)
+// Delete a user by ID (tested with = > get to change later with delete)
 app.get('/delete/:id', (req, res) => {
     const id = req.params.id;
-    models.Event.destroy({
+    models.User.destroy({
         where: {id: id}
     }).then(() => {
-        res.status(200).send('deleted successfully an event with id = ' + id);
+        res.status(200).send('deleted successfully a user with id = ' + id);
     }).catch(err => {
         console.log(err);
         res.status(500).json({msg: "error", details: err});

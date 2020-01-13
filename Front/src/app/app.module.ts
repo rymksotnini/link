@@ -52,7 +52,7 @@ import { OrganizationProfileComponent } from './organization-profile/organizatio
     TopSponsorsComponent,
     HomePageComponent,
     SignupSponsorComponent,
-    EventFormComponent
+    EventFormComponent,
     OrganizationProfileComponent
   ],
   imports: [

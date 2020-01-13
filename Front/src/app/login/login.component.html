@@ -20,13 +20,13 @@
 
             <div class="card-body px-lg-5 py-lg-5">
 
-              <form role="form"   (ngSubmit)="onSubmit(formulaireLogin)"  #formulaireLogin="ngForm">
+              <form  (ngSubmit)="onSubmit(formulaireLogin)"  #formulaireLogin="ngForm">
                 <div class="form-group mb-3" >
                   <div class="input-group input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="text form-control email" type="email" name="email" placeholder="Organization Email" ngModel required="">
+                    <input class="text form-control email" type="email" name="email" placeholder="Organization Email" ngModel required="" email>
 
 
                   </div>
@@ -46,7 +46,7 @@
                   </label>
                 </div>
                 <div class="text-center">
-                  <button type="button" class="btn btn-white my-4 changeColor" (click)="onSubmit(formulaireLogin)" [disabled]="!formulaireLogin.form.valid">Sign in</button>
+                  <input type="button" class="btn btn-white my-4 changeColor" type="submit" [disabled]="!formulaireLogin.form.valid" value="login">
                 </div>
               </form>
             </div>

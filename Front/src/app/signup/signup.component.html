@@ -33,10 +33,11 @@
         <div class="agileits-top">
           <form (ngSubmit)="onSubmit(formulaireOrganization)"  #formulaireOrganization="ngForm">
             <label>Organization Name</label><input class="text" type="text" name="organizationName" ngModel required="" style="margin-bottom: 10px">
-            <label>Organization mail</label><input class="email" type="email" name="organizationEmail" ngModel required="" style="margin-bottom: 10px">
+            <label>Organization mail</label><input class="email" type="email" name="organizationEmail" ngModel required="" email style="margin-bottom: 10px">
             <label>Password</label><input class="text" type="password" name="password" ngModel required=""style="margin-bottom: 10px">
-            <label>Confirm Password</label><input class="text " type="password" name="password" ngModel required=""style="margin-bottom: 10px">
-            <label>Domain</label><input class="text" type="text" name="organizationDomain" ngModel required=""style="margin-bottom: 10px">
+              <div class="mat-error" *ngIf="!valid"> Passwords do not match </div>
+              <label>Confirm Password</label><input class="text " type="password" name="ConfirmPassword" ngModel required=""style="margin-bottom: 10px">
+              <label>Domain</label><input class="text" type="text" name="organizationDomain" ngModel required=""style="margin-bottom: 10px">
             <label>Registration Number</label><input class="text  " type="text" name="organizationRegistrationNumber"  ngModel required="">
             <input class="btn btn-1 btn-danger changeColor " [disabled]="!formulaireOrganization.form.valid" type="submit" value="sign up">
             <input class="btn btn-1 btn-success changeColor " [disabled]="!formulaireOrganization.form.dirty" (click)="reset(formulaireOrganization)" value="reset">

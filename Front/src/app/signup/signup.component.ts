@@ -4,6 +4,8 @@ import {NgForm} from "@angular/forms";
 import {User} from "../models/User";
 import {UserService} from "../services/user.service";
 import {Role} from "../../environments/environment";
+import {Organization} from "../models/organization";
+import {OrganizationService} from "../services/organization.service";
 
 @Component({
     selector: 'app-signup',
@@ -12,14 +14,15 @@ import {Role} from "../../environments/environment";
 })
 export class SignupComponent implements OnInit {
     test : Date = new Date();
-
+    valid : boolean = true ;
     submitted : boolean = false;
     user = new User();
+    organization = new Organization();
 
     // @Output()
     // public Login: EventEmitter<void> = new EventEmitter<void>();
 
-    constructor(private activatedRoute :ActivatedRoute,private userService :UserService,private router :Router) {
+    constructor(private activatedRoute :ActivatedRoute,private userService :UserService,private router :Router, private organizationService:OrganizationService) {
 
     }
 
@@ -30,7 +33,12 @@ export class SignupComponent implements OnInit {
         this.router.navigate(['/login']);
     }
     onSubmit(formulaire : NgForm){
-        this.submitted=formulaire.valid;
+
+        let pass = formulaire.controls['password'].value;
+        let confirmPass = formulaire.controls['ConfirmPassword'].value;
+
+        this.valid=pass == confirmPass;
+        this.submitted=formulaire.valid &&  pass == confirmPass;
         if(!this.submitted)
             return  ;
 
@@ -41,11 +49,15 @@ export class SignupComponent implements OnInit {
         this.user.role=Role.Organization;
         console.log(this.user);
 
+        this.organization.matricule=formulaire.controls['organizationRegistrationNumber'].value;
+        this.organization.activity=formulaire.controls['organizationDomain'].value;
+        console.log(this.organization)
         this.userService.create(this.user).subscribe(
             res=> console.log("test add user",res)
         )
-
-
+        this.organizationService.create(this.organization).subscribe(
+            res => console.log("organization added")
+        )
     }
 
 

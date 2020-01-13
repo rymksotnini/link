@@ -2,17 +2,21 @@ var express = require('express');
 var app = express();
 var sequelize = require('./connection');//DB Connection
 var testController = require('./testController');
+var Event = require('./models').Event;
+var Organization = require('./models').Organization;
+var User = require('./models').User;
 var userController = require('./controllers/UserController');
+var organizationController = require('./controllers/OrganizationController');
+const bodyParser =require ('body-parser');
+var loginController = require('./controllers/LoginController');
+
 var eventController = require('./controllers/EventController');
 
-
-const bodyParser =require ('body-parser');
 app.use(bodyParser.json());
 
 let eventModel = require('../backend/models/event');
 const Sequelize = require('sequelize')
 
-const events = eventModel(sequelize, Sequelize)
 
 //Body Parser
 app.use(bodyParser.urlencoded({extended : false}));
@@ -31,8 +35,12 @@ app.use('/', testController);
 // les api relatives au controller user commencent par /user
 app.use('/user', userController);
 app.use('/event', eventController);
+Organization.sync();
+User.sync();
 
 
+app.use('/organization', organizationController);
+app.use('/login', loginController);
 //
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:4200");
@@ -45,16 +53,6 @@ app.get("/test", (req, res, next) => {
     res.json(["test","test"]);
 });
 
-/*app.get("/events", (req,res,next)=>{
-    Event.findAll().then(events => {
-        res.json(JSON.stringify(events))
-    })
-    }
-); */
 
-/*sequelize.sync({
-    force: true
-});
-*/
 
 module.exports = app;

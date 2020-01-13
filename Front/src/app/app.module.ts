@@ -28,6 +28,8 @@ import { TopSponsorsComponent } from './top-sponsors/top-sponsors.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SignupSponsorComponent } from './signup-sponsor/signup-sponsor.component';
 import { EventFormComponent } from './event-form/event-form.component';
+import { OrganizationProfileComponent } from './organization-profile/organization-profile.component';
+
 
 @NgModule({
   declarations: [
@@ -48,11 +50,10 @@ import { EventFormComponent } from './event-form/event-form.component';
     OrganizationsComponent,
     AboutUsComponent,
     TopSponsorsComponent,
-    AboutUsComponent,
     HomePageComponent,
-    AboutUsComponent,
     SignupSponsorComponent,
     EventFormComponent
+    OrganizationProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +65,7 @@ import { EventFormComponent } from './event-form/event-form.component';
     HomeModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    HttpClientModule ,
+    HttpClientModule
   ],
   providers: [],
   entryComponents: [SignUpPopupComponent],

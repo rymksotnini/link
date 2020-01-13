@@ -15,6 +15,7 @@ import {SponsorsComponent} from "./sponsors/sponsors.component";
 import {SignupSponsorComponent} from "./signup-sponsor/signup-sponsor.component";
 import {HomePageComponent} from "./home-page/home-page.component";
 import {EventFormComponent} from "./event-form/event-form.component";
+import {OrganizationProfileComponent} from "./organization-profile/organization-profile.component";
 
 const routes: Routes =[
     { path: 'add',   component:    EventFormComponent},
@@ -24,11 +25,13 @@ const routes: Routes =[
     { path: 'sponsors',                      component: SponsorsComponent },
     { path: 'about-us',                      component: AboutUsComponent },
     { path: 'user-profile',                  component: ProfileComponent },
+    {path: 'organization-profile/:id',       component: OrganizationProfileComponent},
     { path: 'register/organization',         component: SignupComponent },
     { path: 'register/sponsor',              component: SignupSponsorComponent },
     { path: 'landing',                       component: LandingComponent },
     { path: 'login',                         component: LoginComponent },
     { path: 'home', component: HomePageComponent},
+    { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({

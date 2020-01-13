@@ -43,7 +43,7 @@ export class SignupComponent implements OnInit {
         this.user.password=formulaire.controls['password'].value;
         this.user.role=Role.Organization;
         console.log(this.user);
-
+        this.organization.name=formulaire.controls['organizationName'].value;
         this.organization.matricule=formulaire.controls['organizationRegistrationNumber'].value;
         this.organization.activity=formulaire.controls['organizationDomain'].value;
         console.log(this.organization)

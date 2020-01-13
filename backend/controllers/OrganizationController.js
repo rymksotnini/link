@@ -14,7 +14,7 @@ router.use(function(req, res, next) {
 //fetch all the organizations
 router.get('/',(req,res)=>
     Organization.findAll()
-        .then(organizations => res.json((organizations)))
+        .then(organizations => res.json(organizations))
         .catch(err => console.log("error !!! pb with organizations ")));
 
 //get organization by id
@@ -34,9 +34,12 @@ router.get('/delete/:id', (req, res) => {
     const id = req.params.id;
     Organization.destroy({
         where: {id: id}
-    }).then(() => {
-        res.status(200).send('deleted successfully an organization with id = ' + id);
-    }).catch(err => {
+    }).then(
+        organizations =>{
+            console.log("destroy "+ organizations)
+            res.json(organizations)
+        }
+    ).catch(err => {
         console.log(err);
         res.status(500).json({msg: "error", details: err});
     });

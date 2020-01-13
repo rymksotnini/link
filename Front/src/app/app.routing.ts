@@ -24,7 +24,7 @@ const routes: Routes =[
     { path: 'sponsors',                      component: SponsorsComponent },
     { path: 'about-us',                      component: AboutUsComponent },
     { path: 'user-profile',                  component: ProfileComponent },
-    {path: 'organization-profile/:id',       component: OrganizationProfileComponent},
+    {path: 'organization/:id',       component: OrganizationProfileComponent},
     { path: 'register/organization',         component: SignupComponent },
     { path: 'register/sponsor',              component: SignupSponsorComponent },
     { path: 'landing',                       component: LandingComponent },

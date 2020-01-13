@@ -25,7 +25,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-3 order-lg-2">
                             <div class="card-profile-image">
-                                <img src="./assets/img/sponsors/default-profile-sponsor.jpg" class="rounded-circle">
+                                <img src={{sponsor.image}} class="rounded-circle">
                             </div>
                         </div>
                         <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
@@ -41,6 +41,7 @@
                             </div>
                         </div>
                         <div class="col-lg-4 order-lg-1">
+                            <!-- Problem with css .card !!
                             <div class="card-profile-stats d-flex justify-content-center">
                                 <div>
                                     <span class="heading">22</span>
@@ -56,25 +57,23 @@
                                     <a href="#"><span class="description" placement="bottom"
                                                       ngbTooltip="Show the average rate">Rate</span></a>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="text-center mt-5">
-                        <h3>Sponsor Name</h3>
-                        <div class="h6 mt-4"><i class="ni ni-building mr-2"></i>Activity - Field of activity</div>
-                        <div><a href="#"><i class="ni ni-square-pin mr-2"></i>Bucharest, Romania</a></div>
+                        <h3>{{sponsor.name}}</h3>
+                        <div class="h6 mt-4"><i class="ni ni-building mr-2"></i>Activity ! tetzed BD!!</div>
+                        <div><a href="#"><i class="ni ni-square-pin mr-2"></i>{{sponsor.city}}, {{sponsor.country}}</a>
+                        </div>
                     </div>
                     <div class="mt-5 py-5 border-top border-bottom text-center">
                         <div class="mb-3">
-                            <h6 class="text-uppercase font-weight-bold">This is the slogan of this sponsor !</h6>
+                            <h6 class="text-uppercase font-weight-bold">{{sponsor.slogan}}</h6>
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-lg-9">
                                 <p>
-                                    An artist of considerable range, Ryan — the name taken by Melbourne-raised,
-                                    Brooklyn-based Nick Murphy — writes, performs and records all of his own music,
-                                    giving it a warm, intimate feel with a solid groove structure. An artist of
-                                    considerable range.
+                                    {{sponsor.description}}
                                 </p>
                             </div>
                         </div>

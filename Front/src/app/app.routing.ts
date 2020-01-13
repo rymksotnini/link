@@ -15,8 +15,11 @@ import {SponsorsComponent} from "./sponsors/sponsors.component";
 import {SignupSponsorComponent} from "./signup-sponsor/signup-sponsor.component";
 import {HomePageComponent} from "./home-page/home-page.component";
 
-const routes: Routes =[
+import {EventFormComponent} from "./event-form/event-form.component";
+import {OrganizationProfileComponent} from "./organization-profile/organization-profile.component";
 
+const routes: Routes =[
+    { path: 'add',   component:    EventFormComponent},
     { path: 'homee',                          component: HomeComponent },
     { path: 'events',                        component: EventsComponent },
     { path: 'organizations',                 component: OrganizationsComponent },

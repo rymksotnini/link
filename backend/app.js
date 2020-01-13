@@ -2,9 +2,8 @@ var express = require('express');
 var app = express();
 var sequelize = require('./connection');//DB Connection
 var testController = require('./testController');
-<<<<<<< HEAD
+
 var userController = require('./controllers/UserController');
-=======
 var Event = require('./models').Event;
 var Organization = require('./models').Organization;
 var User = require('./models').User;
@@ -13,14 +12,13 @@ var organizationController = require('./controllers/OrganizationController');
 const bodyParser =require ('body-parser');
 var loginController = require('./controllers/LoginController');
 
->>>>>>> 2ee68db81e0c5a8d51e4113dbe43974e11b39ced
+var eventController = require('./controllers/EventController');
 
 app.use(bodyParser.json());
-const bodyParser =require ('body-parser');
+
 let eventModel = require('../backend/models/event');
 const Sequelize = require('sequelize')
 
-const events = eventModel(sequelize, Sequelize)
 
 //Body Parser
 app.use(bodyParser.urlencoded({extended : false}));
@@ -33,23 +31,15 @@ sequelize.authenticate().then(() => {
         console.error('Unable to connect to the database:', err);
     });
 //add a line in event table
-eventModel.sync().then(() => {
-    // Now the `users` table in the database corresponds to the model definition
-    return Event.create({
-        Name: 'TOGETHER',
-        Date: 1-12-2020
-    });
-});
-
-Organization.sync();
-User.sync();
-
-
 //test request GET
 app.use('/', testController);
 
 // les api relatives au controller user commencent par /user
 app.use('/user', userController);
+app.use('/event', eventController);
+Organization.sync();
+User.sync();
+
 
 app.use('/organization', organizationController);
 app.use('/login', loginController);
@@ -65,16 +55,6 @@ app.get("/test", (req, res, next) => {
     res.json(["test","test"]);
 });
 
-/*app.get("/events", (req,res,next)=>{
-    Event.findAll().then(events => {
-        res.json(JSON.stringify(events))
-    })
-    }
-); */
 
-/*sequelize.sync({
-    force: true
-});
-*/
 
 module.exports = app;

@@ -28,6 +28,10 @@ import { TopSponsorsComponent } from './top-sponsors/top-sponsors.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SignupSponsorComponent } from './signup-sponsor/signup-sponsor.component';
 
+import { EventFormComponent } from './event-form/event-form.component';
+import { OrganizationProfileComponent } from './organization-profile/organization-profile.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,10 +51,10 @@ import { SignupSponsorComponent } from './signup-sponsor/signup-sponsor.componen
     OrganizationsComponent,
     AboutUsComponent,
     TopSponsorsComponent,
-    AboutUsComponent,
     HomePageComponent,
-    AboutUsComponent,
-    SignupSponsorComponent
+    SignupSponsorComponent,
+    EventFormComponent,
+    OrganizationProfileComponent
   ],
   imports: [
     BrowserModule,

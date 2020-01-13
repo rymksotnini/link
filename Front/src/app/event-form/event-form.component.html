@@ -1,0 +1,92 @@
+<main>
+    <section class="section section-shaped section-lg">
+        <div class="shape shape-style-1 bg-gradient-default">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="container pt-lg-md">
+
+            <div class="row justify-content-center">
+
+                <div class="col-lg-10">
+                    <div class="card bg-secondary shadow border-0"style="padding-top: 30px ;   ">
+
+                        <div class="card-body justify-content-center px-lg-5 py-lg-5">
+                            <div class="  col-md-10 white order-md-2">
+                                <h2 class="  text-uppercase font-weight-bold mb-3">
+                                    Create a new event
+                                </h2>
+                            </div>
+                            <form #formulaireEvent="ngForm">
+                                <small class="d-block text-uppercase font-weight-bold mb-3">Name</small>
+                                    <div class="form-group" [ngClass]="{'focused':focus===true}">
+                                        <div class="input-group mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+                                            </div>
+                                            <input required name="name" ngModel class="form-control" placeholder="Search" type="text" (focus)="focus=true" (blur)="focus=false">
+                                        </div>
+                                    </div>
+                                <small class="d-block text-uppercase font-weight-bold mb-3">START DATE</small>
+                                <div class="form-group" [ngClass]="{'focused':focus2===true}">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                    </div>
+                                    <input required name="startDate" ngModel class="form-control date-picker" placeholder="Select date" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" (focus)="focus2=true" (blur)="focus2=false" type="text" (select)="onDateSelection($event)" autocomplete="off"/>
+                                </div>
+                            </div>
+                                <small class="d-block text-uppercase font-weight-bold mb-3">END DATE</small>
+                                <div class="form-group" [ngClass]="{'focused':focus2===true}">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
+                                        </div>
+                                        <input required name="endDate" ngModel class="form-control date" placeholder="Select date"  [(ngModel)]="model1" ngbDatepicker #d1="ngbDatepicker" (click)="d1.toggle()" (focus)="focus2=true" (blur)="focus2=false" type="text" (select)="onDateSelection($event)" autocomplete="off"/>
+                                    </div>
+                                </div>
+                                <small class="d-block text-uppercase font-weight-bold mb-3">PLACE</small>
+                                <div class="form-group" [ngClass]="{'focused':focus===true}">
+                                    <div class="input-group mb-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+                                        </div>
+                                        <input required name="place" ngModel class="form-control" placeholder="Search" type="text" (focus)="focus=true" (blur)="focus=false">
+                                    </div>
+                                </div>
+                                <small class="d-block text-uppercase font-weight-bold mb-3">category</small>
+                                <div class="form-group" [ngClass]="{'focused':focus===true}">
+                                    <div class="input-group mb-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+                                        </div>
+                                        <input required name="category" ngModel class="form-control" placeholder="Search" type="text" (focus)="focus=true" (blur)="focus=false">
+                                    </div>
+                                </div>
+                                <small class="d-block text-uppercase font-weight-bold mb-3">DESCRIPTION</small>
+                                <div class="form-group" [ngClass]="{'focused':focus===true}">
+                                    <div class="input-group mb-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+                                        </div>
+                                        <input required  name="description" ngModel class="form-control" placeholder="Search" type="text" (focus)="focus=true" (blur)="focus=false">
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-white my-4 changeColor" (click)="onSubmit(formulaireEvent)" [disabled]="!formulaireEvent.form.valid">create</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

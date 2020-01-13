@@ -27,20 +27,17 @@
         <div class="titreCustom">
           <p align="center">
             <br>
-            SignUp as an Organization
+            Sign up as an Organization
           </p>
         </div>
         <div class="agileits-top">
           <form (ngSubmit)="onSubmit(formulaireOrganization)"  #formulaireOrganization="ngForm">
-
-            <input class="text" type="text" name="organizationName" placeholder="Organization Name" ngModel required="">
-            <input class="text email" type="email" name="organizationEmail" placeholder="Organization Email" ngModel required="">
-
-            <input class="text" type="password" name="password" placeholder="Password" ngModel required="">
-            <input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" ngModel required="">
-            <input class="text" type="text" name="organizationDomain" placeholder="Domain" ngModel required="">
-
-
+            <label>Organization Name</label><input class="text" type="text" name="organizationName" ngModel required="" style="margin-bottom: 10px">
+            <label>Organization mail</label><input class="email" type="email" name="organizationEmail" ngModel required="" style="margin-bottom: 10px">
+            <label>Password</label><input class="text" type="password" name="password" ngModel required=""style="margin-bottom: 10px">
+            <label>Confirm Password</label><input class="text " type="password" name="password" ngModel required=""style="margin-bottom: 10px">
+            <label>Domain</label><input class="text" type="text" name="organizationDomain" ngModel required=""style="margin-bottom: 10px">
+            <label>Registration Number</label><input class="text  " type="text" name="organizationRegistrationNumber"  ngModel required="">
             <input class="btn btn-1 btn-danger changeColor " [disabled]="!formulaireOrganization.form.valid" type="submit" value="sign up">
             <input class="btn btn-1 btn-success changeColor " [disabled]="!formulaireOrganization.form.dirty" (click)="reset(formulaireOrganization)" value="reset">
           </form>

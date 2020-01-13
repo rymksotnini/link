@@ -3,10 +3,11 @@ var app = express();
 var sequelize = require('./connection');//DB Connection
 var testController = require('./testController');
 var Event = require('./models').Event;
+var Organization = require('./models').Organization;
+var User = require('./models').User;
 var userController = require('./controllers/UserController');
-let  bodyParser =require ('body-parser');
-
-app.use(bodyParser.json());
+var organizationController = require('./controllers/OrganizationController');
+const bodyParser =require ('body-parser');
 
 
 //Body Parser
@@ -28,11 +29,17 @@ Event.sync({ force: true }).then(() => {
     });
 });
 
+Organization.sync();
+User.sync();
+
+
 //test request GET
 app.use('/', testController);
 
 // les api relatives au controller user commencent par /user
 app.use('/user', userController);
+
+app.use('/organization', organizationController);
 //
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:4200");

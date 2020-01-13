@@ -9,8 +9,8 @@ import  {User} from "../models/User";
 export class UserService {
   public resourceUrl =  'http://localhost:3000/user';
   constructor(private http: HttpClient) { }
-  create(user: User): Observable<HttpResponse<User>> {
 
+  create(user: User): Observable<HttpResponse<User>> {
     return this.http.post<User>(this.resourceUrl+'/add', JSON.parse(JSON.stringify(user)), { observe: 'response' });
   }
 

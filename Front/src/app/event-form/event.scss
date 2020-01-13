@@ -159,7 +159,7 @@ input[type="text"], input[type="email"], input[type="password"] {
   font-family: 'Roboto', sans-serif;
 }
 
-input.text.w3lpass {
+input.email, input.text.w3lpass {
   margin: 2em 0;
 }
 
@@ -436,7 +436,7 @@ input.checkbox:checked:after {
     padding: 2.2em;
   }
 
-  input.text.w3lpass {
+  input.email, input.text.w3lpass {
     margin: 1.5em 0;
   }
 

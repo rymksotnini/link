@@ -13,7 +13,7 @@ export class LoginService {
 
 
   //check credentials
-  create(user: User): Observable<HttpResponse<User>> {
-    return this.http.post<User>(this.resourceUrl+'/', JSON.parse(JSON.stringify(user)), { observe: 'response' });
+  login(user: User): Observable<HttpResponse<any>> {
+    return this.http.post<any>(this.resourceUrl+'/', JSON.parse(JSON.stringify(user)), { observe: 'response' });
   }
 }

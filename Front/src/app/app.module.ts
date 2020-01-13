@@ -29,7 +29,9 @@ import { SponsorProfileComponent } from './sponsor-profile/sponsor-profile.compo
 import { SponsorManageProfileComponent } from './sponsor-manage-profile/sponsor-manage-profile.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SignupSponsorComponent } from './signup-sponsor/signup-sponsor.component';
-import { ImageUploadComponent } from './image-upload/image-upload.component';
+import { EventFormComponent } from './event-form/event-form.component';
+import { OrganizationProfileComponent } from './organization-profile/organization-profile.component';
+
 
 @NgModule({
   declarations: [
@@ -43,7 +45,6 @@ import { ImageUploadComponent } from './image-upload/image-upload.component';
     CarouselForEventsComponent,
     LoginComponent,
     SignUpPopupComponent,
-    LoginComponent,
     EventsComponent,
     SponsorsComponent,
     OrganizationsComponent,
@@ -53,7 +54,8 @@ import { ImageUploadComponent } from './image-upload/image-upload.component';
     SponsorManageProfileComponent,
     HomePageComponent,
     SignupSponsorComponent,
-    ImageUploadComponent
+    EventFormComponent,
+    OrganizationProfileComponent
   ],
   imports: [
     BrowserModule,

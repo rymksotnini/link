@@ -33,10 +33,10 @@
                     <form (ngSubmit)="onSubmit(formulaireSponsor)"  #formulaireSponsor="ngForm">
 
                         <input class="text " type="text" name="sponsorName" placeholder="SponsorName" ngModel required="" >
-                        <input class="text email" type="email" name="sponsorEmail" placeholder="SponsorEmail" ngModel>
-                        <input class="text" type="password" name="password" placeholder="Password" ngModel>
-                        <input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" ngModel>
-
+                        <input class="text email" type="email" name="sponsorEmail" placeholder="SponsorEmail" ngModel email required>
+                        <input class="text" type="password" name="password" placeholder="Password" ngModel required >
+                        <input class="text w3lpass" type="password" name="ConfirmPassword" placeholder="Confirm Password" ngModel required >
+                        <div class="mat-error" *ngIf="!valid"> Passwords do not match </div>
                         <input class="btn btn-1 btn-danger changeColor " type="submit" value="sign up"[disabled]="!formulaireSponsor.form.valid">
                         <input class="btn btn-1 btn-success changeColor " [disabled]="!formulaireSponsor.form.dirty" (click)="reset(formulaireSponsor)" value="reset">
 

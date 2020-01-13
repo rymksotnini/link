@@ -14,7 +14,7 @@ import {OrganizationService} from "../services/organization.service";
 })
 export class SignupComponent implements OnInit {
     test : Date = new Date();
-
+    valid : boolean = true ;
     submitted : boolean = false;
     user = new User();
     organization = new Organization();
@@ -33,7 +33,12 @@ export class SignupComponent implements OnInit {
         this.router.navigate(['/login']);
     }
     onSubmit(formulaire : NgForm){
-        this.submitted=formulaire.valid;
+
+        let pass = formulaire.controls['password'].value;
+        let confirmPass = formulaire.controls['ConfirmPassword'].value;
+
+        this.valid=pass == confirmPass;
+        this.submitted=formulaire.valid &&  pass == confirmPass;
         if(!this.submitted)
             return  ;
 

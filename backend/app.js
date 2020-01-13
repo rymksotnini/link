@@ -8,6 +8,10 @@ var User = require('./models').User;
 var userController = require('./controllers/UserController');
 var organizationController = require('./controllers/OrganizationController');
 const bodyParser =require ('body-parser');
+var loginController = require('./controllers/LoginController');
+
+
+app.use(bodyParser.json());
 
 
 //Body Parser
@@ -40,6 +44,7 @@ app.use('/', testController);
 app.use('/user', userController);
 
 app.use('/organization', organizationController);
+app.use('/login', loginController);
 //
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:4200");

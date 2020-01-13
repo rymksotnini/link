@@ -29,6 +29,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { SignupSponsorComponent } from './signup-sponsor/signup-sponsor.component';
 import { OrganizationProfileComponent } from './organization-profile/organization-profile.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,10 +49,8 @@ import { OrganizationProfileComponent } from './organization-profile/organizatio
     OrganizationsComponent,
     AboutUsComponent,
     TopSponsorsComponent,
-    AboutUsComponent,
-    HomePageComponent,
-    AboutUsComponent,
     SignupSponsorComponent,
+    HomePageComponent,
     OrganizationProfileComponent
   ],
   imports: [

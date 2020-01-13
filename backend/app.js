@@ -4,7 +4,9 @@ var sequelize = require('./connection');//DB Connection
 var testController = require('./testController');
 var Event = require('./models').Event;
 var userController = require('./controllers/UserController');
-const bodyParser =require ('body-parser');
+let  bodyParser =require ('body-parser');
+
+app.use(bodyParser.json());
 
 
 //Body Parser

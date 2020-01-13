@@ -27,6 +27,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { TopSponsorsComponent } from './top-sponsors/top-sponsors.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SignupSponsorComponent } from './signup-sponsor/signup-sponsor.component';
+import { OrganizationProfileComponent } from './organization-profile/organization-profile.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { SignupSponsorComponent } from './signup-sponsor/signup-sponsor.componen
     AboutUsComponent,
     HomePageComponent,
     AboutUsComponent,
-    SignupSponsorComponent
+    SignupSponsorComponent,
+    OrganizationProfileComponent
   ],
   imports: [
     BrowserModule,

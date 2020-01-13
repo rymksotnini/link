@@ -14,15 +14,17 @@ import {AboutUsComponent} from "./about-us/about-us.component";
 import {SponsorsComponent} from "./sponsors/sponsors.component";
 import {SignupSponsorComponent} from "./signup-sponsor/signup-sponsor.component";
 import {HomePageComponent} from "./home-page/home-page.component";
+import {OrganizationProfileComponent} from "./organization-profile/organization-profile.component";
 
 const routes: Routes =[
 
-    { path: 'homee',                          component: HomeComponent },
+    { path: 'homee',                         component: HomeComponent },
     { path: 'events',                        component: EventsComponent },
     { path: 'organizations',                 component: OrganizationsComponent },
     { path: 'sponsors',                      component: SponsorsComponent },
     { path: 'about-us',                      component: AboutUsComponent },
     { path: 'user-profile',                  component: ProfileComponent },
+    {path: 'organization-profile/:id',       component: OrganizationProfileComponent},
     { path: 'register/organization',         component: SignupComponent },
     { path: 'register/sponsor',              component: SignupSponsorComponent },
     { path: 'landing',                       component: LandingComponent },

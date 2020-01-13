@@ -3,6 +3,8 @@ var app = express();
 var sequelize = require('./connection');//DB Connection
 var testController = require('./testController');
 var Event = require('./models').Event;
+var Organization = require('./models').Organization;
+var User = require('./models').User;
 var userController = require('./controllers/UserController');
 var organizationController = require('./controllers/OrganizationController');
 const bodyParser =require ('body-parser');
@@ -26,6 +28,10 @@ Event.sync({ force: true }).then(() => {
         Date: 1-12-2020
     });
 });
+
+Organization.sync();
+User.sync();
+
 
 //test request GET
 app.use('/', testController);

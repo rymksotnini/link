@@ -3,13 +3,10 @@ var app = express.Router();
 var sequelize = require('../connection');//DB Connection
 var role_;
 
-
-// Body parser to get the data form , it's like a middleware
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// attention !! we should import the index and not directly the model user so that we can use the different crud methods findAll is not a function error ;)
 const models =require('../models/index');
 
 
@@ -19,33 +16,24 @@ app.use(function(req, res, next) {
     next();
 });
 
-//fetch all the users
+//fetch all events
 app.get('/',(req,res)=>
-    models.User.findAll()
-        .then(users => res.json((users)))
-        .catch(err => console.log("error !!! pb with users ")));
+    models.Event.findAll()
+        .then(events => res.json((events)))
+        .catch(err => console.log("error !!! pb with events ")));
 
 // Insert a user
 app.post('/add',(req, res) => {
 
-    if (req.body.role == "0"){
-        role_='Sponsor';
-    }
-
-
-    else if (req.body.role == "1"){
-        role_='Organization';
-    }
-
-
-    // Save to database
-    models.User.create({
-        UserName: req.body.UserName,
-        email: req.body.email,
-        password: req.body.password,
-        role: role_,
-    }).then(user => {
-        res.status(200).send("user created  successfully ");
+    models.Event.create({
+        name : req.body.name,
+        startTime: req.body.startTime,
+        endTime: req.body.endTime,
+        place: req.body.place,
+        category:  req.body.category,
+        description: req.body.description
+    }).then(event => {
+        res.status(200).send("event created  successfully ");
 
     }).catch(err => {
         console.log(err);
@@ -54,26 +42,29 @@ app.post('/add',(req, res) => {
 
 });
 
-// Find a user by Id
+// Find a event by Id
 app.get('/:id',(req, res) =>
-    models.User.findByPk(req.params.id).then(user => {
-        res.json(user);
+    models.Event.findByPk(req.params.id).then(event => {
+        res.json(event);
     }).catch(err => {
         console.log(err);
         res.status(500).json({msg: "error", details: err});
     })
 );
 
-// Update a user with Id  (NOT TESTED )
+// Update an event with Id  (NOT TESTED )
 app.put('/update/:id', (req, res) => {
     const id = req.params.id;
-    models.User.update(
-        {  UserName: req.body.UserName,
-            email: req.body.email,
-            password: req.body.password },
+    models.Event.update(
+        {   name : req.body.name,
+            startTime: req.body.startTime,
+            endTime: req.body.endTime,
+            place: req.body.place,
+            category:  req.body.category,
+            description: req.body.description },
         { where: {id: req.params.id} }
     ).then(() => {
-        res.status(200).send("updated successfully a user with id = " + id);
+        res.status(200).send("updated successfully an event with id = " + id);
     }).catch(err => {
         console.log(err);
         res.status(500).json({msg: "error", details: err});
@@ -81,13 +72,14 @@ app.put('/update/:id', (req, res) => {
 });
 
 
-// Delete a user by ID (tested with = > get to change later with delete)
+
+// Delete an event by ID (tested with = > get to change later with delete)
 app.get('/delete/:id', (req, res) => {
     const id = req.params.id;
-    models.User.destroy({
+    models.Event.destroy({
         where: {id: id}
     }).then(() => {
-        res.status(200).send('deleted successfully a user with id = ' + id);
+        res.status(200).send('deleted successfully an event with id = ' + id);
     }).catch(err => {
         console.log(err);
         res.status(500).json({msg: "error", details: err});

@@ -10,8 +10,12 @@ var organizationController = require('./controllers/OrganizationController');
 const bodyParser =require ('body-parser');
 var loginController = require('./controllers/LoginController');
 
+var eventController = require('./controllers/EventController');
 
 app.use(bodyParser.json());
+
+let eventModel = require('../backend/models/event');
+const Sequelize = require('sequelize')
 
 
 //Body Parser
@@ -25,23 +29,15 @@ sequelize.authenticate().then(() => {
         console.error('Unable to connect to the database:', err);
     });
 //add a line in event table
-Event.sync({ force: true }).then(() => {
-    // Now the `users` table in the database corresponds to the model definition
-    return Event.create({
-        Name: 'TOGETHER',
-        Date: 1-12-2020
-    });
-});
-
-Organization.sync();
-User.sync();
-
-
 //test request GET
 app.use('/', testController);
 
 // les api relatives au controller user commencent par /user
 app.use('/user', userController);
+app.use('/event', eventController);
+Organization.sync();
+User.sync();
+
 
 app.use('/organization', organizationController);
 app.use('/login', loginController);
@@ -57,12 +53,6 @@ app.get("/test", (req, res, next) => {
     res.json(["test","test"]);
 });
 
-app.get("/events", (req,res,next)=>{
-    Event.findAll().then(events => {
-        res.json(JSON.stringify(events))
-    })
-    }
-);
 
 
 module.exports = app;

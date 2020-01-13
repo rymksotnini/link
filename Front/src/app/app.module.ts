@@ -27,6 +27,7 @@ import { AboutUsComponent } from './about-us/about-us.component';
 import { TopSponsorsComponent } from './top-sponsors/top-sponsors.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SignupSponsorComponent } from './signup-sponsor/signup-sponsor.component';
+import { EventFormComponent } from './event-form/event-form.component';
 import { OrganizationProfileComponent } from './organization-profile/organization-profile.component';
 
 
@@ -49,8 +50,9 @@ import { OrganizationProfileComponent } from './organization-profile/organizatio
     OrganizationsComponent,
     AboutUsComponent,
     TopSponsorsComponent,
-    SignupSponsorComponent,
     HomePageComponent,
+    SignupSponsorComponent,
+    EventFormComponent,
     OrganizationProfileComponent
   ],
   imports: [

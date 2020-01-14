@@ -18,6 +18,7 @@ import {SignupSponsorComponent} from "./signup-sponsor/signup-sponsor.component"
 import {HomePageComponent} from "./home-page/home-page.component";
 import {EventFormComponent} from "./event-form/event-form.component";
 import {OrganizationProfileComponent} from "./organization-profile/organization-profile.component";
+import {OrganizerRoleGuard} from "./OrganizerRoleGuard.";
 
 const routes: Routes =[
     { path: 'add',   component:    EventFormComponent},

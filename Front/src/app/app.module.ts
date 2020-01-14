@@ -31,6 +31,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { SignupSponsorComponent } from './signup-sponsor/signup-sponsor.component';
 import { EventFormComponent } from './event-form/event-form.component';
 import { OrganizationProfileComponent } from './organization-profile/organization-profile.component';
+import { LoginInterceptorProider} from "./interceptors/login.interceptor";
+import {OrganizerRoleGuard} from "./OrganizerRoleGuard.";
 
 
 @NgModule({
@@ -69,7 +71,7 @@ import { OrganizationProfileComponent } from './organization-profile/organizatio
     MatDialogModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [LoginInterceptorProider,OrganizerRoleGuard],
   entryComponents: [SignUpPopupComponent],
   bootstrap: [AppComponent]
 })

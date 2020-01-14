@@ -25,10 +25,7 @@ export class OrganizationService {
     }
 
     getAll():Observable<Organization[]>{
-        console.log(localStorage.getItem('token'), "heeere");
-        var storage = JSON.parse(localStorage.getItem('obj'));
-        var token = storage['0']['token'];
-        return this.http.get<Organization[]>(this.resourceUrl+'/All/',{params: new HttpParams().append('token', token)})
+        return this.http.get<Organization[]>(this.resourceUrl+'/All/')
     }
 
 }

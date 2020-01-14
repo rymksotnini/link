@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
         result => {
           console.log("pleaassse");
           const token = result.body["token"];
+          console.log(token);
           localStorage.setItem('token',token);
           this.router.navigate(['/'])},
         error => console.log(error)

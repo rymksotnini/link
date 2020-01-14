@@ -16,8 +16,8 @@ export class EventServiceService {
         return this.http.post<Event>(this.resourceUrl+'/add', JSON.parse(JSON.stringify(event)), { observe: 'response' });
     }
 
-    update(organization: Event,id : number): Observable<HttpResponse<Event>> {
-        return this.http.put<Event>(this.resourceUrl+'/update/'+id, organization, { observe: 'response' });
+    update(event: Event,id : number): Observable<HttpResponse<Event>> {
+        return this.http.put<Event>(this.resourceUrl+'/update/'+id, event, { observe: 'response' });
     }
 
     getOrganization(id:number):Observable<Event>{
@@ -25,7 +25,7 @@ export class EventServiceService {
     }
 
     getAll():Observable<Event[]>{
-        return this.http.get<Event[]>(this.resourceUrl+'/')
+        return this.http.get<Event[]>(this.resourceUrl+'/' )
     }
 
 }

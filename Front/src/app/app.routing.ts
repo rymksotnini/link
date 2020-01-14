@@ -18,9 +18,12 @@ import {SignupSponsorComponent} from "./signup-sponsor/signup-sponsor.component"
 import {HomePageComponent} from "./home-page/home-page.component";
 import {EventFormComponent} from "./event-form/event-form.component";
 import {OrganizationProfileComponent} from "./organization-profile/organization-profile.component";
+import {FileLoderComponent} from "./file-loder/file-loder.component";
 import {OrganizationManageProfileComponent} from "./organization-manage-profile/organization-manage-profile.component";
+import {OrganizerRoleGuard} from "./OrganizerRoleGuard.";
 
 const routes: Routes =[
+    { path: 'file' , component: FileLoderComponent},
     { path: 'add',   component:    EventFormComponent},
     { path: 'homee',                          component: HomeComponent },
     { path: 'events',                        component: EventsComponent },
@@ -29,13 +32,13 @@ const routes: Routes =[
     { path: 'about-us',                      component: AboutUsComponent },
     { path: 'user-profile',                  component: ProfileComponent },
     {path: 'organization/:id',       component: OrganizationProfileComponent},
-    { path: 'register/organization',         component: SignupComponent },
     { path: 'register/sponsor',              component: SignupSponsorComponent },
+    { path: 'register/organization',              component: SignupComponent },
     { path: 'landing',                       component: LandingComponent },
     { path: 'sponsor-details/:id', component: SponsorProfileComponent},
     { path: 'sponsor-profile', component: SponsorProfileComponent},
     { path: 'sponsor-manage-profile', component: SponsorManageProfileComponent},
-    { path: 'organization-manage-profile', component: OrganizationManageProfileComponent},
+    { path: 'organization-manage-profile', component: OrganizationManageProfileComponent,canActivate :[OrganizerRoleGuard]},
     { path: 'login',                         component: LoginComponent },
     { path: 'home', component: HomePageComponent},
     { path: '', redirectTo: 'home', pathMatch: 'full' }

@@ -13,6 +13,7 @@ var userController = require('./controllers/UserController');
 var organizationController = require('./controllers/OrganizationController');
 const bodyParser =require ('body-parser');
 var loginController = require('./controllers/LoginController');
+var eventController = require('./controllers/EventController');
 
 const multer = require('multer');
 app.use(function(req, res, next) {
@@ -22,7 +23,6 @@ app.use(function(req, res, next) {
 
     next();
 });
-var eventController = require('./controllers/EventController');
 
 app.use(bodyParser.json());
 const storage = multer.diskStorage({

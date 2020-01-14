@@ -11801,7 +11801,9 @@ button.section-darker:hover {
 .fill-white {
     fill: #fff
 }
-
+.fill-grey{
+  fill: #f7fafc;
+}
 .stroke-white {
     stroke: #fff
 }

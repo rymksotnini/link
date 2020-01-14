@@ -18,6 +18,10 @@ export class LoginService {
 
     return this.http.post<any>(this.resourceUrl+'/', JSON.parse(JSON.stringify(user)), { observe: 'response' });
   }
+
+  signUp(user :User):Observable<HttpResponse<any>>{
+    return this.http.post<any>(this.resourceUrl+'/register', JSON.parse(JSON.stringify(user)), { observe: 'response' });
+  }
   logout(){
     localStorage.removeItem('obj');
   }

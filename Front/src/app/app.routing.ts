@@ -18,6 +18,7 @@ import {SignupSponsorComponent} from "./signup-sponsor/signup-sponsor.component"
 import {HomePageComponent} from "./home-page/home-page.component";
 import {EventFormComponent} from "./event-form/event-form.component";
 import {OrganizationProfileComponent} from "./organization-profile/organization-profile.component";
+import {OrganizationManageProfileComponent} from "./organization-manage-profile/organization-manage-profile.component";
 
 const routes: Routes =[
     { path: 'add',   component:    EventFormComponent},
@@ -33,6 +34,7 @@ const routes: Routes =[
     { path: 'landing',                       component: LandingComponent },
     { path: 'sponsor-profile', component: SponsorProfileComponent},
     { path: 'sponsor-manage-profile', component: SponsorManageProfileComponent},
+    { path: 'organization-manage-profile', component: OrganizationManageProfileComponent},
     { path: 'login',                         component: LoginComponent },
     { path: 'home', component: HomePageComponent},
     { path: '', redirectTo: 'home', pathMatch: 'full' }

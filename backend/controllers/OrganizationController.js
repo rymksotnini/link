@@ -15,7 +15,11 @@ router.use(function(req, res, next) {
 //fetch all the organizations
 router.get('/All',verifyToken,(req,res)=>
     Organization.findAll()
-        .then(organizations => res.json(organizations))
+        .then( (organizations) => {
+            console.log(organizations);
+            res.json(organizations);
+        }
+            )
         .catch(err => console.log("error !!! pb with organizations ")));
 
 //get organization by id
@@ -65,7 +69,7 @@ router.post('/add',(req, res) => {
 });
 
 // Update an organization with Id  (NOT TESTED )
-router.put('/update/:id', (req, res) => {
+router.post('/update/:id', (req, res) => {
     const id = req.params.id;
     Organization.update(
         {  name: req.body.name,

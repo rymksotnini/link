@@ -25,7 +25,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-3 order-lg-2">
                             <div class="card-profile-image">
-                                <img src="{{sponsor.image}}" class="rounded-circle">
+                                <img [src]="sponsor.image" class="rounded-circle">
                             </div>
                         </div>
                         <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
@@ -33,7 +33,7 @@
                                 <a href="javascript:void(0)" class="btn btn-sm btn-info mr-4">
                                     <i class="ni ni-world-2"></i> Contact
                                 </a>
-                                <a *ngIf="loginService.isLoggedIn()"  [routerLink]="['/sponsor-manage-profile']"
+                                <a *ngIf= "isCurrentUser"  [routerLink]="['/sponsor-manage-profile']"
                                    class="btn btn-sm btn-default float-right">
                                     <i class="ni ni-settings-gear-65"></i>
                                     Manage Profile

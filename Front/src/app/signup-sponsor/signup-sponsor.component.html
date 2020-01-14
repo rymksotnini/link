@@ -31,23 +31,29 @@
                 </div>
                 <div class="agileits-top" >
                     <form (ngSubmit)="onSubmit(formulaireSponsor)"  #formulaireSponsor="ngForm">
-
-                        <input class="text " type="text" name="sponsorName" placeholder="Sponsor Name" ngModel required #sponsorName="ngModel" >
-                        <div [hidden]="sponsorName.valid || sponsorName.pristine"
-                             class="alert alert-danger">
+                        <label>Name</label>
+                        <input class="text " type="text" name="sponsorName" placeholder="Sponsor Name" ngModel required #sponsorName="ngModel" style="margin-bottom: 10px">
+                        <div [hidden]="sponsorName.valid || sponsorName.pristine" class="alert alert-danger">
                             Sponsor Name is required
                         </div>
-                        <input class="text email" type="email" name="sponsorEmail" placeholder="SponsorEmail" ngModel required #sponsorEmail="ngModel">
+                        <label>Email</label>
+                        <input class="email" type="email" name="sponsorEmail" placeholder="SponsorEmail" ngModel required #sponsorEmail="ngModel" style="margin-bottom: 10px">
                         <div [hidden]="sponsorEmail.valid || sponsorEmail.pristine"
                              class="alert alert-danger">
                             Email is required
                         </div>
-                        <input class="text" type="password" name="password" placeholder="Password" ngModel>
-                        <input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" ngModel>
-                        <input class="text w3lpass" type="text" name="activity" placeholder="Field of activity" ngModel>
-                        <input class="text w3lpass" type="text" name="city" placeholder="City" ngModel>
-                        <input class="text w3lpass" type="text" name="country" placeholder="Country" ngModel>
-                        <input class="text w3lpass" type="text" name="slogan" placeholder="Your company's Slogan" ngModel>
+                        <label>Password</label>
+                        <input class="text" type="password" name="password" placeholder="Password" ngModel style="margin-bottom: 10px">
+                        <label>Confirm Password</label>1
+                        <input class="text" type="password" name="ConfirmPassword" placeholder="Confirm Password" ngModel style="margin-bottom: 10px">
+                        <label>Field of Activity</label>
+                        <input class="text" type="text" name="activity" placeholder="Field of activity" ngModel style="margin-bottom: 10px">
+                        <label>City</label>
+                        <input class="text" type="text" name="city" placeholder="City" ngModel style="margin-bottom: 10px">
+                        <label>Country</label>
+                        <input class="text" type="text" name="country" placeholder="Country" ngModel style="margin-bottom: 10px">
+                        <label>Slogan</label>
+                        <input class="text" type="text" name="slogan" placeholder="Your company's Slogan" ngModel style="margin-bottom: 10px">
                         <input class="btn btn-1 btn-danger changeColor " type="submit" value="sign up"[disabled]="!formulaireSponsor.form.valid">
                         <input class="btn btn-1 btn-success changeColor " [disabled]="!formulaireSponsor.form.dirty" (click)="reset(formulaireSponsor)" value="reset">
 

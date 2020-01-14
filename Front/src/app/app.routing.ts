@@ -32,6 +32,7 @@ const routes: Routes =[
     { path: 'register/organization',         component: SignupComponent },
     { path: 'register/sponsor',              component: SignupSponsorComponent },
     { path: 'landing',                       component: LandingComponent },
+    { path: 'sponsor-details/:id', component: SponsorProfileComponent},
     { path: 'sponsor-profile', component: SponsorProfileComponent},
     { path: 'sponsor-manage-profile', component: SponsorManageProfileComponent},
     { path: 'organization-manage-profile', component: OrganizationManageProfileComponent},

@@ -55,11 +55,16 @@
             <span class="nav-link-inner--text">About Us</span>
           </a>
         </li>
-
       </ul>
-      <ul *ngIf="loginService.isLoggedIn()"> <div class="text-white-50" > Hello {{userConnected}} </div></ul>
+      <ul *ngIf="loginService.isLoggedIn()" class="navbar-nav ml-auto" style="padding-left: 6rem;">
+        <li class="nav-item">
+          <a class="nav-link nav-link-icon">
+            <i class="ni ni-single-02" style="padding-right: 0.5rem;"></i>
+            <span>Hello {{userConnected}}</span>
+          </a>
+        </li>
+      </ul>
       <ul class="navbar-nav navbar-nav-hover align-items-lg-center ml-lg-auto">
-
         <li class="nav-item dropdown">
           <a class="nav-link btn-success" *ngIf="!loginService.isLoggedIn()" data-toggle="dropdown" title="Get Started" role="button">
             <span class="nav-link-inner--text mb-md-1">Get Started</span>

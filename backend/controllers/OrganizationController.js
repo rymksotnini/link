@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Organization = require('../models').Organization;
+const { verifyToken } = require("../token_validation");
 
 const bodyParser = require('body-parser');
 router.use(bodyParser.json());
@@ -12,7 +13,7 @@ router.use(function(req, res, next) {
     next();
 });
 //fetch all the organizations
-router.get('/',(req,res)=>
+router.get('/All',verifyToken,(req,res)=>
     Organization.findAll()
         .then(organizations => res.json((organizations)))
         .catch(err => console.log("error !!! pb with organizations ")));

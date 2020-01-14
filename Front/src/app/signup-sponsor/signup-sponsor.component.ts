@@ -6,6 +6,7 @@ import {NgForm} from "@angular/forms";
 import {Role} from "../../environments/environment";
 import {Sponsor} from "../models/Sponsor";
 import {SponsorService} from "../services/sponsor.service";
+import {LoginService} from "../services/login.service";
 
 @Component({
     selector: 'app-signup-sponsor',
@@ -23,7 +24,10 @@ export class SignupSponsorComponent implements OnInit {
     // @Output()
     // public Login: EventEmitter<void> = new EventEmitter<void>();
 
-    constructor(private userService: UserService, private sponsorService: SponsorService, private router: Router) {
+    constructor(private userService: UserService,
+                private sponsorService: SponsorService,
+                private router: Router,
+                private loginService : LoginService) {
     }
 
     ngOnInit() {
@@ -69,6 +73,9 @@ export class SignupSponsorComponent implements OnInit {
         this.sponsorService.addSponsor(this.sponsor).subscribe(
             res => console.log("test add sponsor", res)
         )
+
+        //connection and redirection to home !!
+
     }
 
     reset(formulaire: NgForm) {

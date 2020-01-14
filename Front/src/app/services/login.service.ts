@@ -18,9 +18,10 @@ export class LoginService {
     return this.http.post<any>(this.resourceUrl+'/', JSON.parse(JSON.stringify(user)), { observe: 'response' });
   }
   logout(){
-    localStorage.removeItem('token');
+    localStorage.removeItem('obj');
   }
   isLoggedIn():boolean{
-    return !! localStorage.getItem('token');
+
+    return !! localStorage.getItem('obj');
   }
 }

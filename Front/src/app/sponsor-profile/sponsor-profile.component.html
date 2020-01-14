@@ -33,7 +33,7 @@
                                 <a href="javascript:void(0)" class="btn btn-sm btn-info mr-4">
                                     <i class="ni ni-world-2"></i> Contact
                                 </a>
-                                <a [routerLink]="['/sponsor-manage-profile']"
+                                <a *ngIf="loginService.isLoggedIn()"  [routerLink]="['/sponsor-manage-profile']"
                                    class="btn btn-sm btn-default float-right">
                                     <i class="ni ni-settings-gear-65"></i>
                                     Manage Profile

@@ -80,7 +80,6 @@ app.put('/update/:id', (req, res) => {
     });
 });
 
-
 // Delete a user by ID (tested with = > get to change later with delete)
 app.get('/delete/:id', (req, res) => {
     const id = req.params.id;

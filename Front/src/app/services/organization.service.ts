@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import {HttpClient, HttpParams, HttpResponse} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Organization} from "../models/Organization";
 import {User} from "../models/User";
@@ -20,12 +20,26 @@ export class OrganizationService {
         return this.http.put<Organization>(this.resourceUrl+'/update/'+id, organization, { observe: 'response' });
     }
 
+    delete(id : number):Observable<any>{
+        return this.http.delete(this.resourceUrl+'/delete/'+id)
+    }
+
     getOrganization(id:number):Observable<Organization>{
       return this.http.get<Organization>(this.resourceUrl+'/'+id)
     }
 
     getAll():Observable<Organization[]>{
-      return this.http.get<Organization[]>(this.resourceUrl+'/')
+        console.log(localStorage.getItem('token'), "heeere");
+        var storage = JSON.parse(localStorage.getItem('obj'));
+        var token = storage['0']['token'];
+        return this.http.get<Organization[]>(this.resourceUrl+'/All/',{params: new HttpParams().append('token', token)})
     }
 
+    getLoggedOrganization(id:number):Observable<Organization>{
+        return this.http.get<Organization>(this.resourceUrl+'/findByUserLogged/'+id)
+    }
+
+    deleteMyself(id:number):Observable<any>{
+        return this.http.delete(this.resourceUrl+'/deleteMyself/'+id)
+    }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Sponsor} from "../models/Sponsor";
 import {SponsorService} from "../services/sponsor.service";
 import {NgForm} from "@angular/forms";
+import {LoginService} from "../services/login.service";
 
 @Component({
   selector: 'app-sponsor-manage-profile',

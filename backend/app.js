@@ -39,10 +39,10 @@ app.use('/', testController);
 app.use('/user', userController)
 app.use('/sponsor', sponsorController)
 app.use('/event', eventController);
-User.sync();
 Organization.sync();
-Event.sync();
 Sponsor.sync();
+User.sync();
+Event.sync();
 app.use('/organization', organizationController);
 app.use('/login', loginController);
 //

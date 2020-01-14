@@ -57,6 +57,7 @@
         </li>
 
       </ul>
+      <ul *ngIf="loginService.isLoggedIn()"> <div class="text-white-50" > Hello {{userConnected}} </div></ul>
       <ul class="navbar-nav navbar-nav-hover align-items-lg-center ml-lg-auto">
 
         <li class="nav-item dropdown">
@@ -86,9 +87,13 @@
             </div>
           </div>
         </li>
-        <a class="nav-link btn-success" *ngIf="loginService.isLoggedIn()"  role="button">
+        <div *ngIf="loginService.isLoggedIn()">
+        <a class="nav-link btn-success"   role="button">
+
           <span class="nav-link-inner--text mb-md-1" (click)="loginService.logout()">Logout </span>
         </a>
+
+        </div>
       </ul>
     </div>
   </div>

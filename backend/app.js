@@ -17,6 +17,8 @@ app.use(bodyParser.json());
 let eventModel = require('../backend/models/event');
 const Sequelize = require('sequelize')
 
+var sponsorController = require('./controllers/SponsorController');
+
 
 //Body Parser
 app.use(bodyParser.urlencoded({extended : false}));
@@ -33,12 +35,11 @@ sequelize.authenticate().then(() => {
 app.use('/', testController);
 
 // les api relatives au controller user commencent par /user
-app.use('/user', userController);
+app.use('/user', userController)
+app.use('/sponsor', sponsorController)
 app.use('/event', eventController);
 Organization.sync();
 User.sync();
-
-
 app.use('/organization', organizationController);
 app.use('/login', loginController);
 //

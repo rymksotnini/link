@@ -25,6 +25,8 @@ import { SponsorsComponent } from './sponsors/sponsors.component';
 import { OrganizationsComponent } from './organizations/organizations.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { TopSponsorsComponent } from './top-sponsors/top-sponsors.component';
+import { SponsorProfileComponent } from './sponsor-profile/sponsor-profile.component';
+import { SponsorManageProfileComponent } from './sponsor-manage-profile/sponsor-manage-profile.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SignupSponsorComponent } from './signup-sponsor/signup-sponsor.component';
 import { EventFormComponent } from './event-form/event-form.component';
@@ -39,17 +41,17 @@ import { OrganizationProfileComponent } from './organization-profile/organizatio
     ProfileComponent,
     NavbarComponent,
     FooterComponent,
-    LoginComponent,
     UpcomingEventComponent,
     CarouselForEventsComponent,
     LoginComponent,
     SignUpPopupComponent,
-    LoginComponent,
     EventsComponent,
     SponsorsComponent,
     OrganizationsComponent,
     AboutUsComponent,
     TopSponsorsComponent,
+    SponsorProfileComponent,
+    SponsorManageProfileComponent,
     HomePageComponent,
     SignupSponsorComponent,
     EventFormComponent,

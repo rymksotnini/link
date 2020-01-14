@@ -29,8 +29,12 @@ import { SponsorProfileComponent } from './sponsor-profile/sponsor-profile.compo
 import { SponsorManageProfileComponent } from './sponsor-manage-profile/sponsor-manage-profile.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SignupSponsorComponent } from './signup-sponsor/signup-sponsor.component';
+
 import { EventFormComponent } from './event-form/event-form.component';
 import { OrganizationProfileComponent } from './organization-profile/organization-profile.component';
+import { FileLoderComponent } from './file-loder/file-loder.component';
+import {MatListModule} from '@angular/material/list';
+import { StripeCardComponent } from './stripe-card/stripe-card.component';
 import { OrganizationManageProfileComponent } from './organization-manage-profile/organization-manage-profile.component';
 
 
@@ -57,6 +61,9 @@ import { OrganizationManageProfileComponent } from './organization-manage-profil
     SignupSponsorComponent,
     EventFormComponent,
     OrganizationProfileComponent,
+    FileLoderComponent,
+    StripeCardComponent,
+    OrganizationProfileComponent,
     OrganizationManageProfileComponent
   ],
   imports: [
@@ -69,8 +76,10 @@ import { OrganizationManageProfileComponent } from './organization-manage-profil
     HomeModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    HttpClientModule
-  ],
+    HttpClientModule,
+    MatListModule
+
+],
   providers: [],
   entryComponents: [SignUpPopupComponent],
   bootstrap: [AppComponent]

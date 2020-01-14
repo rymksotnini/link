@@ -59,7 +59,7 @@ export class AppComponent implements OnInit {
         lastScrollTop = st;
     };
     ngOnInit() {
-      var navbar : HTMLElement = this.element.nativeElement.children[0].children[0];
+        var navbar : HTMLElement = this.element.nativeElement.children[0].children[0];
       this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
           if (window.outerWidth > 991) {
               window.document.children[0].scrollTop = 0;
@@ -79,7 +79,7 @@ export class AppComponent implements OnInit {
       });
       this.hasScrolled();
     }
-    //To move this to the navbar component + service in the constructor
+
 
 
 

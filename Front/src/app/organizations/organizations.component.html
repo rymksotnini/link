@@ -35,8 +35,8 @@
                                         <span class="badge badge-pill badge-warning">{{organization.activity}}</span>
                                         <span class="badge badge-pill badge-warning">{{organization.matricule}}</span>
                                     </div>
-                                    <a [routerLink]="['organization',organization.id]" class="btn btn-info mt-4">details</a>
-                                    <a href="#organizations-section" class="btn btn-warning mt-4">delete</a>
+                                    <button [routerLink]="['/organization',organization.id]" class="btn btn-info mt-4">details</button>
+                                    <button (click)="delete(organization)" class="btn btn-warning mt-4">delete</button>
                                 </div>
                             </div>
                         </div>

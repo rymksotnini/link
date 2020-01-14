@@ -9,19 +9,20 @@ import {Role} from "../environments/environment";
 })
 export class OrganizerRoleGuard implements CanActivate {
 
-    currentUserRole : Role = Role.simple ;
+    currentUserRole : any = Role.simple ;
     constructor(private router: Router,
                 private LoginService: LoginService){}
-    canActivate(
-        next: ActivatedRouteSnapshot,
-        state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-
+    canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+        console.log("I m in guard Role !")
         this.LoginService.getCurrentUser().subscribe((user)=> {
             this.currentUserRole = user.body.role;
             console.log(this.currentUserRole);
+            console.log(Role.Organization);
+            console.log(typeof (this.currentUserRole+""))
+            console.log(this.currentUserRole+""=="Organization")
         })
-        return this.currentUserRole==Role.Organization;
-;
+        console.log(this.currentUserRole+""=="Organization")
+        return (this.currentUserRole+""!="Organization");
 
     }
 }

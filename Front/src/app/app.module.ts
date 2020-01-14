@@ -33,6 +33,8 @@ import { EventFormComponent } from './event-form/event-form.component';
 import { OrganizationProfileComponent } from './organization-profile/organization-profile.component';
 import { LoginInterceptorProider} from "./interceptors/login.interceptor";
 import {OrganizerRoleGuard} from "./OrganizerRoleGuard.";
+import { OrganizationManageProfileComponent } from './organization-manage-profile/organization-manage-profile.component';
+
 
 
 @NgModule({
@@ -57,7 +59,8 @@ import {OrganizerRoleGuard} from "./OrganizerRoleGuard.";
     HomePageComponent,
     SignupSponsorComponent,
     EventFormComponent,
-    OrganizationProfileComponent
+    OrganizationProfileComponent,
+    OrganizationManageProfileComponent
   ],
   imports: [
     BrowserModule,

@@ -17,7 +17,11 @@ export class OrganizationService {
     }
 
     update(organization: Organization,id : number): Observable<HttpResponse<Organization>> {
-        return this.http.put<Organization>(this.resourceUrl+'/update/'+id, organization, { observe: 'response' });
+        return this.http.post<Organization>(this.resourceUrl+'/update/'+id, organization, { observe: 'response' });
+    }
+
+    delete(id : number):Observable<any>{
+        return this.http.get(this.resourceUrl+'/delete/'+id)
     }
 
     getOrganization(id:number):Observable<Organization>{

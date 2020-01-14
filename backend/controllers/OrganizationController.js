@@ -15,7 +15,11 @@ router.use(function(req, res, next) {
 //fetch all the organizations
 router.get('/All',verifyToken,(req,res)=>
     Organization.findAll()
-        .then(organizations => res.json((organizations)))
+        .then( (organizations) => {
+            console.log(organizations);
+            res.json(organizations);
+        }
+            )
         .catch(err => console.log("error !!! pb with organizations ")));
 
 //get organization by id
@@ -35,9 +39,12 @@ router.get('/delete/:id', (req, res) => {
     const id = req.params.id;
     Organization.destroy({
         where: {id: id}
-    }).then(() => {
-        res.status(200).send('deleted successfully an organization with id = ' + id);
-    }).catch(err => {
+    }).then(
+        organizations =>{
+            console.log("destroy "+ organizations)
+            res.json(organizations)
+        }
+    ).catch(err => {
         console.log(err);
         res.status(500).json({msg: "error", details: err});
     });
@@ -62,7 +69,7 @@ router.post('/add',(req, res) => {
 });
 
 // Update an organization with Id  (NOT TESTED )
-router.put('/update/:id', (req, res) => {
+router.post('/update/:id', (req, res) => {
     const id = req.params.id;
     Organization.update(
         {  name: req.body.name,

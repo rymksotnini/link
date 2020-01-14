@@ -64,6 +64,8 @@ app.get('/:id',(req, res) =>
     })
 );
 
+
+
 // Update a user with Id  (NOT TESTED )
 app.put('/update/:id', (req, res) => {
     const id = req.params.id;

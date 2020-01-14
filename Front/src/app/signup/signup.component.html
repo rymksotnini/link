@@ -38,6 +38,9 @@
               <div class="mat-error" *ngIf="!valid"> Passwords do not match </div>
               <label>Confirm Password</label><input class="text " type="password" name="ConfirmPassword" ngModel required=""style="margin-bottom: 10px">
               <label>Domain</label><input class="text" type="text" name="organizationDomain" ngModel required=""style="margin-bottom: 10px">
+              <label>City</label><input class="text" type="text" name="organizationCity" ngModel required=""style="margin-bottom: 10px">
+              <label>Country</label><input class="text" type="text" name="organizationCountry" ngModel required=""style="margin-bottom: 10px">
+              <label>Slogan</label><input class="text" type="text" name="organizationSlogan" ngModel required=""style="margin-bottom: 10px">
             <label>Registration Number</label><input class="text  " type="text" name="organizationRegistrationNumber"  ngModel required="">
             <input class="btn btn-1 btn-danger changeColor " [disabled]="!formulaireOrganization.form.valid" type="submit" value="sign up">
             <input class="btn btn-1 btn-success changeColor " [disabled]="!formulaireOrganization.form.dirty" (click)="reset(formulaireOrganization)" value="reset">

@@ -78,7 +78,7 @@
                                         <div class="form-group">
                                             <label class="col-form-label">Upload New Profile Image</label>
                                             <div class="row">
-                                               choose image
+                                                    <input type="file" name="image" (change)="selectImage($event)" >
                                             </div>
                                         </div>
                                     </div>
@@ -86,7 +86,7 @@
                                 <div class=" row">
                                     <div class="col-md-8 center">
                                         <div class="form-group">
-                                            <button type="button" class="btn btn-1 btn-danger changeColor" (click)="save()" [disabled]="!formUpdateSponsor.form.valid">Save</button>
+                                            <button type="button" class="btn btn-1 btn-danger changeColor" (click)="submit()" [disabled]="!formUpdateSponsor.form.valid">Save</button>
                                         </div>
                                     </div>
                                 </div>

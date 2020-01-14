@@ -9,7 +9,7 @@ export class Sponsor {
     public country: string;
     public slogan: string;
     public description: string;
-    public image: string;
+    public image: any;
     public phone: string;
     public website: string;
     public user : User;

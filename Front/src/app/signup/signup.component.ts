@@ -6,6 +6,7 @@ import {UserService} from "../services/user.service";
 import {Role} from "../../environments/environment";
 import {Organization} from "../models/organization";
 import {OrganizationService} from "../services/organization.service";
+import {LoginService} from "../services/login.service";
 
 @Component({
     selector: 'app-signup',
@@ -22,7 +23,7 @@ export class SignupComponent implements OnInit {
     // @Output()
     // public Login: EventEmitter<void> = new EventEmitter<void>();
 
-    constructor(private activatedRoute :ActivatedRoute,private userService :UserService,private router :Router, private organizationService:OrganizationService) {
+    constructor(private activatedRoute :ActivatedRoute,private userService :UserService,private router :Router, private organizationService:OrganizationService,private loginService:LoginService) {
 
     }
 
@@ -54,9 +55,22 @@ export class SignupComponent implements OnInit {
         this.organization.user = this.user;
         console.log(this.organization)
 
-        this.organizationService.create(this.organization).subscribe(
-            res => console.log("organization added")
+        this.organizationService.create(this.organization).subscribe((res)=>
+        {
+
+            console.log("organization added")
+            this.loginService.signUp(this.user).subscribe(
+                result => {
+
+                    const token = result.body["token"];
+                    var obj = [{'token': token}, {'user': this.user.email}]
+                    localStorage.setItem('obj', JSON.stringify(obj));
+                    this.router.navigate(['/'])
+                },
+                error => console.log(error))
+        }
         )
+
     }
 
 

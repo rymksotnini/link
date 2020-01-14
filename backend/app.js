@@ -42,7 +42,7 @@ app.use('/event', eventController);
 Organization.sync();
 Sponsor.sync();
 User.sync();
-
+Event.sync();
 app.use('/organization', organizationController);
 app.use('/login', loginController);
 //

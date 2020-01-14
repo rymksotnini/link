@@ -26,7 +26,7 @@ export class SponsorService {
   }
 
   updateSponsor(sponsor : Sponsor): Observable<any> {
-    return this.http.post(this.resourceUrl + '/update', sponsor);
+    return this.http.put(this.resourceUrl + '/update', sponsor);
   }
 
 }

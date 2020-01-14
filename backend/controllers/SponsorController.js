@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:4200");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
     next();
 });
 
@@ -80,7 +81,7 @@ app.post('/add', (request, response) => {
 );
 
 // Delete a sponsor by ID
-app.get('/delete/:id', (req, res) => {
+app.delete('/delete/:id', (req, res) => {
     const id = req.params.id;
     models.Sponsor.destroy({
         where: {id: id}
@@ -93,7 +94,7 @@ app.get('/delete/:id', (req, res) => {
 });
 
 //update Sponsor
-app.post('/update', (request, response) => {
+app.put('/update', (request, response) => {
     let sponsor = request.body;
     let id = request.body.id;
     models.Sponsor.update(sponsor,

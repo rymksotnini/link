@@ -32,8 +32,8 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label class="col-form-label">Activity</label>
-                                            <input type="text" class="form-control" name="activity"  [(ngModel)]="sponsor.activity"
-                                                   value="{{sponsor.activity}}" placeholder="Your activity field.">
+                                            <input type="text" class="form-control" name="activity"  [(ngModel)]="organization.activity"
+                                                   value="{{organization.activity}}" placeholder="Your activity field.">
                                         </div>
                                     </div>
                                 </div>
@@ -41,35 +41,8 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label class="col-form-label">City</label>
-                                            <input type="text" class="form-control" name="city"  [(ngModel)]="sponsor.city"
-                                                   value="{{sponsor.city}}" placeholder="City">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Country</label>
-                                            <input type="text" class="form-control" name="country"  [(ngModel)]="sponsor.country"
-                                                   value="{{sponsor.country}}" placeholder="Country">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Slogan</label>
-                                            <input type="text" class="form-control" name="slogan"  [(ngModel)]="sponsor.slogan"
-                                                   value="{{sponsor.slogan}}" placeholder="Your Company Slogan">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=" row">
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Description</label>
-                                            <textarea class="form-control" row="4" name="description" [(ngModel)]="sponsor.description"
-                                                      value="{{sponsor.description}}" placeholder="Write a paragraph to describe your Company"></textarea>
+                                            <input type="text" class="form-control" name="city"  [(ngModel)]="organization.matricule"
+                                                   value="{{organization.matricule}}" placeholder="City">
                                         </div>
                                     </div>
                                 </div>
@@ -78,13 +51,13 @@
                                         <div class="form-group">
                                             <label class="col-form-label">Upload New Profile Image</label>
                                             <div class="row">
-                                               choose image
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class=" row">
-                                    <div class="col-md-8 center">
+                                    <div class="col-md-8 offset-5 center">
                                         <div class="form-group">
                                             <button type="button" class="btn btn-1 btn-danger changeColor" (click)="save()" [disabled]="!formUpdateSponsor.form.valid">Save</button>
                                         </div>

@@ -25,8 +25,7 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-3 order-lg-2">
                             <div class="card-profile-image">
-                                <img src="../../assets/img/icons/common/organizer.png" class="rounded-circle">
-                            </div>
+                                <img [src]="organization.image" class="rounded-circle" style="width: 400px; height: 200px">                            </div>
                         </div>
                         <div class="col-lg-4 order-lg-3 align-self-lg-center">
                             <div class="py-4 mt-lg-0">
@@ -41,58 +40,40 @@
                             </div>
                         </div>
                         <div class="col-lg-4 order-lg-1">
-                            <!-- Problem with css .card !!
                             <div class="card-profile-stats d-flex justify-content-center">
                                 <div>
-                                    <span class="heading">22</span>
-                                    <a href="#"><span class="description" placement="bottom"
-                                                      ngbTooltip="Show the events sponsored previously">Events</span></a>
+                                    <span class="heading">{{organization.followers}}</span>
+                                    <span class="description">Followers</span>
                                 </div>
                                 <div>
-                                    <span class="heading">10</span>
-                                    <a href="#"><span class="description" placement="bottom" ngbTooltip="Show comments">Comments</span></a>
+                                    <span class="heading">{{organization.events}}</span>
+                                    <span class="description">Events</span>
                                 </div>
                                 <div>
-                                    <span class="heading">5</span>
-                                    <a href="#"><span class="description" placement="bottom"
-                                                      ngbTooltip="Show the average rate">Rate</span></a>
+                                    <span class="heading">{{organization.sponsors}}</span>
+                                    <span class="description">Comments</span>
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                     <div class="text-center mt-5">
                         <h3>{{organization.name}}</h3>
                         <div class="h6 mt-4"><i class="ni ni-world mr-2"></i>{{organization.activity}}</div>
+                        <div><a href="#"><i class="ni ni-square-pin mr-2"></i>{{organization.city}}, {{organization.country}}</a>
+                        </div>
                     </div>
                     <div class="mt-5 py-5 border-top border-bottom text-center">
+                        <div class="mb-3">
+                            <h6 class="text-uppercase font-weight-bold">{{organization.slogan}}</h6>
+                        </div>
                         <div class="row justify-content-center">
                             <div class="col-lg-9">
                                 <p>
-
+                                    {{organization.description}}
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <!--<div id="profile-details" class="container">
-                        <div class="row justify-content-center">
-                            <div *ngFor="let element of elements;" class=" col-lg-4 ">
-                                <app-upcoming-event [description]="element.description" [eventPhoto]="element.img"
-                                                    [title]="element.title"></app-upcoming-event>
-                            </div>
-                        </div>
-                        <div class="row justify-content-center">
-                            <nav aria-label="Page navigation example">
-                                <ngb-pagination [collectionSize]="totalItems" [(page)]="page"
-                                                (pageChange)="loadPage($event)" aria-label="Default pagination">
-                                    <ng-template ngbPaginationPrevious><i _ngcontent-c9="" class="fa fa-angle-left"></i>
-                                    </ng-template>
-                                    <ng-template ngbPaginationNext><i _ngcontent-c9="" class="fa fa-angle-right"></i>
-                                    </ng-template>
-                                </ngb-pagination>
-                            </nav>
-                        </div>
-                        <div class="row">comments !</div>
-                    </div>-->
                 </div>
             </div>
         </div>

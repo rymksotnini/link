@@ -10,7 +10,7 @@ export class Organization {
     public events: string;
     public description: string;
     public slogan: string;
-    public image: string;
+    public image: any;
     public city: string;
     public country: string;
     public user: User;

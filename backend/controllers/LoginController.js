@@ -31,7 +31,7 @@ app.post('/',(req,res)=> {
             if (result) {
                 console.log("validCredentials");
                 user.password = undefined;
-                const jsontoken = sign({result: user}, "qwe1234", {
+                const jsontoken = sign({result: user.name}, "secret", {
                     expiresIn: "1h"
                 });
                 console.log(jsontoken)
@@ -41,10 +41,7 @@ app.post('/',(req,res)=> {
                     token: jsontoken
                 });
             } else {
-                return res.json({
-                    success: 0,
-                    data: "Invalid email or password"
-                });
+                return res.status(501).json({message:' Invalid Credentials'});
             }
         }) } )
 

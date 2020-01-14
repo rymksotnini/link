@@ -1,0 +1,100 @@
+<main class="profile-page">
+    <section class="section-profile-cover section-shaped my-0">
+        <!-- Circles background -->
+        <div class="shape shape-style-1 shape-primary alpha-4">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <!-- SVG separator -->
+        <div class="separator separator-bottom separator-skew">
+            <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1"
+                 xmlns="http://www.w3.org/2000/svg">
+                <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+            </svg>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="card card-profile shadow mt--300">
+                <div class="px-4">
+                    <div class="row" style="padding: 2rem;">
+                        <h2>Manage Your Profile</h2>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <form #formUpdateSponsor="ngForm">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label class="col-form-label">Activity</label>
+                                            <input type="text" class="form-control" name="activity"  [(ngModel)]="sponsor.activity"
+                                                   value="{{sponsor.activity}}" placeholder="Your activity field.">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label class="col-form-label">City</label>
+                                            <input type="text" class="form-control" name="city"  [(ngModel)]="sponsor.city"
+                                                   value="{{sponsor.city}}" placeholder="City">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label class="col-form-label">Country</label>
+                                            <input type="text" class="form-control" name="country"  [(ngModel)]="sponsor.country"
+                                                   value="{{sponsor.country}}" placeholder="Country">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label class="col-form-label">Slogan</label>
+                                            <input type="text" class="form-control" name="slogan"  [(ngModel)]="sponsor.slogan"
+                                                   value="{{sponsor.slogan}}" placeholder="Your Company Slogan">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label class="col-form-label">Description</label>
+                                            <textarea class="form-control" row="4" name="description" [(ngModel)]="sponsor.description"
+                                                      value="{{sponsor.description}}" placeholder="Write a paragraph to describe your Company"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label class="col-form-label">Upload New Profile Image</label>
+                                            <div class="row">
+                                                <app-image-upload></app-image-upload>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" row">
+                                    <div class="col-md-8 center">
+                                        <div class="form-group">
+                                            <button type="button" class="btn btn-1 btn-danger changeColor" (click)="save()" [disabled]="!formUpdateSponsor.form.valid">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

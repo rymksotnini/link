@@ -17,11 +17,11 @@ export class OrganizationService {
     }
 
     update(organization: Organization,id : number): Observable<HttpResponse<Organization>> {
-        return this.http.post<Organization>(this.resourceUrl+'/update/'+id, organization, { observe: 'response' });
+        return this.http.put<Organization>(this.resourceUrl+'/update/'+id, organization, { observe: 'response' });
     }
 
     delete(id : number):Observable<any>{
-        return this.http.get(this.resourceUrl+'/delete/'+id)
+        return this.http.delete(this.resourceUrl+'/delete/'+id)
     }
 
     getOrganization(id:number):Observable<Organization>{
@@ -35,4 +35,11 @@ export class OrganizationService {
         return this.http.get<Organization[]>(this.resourceUrl+'/All/',{params: new HttpParams().append('token', token)})
     }
 
+    getLoggedOrganization(id:number):Observable<Organization>{
+        return this.http.get<Organization>(this.resourceUrl+'/findByUserLogged/'+id)
+    }
+
+    deleteMyself(id:number):Observable<any>{
+        return this.http.delete(this.resourceUrl+'/deleteMyself/'+id)
+    }
 }

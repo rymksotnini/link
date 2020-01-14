@@ -8,11 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     activity: DataTypes.STRING
   }, {});
   Organization.associate = function(models) {
-      Organization.hasOne(models.Organization,{
-          foreignKey: 'id_user',
-          as: 'user_id',
-          onDelete: 'CASCADE'
-      });
+      Organization.hasOne(models.User)
   };
   return Organization;
 };

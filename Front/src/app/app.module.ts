@@ -31,6 +31,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { SignupSponsorComponent } from './signup-sponsor/signup-sponsor.component';
 import { EventFormComponent } from './event-form/event-form.component';
 import { OrganizationProfileComponent } from './organization-profile/organization-profile.component';
+import { OrganizationManageProfileComponent } from './organization-manage-profile/organization-manage-profile.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { OrganizationProfileComponent } from './organization-profile/organizatio
     HomePageComponent,
     SignupSponsorComponent,
     EventFormComponent,
-    OrganizationProfileComponent
+    OrganizationProfileComponent,
+    OrganizationManageProfileComponent
   ],
   imports: [
     BrowserModule,

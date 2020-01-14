@@ -39,12 +39,14 @@ export class NavbarComponent implements OnInit {
          this.lastPoppedUrl = ev.url;
      });
 
+
      this.loginService.getCurrentUser().subscribe((user) => {
         if(user) {
             console.log(user);
             this.userConnected = user.body.UserName
         }
      });
+     console.log(this.isConnected);
 
     }
 

@@ -45,4 +45,20 @@ app.post('/',(req,res)=> {
             }
         }) } )
 
+//Find user by Email
+app.get('/currentUser/:email',(req, res) =>
+    models.User.findOne({
+        where:{
+            email:req.params.email
+        }
+    }).then(user => {
+        user.password="";
+        res.json(user);
+        console.log(user);
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json({msg: "error", details: err});
+    })
+);
+
 module.exports=app;

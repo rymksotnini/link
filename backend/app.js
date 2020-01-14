@@ -5,6 +5,7 @@ var testController = require('./testController');
 var Event = require('./models').Event;
 var Organization = require('./models').Organization;
 var User = require('./models').User;
+var Sponsor = require('./models').Sponsor;
 var userController = require('./controllers/UserController');
 var organizationController = require('./controllers/OrganizationController');
 const bodyParser =require ('body-parser');
@@ -39,7 +40,9 @@ app.use('/user', userController)
 app.use('/sponsor', sponsorController)
 app.use('/event', eventController);
 Organization.sync();
+Sponsor.sync();
 User.sync();
+
 app.use('/organization', organizationController);
 app.use('/login', loginController);
 //

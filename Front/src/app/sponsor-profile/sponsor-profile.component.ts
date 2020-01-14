@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Sponsor} from "../models/Sponsor";
 import {SponsorService} from "../services/sponsor.service";
 import {ActivatedRoute} from "@angular/router";
+import {LoginService} from "../services/login.service";
 
 @Component({
     selector: 'app-sponsor-profile',
@@ -12,7 +13,7 @@ export class SponsorProfileComponent implements OnInit {
 
     sponsor = new Sponsor();
 
-    constructor(private sponsorService: SponsorService,private route : ActivatedRoute) {
+    constructor(private sponsorService: SponsorService,private route : ActivatedRoute, private loginService : LoginService) {
     }
 
     ngOnInit() {

@@ -112,9 +112,12 @@ router.post('/add', (request, response) => {
         name: request.body.name,
         matricule: request.body.matricule,
         activity: request.body.activity,
+        slogan: request.body.slogan,
+        city: request.body.city,
+        country: request.body.country,
         followers: 0,
         events: 0,
-        sponsor: 0,
+        sponsors: 0,
         User: {
             UserName: request.body.user.UserName,
             email: request.body.user.email,
@@ -155,7 +158,11 @@ router.put('/update/:id', (req, res) => {
             name: organization.name,
             matricule: organization.matricule,
             activity: organization.activity,
+            city: organization.city,
+            country: organization.country,
             description: organization.description,
+            slogan: organization.slogan,
+            image: organization.image,
         },
         { where: {id: id} }
     ).then(() => {

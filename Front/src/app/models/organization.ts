@@ -11,5 +11,7 @@ export class Organization {
     public description: string;
     public slogan: string;
     public image: string;
+    public city: string;
+    public country: string;
     public user: User;
 }

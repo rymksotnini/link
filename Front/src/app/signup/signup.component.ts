@@ -52,8 +52,11 @@ export class SignupComponent implements OnInit {
         this.organization.name=formulaire.controls['organizationName'].value;
         this.organization.matricule=formulaire.controls['organizationRegistrationNumber'].value;
         this.organization.activity=formulaire.controls['organizationDomain'].value;
+        this.organization.city=formulaire.controls['organizationCity'].value;
+        this.organization.country=formulaire.controls['organizationCountry'].value;
+        this.organization.slogan=formulaire.controls['organizationSlogan'].value;
         this.organization.user = this.user;
-        console.log(this.organization)
+        console.log(this.organization);
 
         this.organizationService.create(this.organization).subscribe((res)=>
         {

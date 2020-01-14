@@ -11,7 +11,9 @@ module.exports = (sequelize, DataTypes) => {
       events: DataTypes.STRING,
       description: DataTypes.STRING,
       slogan: DataTypes.STRING,
-      image : DataTypes.STRING
+      image : DataTypes.STRING,
+      city: DataTypes.STRING,
+      country: DataTypes.STRING
   }, {});
   Organization.associate = function(models) {
       Organization.hasOne(models.User)

@@ -30,6 +30,9 @@ import { SignupSponsorComponent } from './signup-sponsor/signup-sponsor.componen
 
 import { EventFormComponent } from './event-form/event-form.component';
 import { OrganizationProfileComponent } from './organization-profile/organization-profile.component';
+import { FileLoderComponent } from './file-loder/file-loder.component';
+import {MatListModule} from '@angular/material/list';
+import { StripeCardComponent } from './stripe-card/stripe-card.component';
 
 
 @NgModule({
@@ -54,7 +57,9 @@ import { OrganizationProfileComponent } from './organization-profile/organizatio
     HomePageComponent,
     SignupSponsorComponent,
     EventFormComponent,
-    OrganizationProfileComponent
+    OrganizationProfileComponent,
+    FileLoderComponent,
+    StripeCardComponent
   ],
   imports: [
     BrowserModule,
@@ -66,8 +71,10 @@ import { OrganizationProfileComponent } from './organization-profile/organizatio
     HomeModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    HttpClientModule
-  ],
+    HttpClientModule,
+    MatListModule
+
+],
   providers: [],
   entryComponents: [SignUpPopupComponent],
   bootstrap: [AppComponent]

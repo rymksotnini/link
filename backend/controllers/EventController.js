@@ -9,6 +9,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const models =require('../models/index');
 
+function blobToFile(theBlob, fileName){
+    //A Blob() is almost a File() - it's just missing the two properties below which we will add
+    theBlob.lastModifiedDate = new Date();
+    theBlob.name = fileName;
+    return theBlob;
+}
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:4200");
@@ -19,10 +25,13 @@ app.use(function(req, res, next) {
 //fetch all events
 app.get('/',(req,res)=>
     models.Event.findAll()
-        .then(events => res.json((events)))
+        .then(events =>
+
+            res.json((events)))
         .catch(err => console.log("error !!! pb with events ")));
 
 // Insert a user
+
 app.post('/add',(req, res) => {
 
     models.Event.create({
@@ -31,7 +40,12 @@ app.post('/add',(req, res) => {
         endTime: req.body.endTime,
         place: req.body.place,
         category:  req.body.category,
-        description: req.body.description
+        description: req.body.description,
+        image :  req.body.image,
+        sponsoringFile: req.body.sponsoringFile,
+        budget: req.body.budget ,
+        fundings : req.body.fundings
+
     }).then(event => {
         res.status(200).send("event created  successfully ");
 
@@ -61,10 +75,17 @@ app.put('/update/:id', (req, res) => {
             endTime: req.body.endTime,
             place: req.body.place,
             category:  req.body.category,
-            description: req.body.description },
+            description: req.body.description,
+            image :  req.body.image,
+            sponsoringFile: req.body.sponsoringFile,
+            budget: req.body.budget,
+            fundings : req.body.fundings
+
+        },
         { where: {id: req.params.id} }
     ).then(() => {
-        res.status(200).send("updated successfully an event with id = " + id);
+        console.log("helloooooooo");
+        res.status(200).send("event updated");
     }).catch(err => {
         console.log(err);
         res.status(500).json({msg: "error", details: err});

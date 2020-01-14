@@ -17,8 +17,10 @@ import {HomePageComponent} from "./home-page/home-page.component";
 
 import {EventFormComponent} from "./event-form/event-form.component";
 import {OrganizationProfileComponent} from "./organization-profile/organization-profile.component";
+import {FileLoderComponent} from "./file-loder/file-loder.component";
 
 const routes: Routes =[
+    { path: 'file' , component: FileLoderComponent},
     { path: 'add',   component:    EventFormComponent},
     { path: 'homee',                          component: HomeComponent },
     { path: 'events',                        component: EventsComponent },

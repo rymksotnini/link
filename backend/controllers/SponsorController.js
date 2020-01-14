@@ -50,16 +50,10 @@ app.get('/findByUserLogged/:id', (request, response) => {
             })
         })
 });
-var role_;
 
-// Insert a sponsor
+let role_;
+// Insert a sponsor and correspondant user
 app.post('/add', (request, response) => {
-        console.log(request.body)
-        if (request.body.user.role == "0") {
-            role_ = 'Sponsor';
-        } else if (request.body.user.role == "1") {
-            role_ = 'Organization';
-        }
         models.Sponsor.create({
                 name: request.body.name,
                 activity: request.body.activity,
@@ -71,7 +65,7 @@ app.post('/add', (request, response) => {
                     UserName: request.body.user.UserName,
                     email: request.body.user.email,
                     password: request.body.user.password,
-                    role: role_,
+                    role: "Sponsor",
                 }
             }, {
                 include: [User]

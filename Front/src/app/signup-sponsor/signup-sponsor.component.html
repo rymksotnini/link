@@ -37,14 +37,14 @@
                             Sponsor Name is required
                         </div>
                         <label>Email</label>
-                        <input class="email" type="email" name="sponsorEmail" placeholder="SponsorEmail" ngModel required #sponsorEmail="ngModel" style="margin-bottom: 10px">
+                        <input class="email" type="email" name="sponsorEmail" placeholder="SponsorEmail" ngModel required #sponsorEmail="ngModel" style="margin-bottom: 10px; margin-top: auto;">
                         <div [hidden]="sponsorEmail.valid || sponsorEmail.pristine"
                              class="alert alert-danger">
                             Email is required
                         </div>
                         <label>Password</label>
                         <input class="text" type="password" name="password" placeholder="Password" ngModel style="margin-bottom: 10px">
-                        <label>Confirm Password</label>1
+                        <label>Confirm Password</label>
                         <input class="text" type="password" name="ConfirmPassword" placeholder="Confirm Password" ngModel style="margin-bottom: 10px">
                         <label>Field of Activity</label>
                         <input class="text" type="text" name="activity" placeholder="Field of activity" ngModel style="margin-bottom: 10px">

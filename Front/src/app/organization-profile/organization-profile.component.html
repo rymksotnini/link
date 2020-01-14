@@ -28,12 +28,12 @@
                                 <img src="../../assets/img/icons/common/organizer.png" class="rounded-circle">
                             </div>
                         </div>
-                        <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
-                            <div class="card-profile-actions py-4 mt-lg-0">
-                                <a href="javascript:void(0)" class="btn btn-sm btn-info mr-4">
-                                    <i class="ni ni-world-2"></i> Contact
-                                </a>
-                                <a [routerLink]="['/organization-manage-profile']"
+                        <div class="col-lg-4 order-lg-3 align-self-lg-center">
+                            <div class="py-4 mt-lg-0">
+                                <button *ngIf="userConnected" (click)="deleteMyself()" class="btn btn-sm btn-danger">
+                                    <i class="fa fa-times"></i> Delete Account
+                                </button>
+                                <a *ngIf="userConnected" [routerLink]="['/organization-manage-profile']"
                                    class="btn btn-sm btn-default float-right">
                                     <i class="ni ni-settings-gear-65"></i>
                                     Manage Profile

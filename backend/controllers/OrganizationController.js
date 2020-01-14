@@ -111,6 +111,9 @@ router.post('/add',(request, response) => {
         name: request.body.name,
         matricule: request.body.matricule,
         activity: request.body.activity,
+        followers: 0,
+        events: 0,
+        sponsor: 0,
         User: {
             UserName: request.body.user.UserName,
             email: request.body.user.email,
@@ -132,8 +135,13 @@ router.post('/add',(request, response) => {
 // Update an organization with Id
 router.put('/update/:id', (req, res) => {
     const id = req.params.id;
-    let organization = request.body;
-    Organization.update(organization,
+    let organization = req.body;
+    Organization.update({
+            name: organization.name,
+            matricule: organization.matricule,
+            activity: organization.activity,
+            description: organization.description,
+        },
         { where: {id: id} }
     ).then(() => {
         res.status(200).send("updated successfully organization with id = " + id);

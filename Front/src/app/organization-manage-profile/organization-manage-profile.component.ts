@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {OrganizationService} from "../services/organization.service";
 import {Organization} from "../models/organization";
+import {LoginService} from "../services/login.service";
 
 @Component({
   selector: 'app-organization-manage-profile',
@@ -9,13 +10,17 @@ import {Organization} from "../models/organization";
 })
 export class OrganizationManageProfileComponent implements OnInit {
 
-  organization=new Organization();
-  constructor(private organizationService:OrganizationService) { }
+  organization = new Organization();
+  constructor(private organizationService:OrganizationService, private loginService:LoginService) { }
 
   ngOnInit() {
-    this.organizationService.getOrganization(6).subscribe(
-        (res) => this.organization = res
-    )
+      this.loginService.getCurrentUser().subscribe(
+          (user) => {
+              this.organizationService.getLoggedOrganization(user.body.id).subscribe(
+                  (res) => this.organization = res
+              )
+          }
+      )
   }
 
     save(){

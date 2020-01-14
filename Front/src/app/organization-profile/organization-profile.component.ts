@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {OrganizationService} from "../services/organization.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Organization} from "../models/organization";
+import {LoginService} from "../services/login.service";
 
 @Component({
   selector: 'app-organization-profile',
@@ -10,8 +11,8 @@ import {Organization} from "../models/organization";
 })
 export class OrganizationProfileComponent implements OnInit {
 
-  constructor(private organizationService: OrganizationService,private route:ActivatedRoute) { }
-
+  constructor(private router:Router ,private organizationService: OrganizationService,private route:ActivatedRoute, private loginService:LoginService) { }
+  userConnected:boolean;
   organization:Organization;
   ngOnInit() {
     this.organization = new Organization();
@@ -21,7 +22,33 @@ export class OrganizationProfileComponent implements OnInit {
                       this.organization=res;
                   }
               );
+          this.loginService.getCurrentUser().subscribe(
+              (user) => {
+                  this.organizationService.getLoggedOrganization(user.body.id).subscribe(
+                      (res) => {
+                          if (res.id == +params.id){
+                              this.userConnected = true;
+                          }
+                          else{
+                              this.userConnected =false;
+                          }
+                      }
+                  )
+              }
+          )
               console.log("id "+ params.id )
+          }
+      )
+  }
+
+  deleteMyself(){
+      this.loginService.getCurrentUser().subscribe(
+          (user) => {
+              this.organizationService.deleteMyself(user.body.id).subscribe(
+                  (res)=> {
+                      this.router.navigate(['home']);
+                  }
+              );
           }
       )
   }

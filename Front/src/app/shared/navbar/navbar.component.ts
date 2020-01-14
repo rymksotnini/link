@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd, NavigationStart } from '@angular/router';
-import { Location, PopStateEvent } from '@angular/common';
+import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {NavigationEnd, NavigationStart, Router} from '@angular/router';
+import {Location, PopStateEvent} from '@angular/common';
 import {SignUpPopupComponent} from "../../sign-up-popup/sign-up-popup.component";
 import {MatDialog} from "@angular/material/dialog";
 import {LoginService} from "../../services/login.service";
-import {User} from "../../models/User";
+import {Role} from "../../../environments/environment";
+import {Subject} from "rxjs";
 
 @Component({
     selector: 'app-navbar',
@@ -15,60 +16,85 @@ export class NavbarComponent implements OnInit {
     public isCollapsed = true;
     private lastPoppedUrl: string;
     private yScrollStack: number[] = [];
-    isConnected :boolean = false;
-    userConnected :string ;
+    isConnected: boolean = false;
+    userConnected: string;
+    public isOrganizer: boolean;
+    public isSponsor: boolean;
+    refresh: Subject<any> = new Subject();
+    mySubscription: any;
 
-    constructor(public location: Location, private router: Router , private matDialog : MatDialog,private loginService : LoginService ) {
+
+    constructor(public location: Location, private router: Router, private matDialog: MatDialog, private loginService: LoginService) {
+        this.router.routeReuseStrategy.shouldReuseRoute = function () {
+            return false;
+        };
+        this.mySubscription = this.router.events.subscribe((event) => {
+            if (event instanceof NavigationEnd) {
+                this.router.navigated = false;
+            }
+        });
+
     }
 
+
     ngOnInit() {
-      this.router.events.subscribe((event) => {
-        this.isCollapsed = true;
-        if (event instanceof NavigationStart) {
-           if (event.url != this.lastPoppedUrl)
-               this.yScrollStack.push(window.scrollY);
-       } else if (event instanceof NavigationEnd) {
-           if (event.url == this.lastPoppedUrl) {
-               this.lastPoppedUrl = undefined;
-               window.scrollTo(0, this.yScrollStack.pop());
-           } else
-               window.scrollTo(0, 0);
-       }
-     });
-     this.location.subscribe((ev:PopStateEvent) => {
-         this.lastPoppedUrl = ev.url;
-     });
+        this.router.events.subscribe((event) => {
+            this.isCollapsed = true;
+            if (event instanceof NavigationStart) {
+                if (event.url != this.lastPoppedUrl)
+                    this.yScrollStack.push(window.scrollY);
+            } else if (event instanceof NavigationEnd) {
+                if (event.url == this.lastPoppedUrl) {
+                    this.lastPoppedUrl = undefined;
+                    window.scrollTo(0, this.yScrollStack.pop());
+                } else
+                    window.scrollTo(0, 0);
+            }
+        });
+        this.location.subscribe((ev: PopStateEvent) => {
+            this.lastPoppedUrl = ev.url;
+        });
+
+        this.updateCurrentUser();
+        this.loginService.refresh.subscribe(() =>{
+            this.updateCurrentUser()}
+        );
 
 
-     this.loginService.getCurrentUser().subscribe((user) => {
-        if(user) {
-            console.log(user);
-            this.userConnected = user.body.UserName
-        }
-     });
-     console.log(this.isConnected);
 
+
+
+    }
+
+    updateCurrentUser() {
+        this.loginService.getCurrentUser().subscribe((user) => {
+            if (user) {
+                this.userConnected = user.body.UserName;
+                this.isSponsor = user.body.role + "" == "Sponsor";
+                this.isOrganizer = user.body.role + "" == "Organization";
+            }
+        });
     }
 
     isHome() {
         var titlee = this.location.prepareExternalUrl(this.location.path());
 
-        if( titlee === '#/home' ) {
+        if (titlee === '#/home') {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
+
     isDocumentation() {
         var titlee = this.location.prepareExternalUrl(this.location.path());
-        if( titlee === '#/documentation' ) {
+        if (titlee === '#/documentation') {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
+
     openDialog() {
         console.log("working");
 
@@ -80,11 +106,17 @@ export class NavbarComponent implements OnInit {
         });
         const sub = dialogRef.componentInstance.onClick.subscribe((value) => {
             console.log(value);
-            if(value.asOrganizer==true)
+            if (value.asOrganizer == true)
                 this.router.navigate(['/register/organization']);
-            else if (value.asOrganizer==false)
+            else if (value.asOrganizer == false)
                 this.router.navigate(['/register/sponsor']);
 
         });
+    }
+
+    logout() {
+        this.loginService.logout();
+        this.isOrganizer = false;
+        this.isSponsor = false;
     }
 }

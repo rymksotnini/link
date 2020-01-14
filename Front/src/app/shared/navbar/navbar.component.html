@@ -32,10 +32,30 @@
           </a>
         </li>
         <li class="nav-item">
-          <a routerLinkActive="active" [routerLink]="['events']" class="nav-link no-caret">
-            <i class="ni ni-ui-04 d-lg-none"></i>
-            <span class="nav-link-inner--text">Events</span>
-          </a>
+          <ul class="navbar-nav navbar-nav-hover align-items-lg-center ml-lg-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link "  data-toggle="dropdown" title="Events">
+                <span class="nav-link-inner--text mb-md-1" routerLinkActive="active" [routerLink]="['events']">Event</span>
+
+              </a>
+
+
+              <div *ngIf="loginService.isLoggedIn && isOrganizer" class=" dropdown-menu">
+                <div class="dropdown-menu-sm">
+                  <a [routerLink]="['/add']" class="align-items-center dropdown-item">
+
+                    <div class="ml-2" style="padding-top: 10px">
+
+                      <h6 class="text-gray-dark right"><i class="fa fa-plus" style="padding-right:15px "></i>add event</h6>
+                    </div>
+                  </a>
+
+                </div>
+              </div>
+            </li>
+
+          </ul>
+
         </li>
         <li class="nav-item">
           <a routerLinkActive="active" [routerLink]="['organizations']" class="nav-link no-caret">
@@ -95,7 +115,7 @@
         <div *ngIf="loginService.isLoggedIn()">
         <a class="nav-link btn-success"   role="button">
 
-          <span class="nav-link-inner--text mb-md-1" (click)="loginService.logout()">Logout </span>
+          <span class="nav-link-inner--text mb-md-1" (click)="logout()">Logout </span>
         </a>
 
         </div>

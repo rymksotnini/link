@@ -68,8 +68,8 @@ router.delete('/delete/:id', (req, res) => {
     Organization.destroy({
         where: {id: id}
     }).then(
-        organizations => {f
-            console.log("destroy " + organizations)
+        organizations =>{
+            console.log("destroy "+ organizations)
             res.json(organizations)
         }
     ).catch(err => {
@@ -112,6 +112,12 @@ router.post('/add', (request, response) => {
         name: request.body.name,
         matricule: request.body.matricule,
         activity: request.body.activity,
+        slogan: request.body.slogan,
+        city: request.body.city,
+        country: request.body.country,
+        followers: 0,
+        events: 0,
+        sponsors: 0,
         User: {
             UserName: request.body.user.UserName,
             email: request.body.user.email,
@@ -147,9 +153,18 @@ router.post('/add', (request, response) => {
 // Update an organization with Id
 router.put('/update/:id', (req, res) => {
     const id = req.params.id;
-    let organization = request.body;
-    Organization.update(organization,
-        {where: {id: id}}
+    let organization = req.body;
+    Organization.update({
+            name: organization.name,
+            matricule: organization.matricule,
+            activity: organization.activity,
+            city: organization.city,
+            country: organization.country,
+            description: organization.description,
+            slogan: organization.slogan,
+            image: organization.image,
+        },
+        { where: {id: id} }
     ).then(() => {
         res.status(200).send("updated successfully organization with id = " + id);
     }).catch(err => {

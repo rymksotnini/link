@@ -32,7 +32,8 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label class="col-form-label">Activity</label>
-                                            <input type="text" class="form-control" name="activity"  [(ngModel)]="organization.activity"
+                                            <input type="text" class="form-control" name="activity"
+                                                   [(ngModel)]="organization.activity"
                                                    value="{{organization.activity}}" placeholder="Your activity field.">
                                         </div>
                                     </div>
@@ -40,9 +41,51 @@
                                 <div class="row">
                                     <div class="col-md-8">
                                         <div class="form-group">
+                                            <label class="col-form-label">Registration Number</label>
+                                            <input type="text" class="form-control" name="matricule"
+                                                   [(ngModel)]="organization.matricule"
+                                                   value="{{organization.matricule}}" placeholder="Registration Number">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
                                             <label class="col-form-label">City</label>
-                                            <input type="text" class="form-control" name="city"  [(ngModel)]="organization.matricule"
-                                                   value="{{organization.matricule}}" placeholder="City">
+                                            <input type="text" class="form-control" name="city"
+                                                   [(ngModel)]="organization.city"
+                                                   value="{{organization.city}}" placeholder="City">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label class="col-form-label">Country</label>
+                                            <input type="text" class="form-control" name="country"
+                                                   [(ngModel)]="organization.country"
+                                                   value="{{organization.country}}" placeholder="Country">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label class="col-form-label">Slogan</label>
+                                            <input type="text" class="form-control" name="slogan"
+                                                   [(ngModel)]="organization.slogan"
+                                                   value="{{organization.slogan}}" placeholder="Your Company Slogan">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=" row">
+                                    <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label class="col-form-label">Description</label>
+                                            <textarea class="form-control" row="4" name="description"
+                                                      [(ngModel)]="organization.description"
+                                                      value="{{organization.description}}"
+                                                      placeholder="Write a paragraph to describe your Organization"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -51,7 +94,7 @@
                                         <div class="form-group">
                                             <label class="col-form-label">Upload New Profile Image</label>
                                             <div class="row">
-
+                                                <input type="file" name="image" (change)="selectImage($event)">
                                             </div>
                                         </div>
                                     </div>
@@ -59,7 +102,9 @@
                                 <div class=" row">
                                     <div class="col-md-8 offset-5 center">
                                         <div class="form-group">
-                                            <button type="button" class="btn btn-1 btn-danger changeColor" (click)="save()" [disabled]="!formUpdateSponsor.form.valid">Save</button>
+                                            <button type="button" class="btn btn-1 btn-danger changeColor"
+                                                    (click)="submit()" [disabled]="!formUpdateSponsor.form.valid">Save
+                                            </button>
                                         </div>
                                     </div>
                                 </div>

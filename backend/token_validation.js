@@ -3,11 +3,10 @@ module.exports = {
 
     verifyToken(req,res,next){
         console.log("I m in verify");
-        console.log(req);
         let token = req.query.token;
         console.log("----------------------------")
-        console.log(token);
-        console.log(req.query);
+        console.log("token : ", token);
+
         if (token) {
             // Remove Bearer from string
 

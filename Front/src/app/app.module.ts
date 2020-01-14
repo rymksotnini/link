@@ -25,6 +25,8 @@ import { SponsorsComponent } from './sponsors/sponsors.component';
 import { OrganizationsComponent } from './organizations/organizations.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { TopSponsorsComponent } from './top-sponsors/top-sponsors.component';
+import { SponsorProfileComponent } from './sponsor-profile/sponsor-profile.component';
+import { SponsorManageProfileComponent } from './sponsor-manage-profile/sponsor-manage-profile.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SignupSponsorComponent } from './signup-sponsor/signup-sponsor.component';
 
@@ -33,6 +35,7 @@ import { OrganizationProfileComponent } from './organization-profile/organizatio
 import { FileLoderComponent } from './file-loder/file-loder.component';
 import {MatListModule} from '@angular/material/list';
 import { StripeCardComponent } from './stripe-card/stripe-card.component';
+import { OrganizationManageProfileComponent } from './organization-manage-profile/organization-manage-profile.component';
 
 
 @NgModule({
@@ -43,23 +46,25 @@ import { StripeCardComponent } from './stripe-card/stripe-card.component';
     ProfileComponent,
     NavbarComponent,
     FooterComponent,
-    LoginComponent,
     UpcomingEventComponent,
     CarouselForEventsComponent,
     LoginComponent,
     SignUpPopupComponent,
-    LoginComponent,
     EventsComponent,
     SponsorsComponent,
     OrganizationsComponent,
     AboutUsComponent,
     TopSponsorsComponent,
+    SponsorProfileComponent,
+    SponsorManageProfileComponent,
     HomePageComponent,
     SignupSponsorComponent,
     EventFormComponent,
     OrganizationProfileComponent,
     FileLoderComponent,
-    StripeCardComponent
+    StripeCardComponent,
+    OrganizationProfileComponent,
+    OrganizationManageProfileComponent
   ],
   imports: [
     BrowserModule,

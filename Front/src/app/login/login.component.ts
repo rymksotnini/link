@@ -34,7 +34,9 @@ export class LoginComponent implements OnInit {
         result => {
           console.log("pleaassse");
           const token = result.body["token"];
-          localStorage.setItem('token',token);
+          console.log(token);
+          var obj = [{'token':token},{'user':this.user.email}]
+          localStorage.setItem('obj',JSON.stringify(obj));
           this.router.navigate(['/'])},
         error => console.log(error)
     );

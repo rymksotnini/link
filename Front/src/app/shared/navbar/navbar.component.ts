@@ -3,6 +3,8 @@ import { Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Location, PopStateEvent } from '@angular/common';
 import {SignUpPopupComponent} from "../../sign-up-popup/sign-up-popup.component";
 import {MatDialog} from "@angular/material/dialog";
+import {LoginService} from "../../services/login.service";
+import {User} from "../../models/User";
 
 @Component({
     selector: 'app-navbar',
@@ -13,8 +15,10 @@ export class NavbarComponent implements OnInit {
     public isCollapsed = true;
     private lastPoppedUrl: string;
     private yScrollStack: number[] = [];
+    isConnected :boolean = false;
+    userConnected :string ;
 
-    constructor(public location: Location, private router: Router , private matDialog : MatDialog ) {
+    constructor(public location: Location, private router: Router , private matDialog : MatDialog,private loginService : LoginService ) {
     }
 
     ngOnInit() {
@@ -34,6 +38,16 @@ export class NavbarComponent implements OnInit {
      this.location.subscribe((ev:PopStateEvent) => {
          this.lastPoppedUrl = ev.url;
      });
+
+
+     this.loginService.getCurrentUser().subscribe((user) => {
+        if(user) {
+            console.log(user);
+            this.userConnected = user.body.UserName
+        }
+     });
+     console.log(this.isConnected);
+
     }
 
     isHome() {

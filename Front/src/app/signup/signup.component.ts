@@ -48,13 +48,12 @@ export class SignupComponent implements OnInit {
         this.user.password=formulaire.controls['password'].value;
         this.user.role=Role.Organization;
         console.log(this.user);
-
+        this.organization.name=formulaire.controls['organizationName'].value;
         this.organization.matricule=formulaire.controls['organizationRegistrationNumber'].value;
         this.organization.activity=formulaire.controls['organizationDomain'].value;
+        this.organization.user = this.user;
         console.log(this.organization)
-        this.userService.create(this.user).subscribe(
-            res=> console.log("test add user",res)
-        )
+
         this.organizationService.create(this.organization).subscribe(
             res => console.log("organization added")
         )

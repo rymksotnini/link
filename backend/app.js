@@ -8,12 +8,12 @@ var userController = require('./controllers/UserController');
 var Event = require('./models').Event;
 var Organization = require('./models').Organization;
 var User = require('./models').User;
+var Sponsor = require('./models').Sponsor;
 var userController = require('./controllers/UserController');
 var organizationController = require('./controllers/OrganizationController');
 const bodyParser =require ('body-parser');
 var loginController = require('./controllers/LoginController');
 
-var eventController = require('./controllers/EventController');
 const multer = require('multer');
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:4200");
@@ -22,6 +22,8 @@ app.use(function(req, res, next) {
 
     next();
 });
+var eventController = require('./controllers/EventController');
+
 app.use(bodyParser.json());
 const storage = multer.diskStorage({
     destination: (req, file, callBack) => {
@@ -37,6 +39,9 @@ const upload = multer({ storage: storage })
 
 let eventModel = require('../backend/models/event');
 const Sequelize = require('sequelize')
+var sponsorController = require('./controllers/SponsorController');
+
+
 
 app.post('/file', upload.single('file'), (req, res, next) => {
     const file = req.file;
@@ -78,9 +83,11 @@ sequelize.authenticate().then(() => {
 app.use('/', testController);
 
 // les api relatives au controller user commencent par /user
-app.use('/user', userController);
+app.use('/user', userController)
+app.use('/sponsor', sponsorController)
 app.use('/event', eventController);
 Organization.sync();
+Sponsor.sync();
 User.sync();
 Event.sync();
 

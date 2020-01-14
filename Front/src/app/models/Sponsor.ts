@@ -1,3 +1,5 @@
+import {User} from "./User";
+
 export class Sponsor {
 
     public id: number;
@@ -10,7 +12,7 @@ export class Sponsor {
     public image: string;
     public phone: string;
     public website: string;
-
+    public user : User;
     constructor() {
     }
 }

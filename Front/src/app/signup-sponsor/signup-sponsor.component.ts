@@ -64,12 +64,7 @@ export class SignupSponsorComponent implements OnInit {
         this.sponsor.image = "./assets/img/sponsors/default-profile-sponsor.jpg";
 
         this.sponsor.user = this.user;
-        /* console.log(this.user);
-         // this.userService.create(this.user);
-         this.userService.create(this.user).subscribe(
-             res=> console.log("test add user",res)
-         ) */
-        console.log(this.sponsor)
+
         this.sponsorService.addSponsor(this.sponsor).subscribe(
             res => console.log("test add sponsor", res)
         )

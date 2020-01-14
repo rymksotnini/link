@@ -36,10 +36,7 @@ export class NavbarComponent implements OnInit {
      this.location.subscribe((ev:PopStateEvent) => {
          this.lastPoppedUrl = ev.url;
      });
-     this.loginService.isLoggedIn().subscribe((result)=>
-        this.isConnected = result
-    );
-     console.log(this.isConnected);
+
     }
 
     isHome() {

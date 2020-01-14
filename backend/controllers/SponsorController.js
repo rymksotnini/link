@@ -3,6 +3,7 @@ const app = express.Router();
 const sequelize = require('../connection');
 const models = require('../models/index');
 const User = require('../models').User;
+const {sign} = require("jsonwebtoken");
 // Body parser to get the data form , it's like a middleware
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -51,16 +52,10 @@ app.get('/findByUserLogged/:id', (request, response) => {
             })
         })
 });
-var role_;
 
-// Insert a sponsor
+let role_;
+// Insert a sponsor and correspondant user
 app.post('/add', (request, response) => {
-        console.log(request.body)
-        if (request.body.user.role == "0") {
-            role_ = 'Sponsor';
-        } else if (request.body.user.role == "1") {
-            role_ = 'Organization';
-        }
         models.Sponsor.create({
                 name: request.body.name,
                 activity: request.body.activity,
@@ -72,19 +67,34 @@ app.post('/add', (request, response) => {
                     UserName: request.body.user.UserName,
                     email: request.body.user.email,
                     password: request.body.user.password,
-                    role: role_,
+                    role: "Sponsor",
                 }
             }, {
                 include: [User]
             }
-        ).then(user => {
-            response.status(200).send("sponsor created  successfully ");
+        ).then((sponsor) => {
+
+            if (!sponsor.User) {
+                console.log("NoUser");
+                return response.status(404).send({reason: 'user not found'})
+            }
+            sponsor.User.password = undefined;
+            const jsontoken = sign({result: sponsor.User.name}, "secret", {
+                expiresIn: "1h"
+            });
+            console.log(jsontoken)
+            return response.json({
+                success: 1,
+                message: "login successfully",
+                token: jsontoken
+            });
+            response.status(200).send("user created  successfully ");
+
         }).catch(err => {
             console.log(err);
             response.status(500).json({msg: "error", details: err});
-        })
-    }
-);
+        });
+    })
 
 // Delete a sponsor by ID
 app.delete('/delete/:id', (req, res) => {

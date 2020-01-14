@@ -45,7 +45,7 @@ app.post('/add',(req, res) => {
         password: req.body.password,
         role: role_,
     }).then(user => {
-        res.status(200).send("user created  successfully ");
+        res.json((user))
 
     }).catch(err => {
         console.log(err);

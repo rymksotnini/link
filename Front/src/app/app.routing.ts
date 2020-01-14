@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
+
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SignupComponent } from './signup/signup.component';
@@ -17,13 +18,12 @@ import {SignupSponsorComponent} from "./signup-sponsor/signup-sponsor.component"
 import {HomePageComponent} from "./home-page/home-page.component";
 import {EventFormComponent} from "./event-form/event-form.component";
 import {OrganizationProfileComponent} from "./organization-profile/organization-profile.component";
-
+import {FileLoderComponent} from "./file-loder/file-loder.component";
+import {OrganizationManageProfileComponent} from "./organization-manage-profile/organization-manage-profile.component";
 import {OrganizerRoleGuard} from "./OrganizerRoleGuard.";
 
-import {OrganizationManageProfileComponent} from "./organization-manage-profile/organization-manage-profile.component";
-
-
 const routes: Routes =[
+    { path: 'file' , component: FileLoderComponent},
     { path: 'add',   component:    EventFormComponent},
     { path: 'homee',                          component: HomeComponent },
     { path: 'events',                        component: EventsComponent },
@@ -32,8 +32,8 @@ const routes: Routes =[
     { path: 'about-us',                      component: AboutUsComponent },
     { path: 'user-profile',                  component: ProfileComponent },
     {path: 'organization/:id',       component: OrganizationProfileComponent},
-    { path: 'register/organization',         component: SignupComponent },
     { path: 'register/sponsor',              component: SignupSponsorComponent },
+    { path: 'register/organization',              component: SignupComponent },
     { path: 'landing',                       component: LandingComponent },
     { path: 'sponsor-details/:id', component: SponsorProfileComponent},
     { path: 'sponsor-profile', component: SponsorProfileComponent},

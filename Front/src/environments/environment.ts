@@ -8,6 +8,7 @@ export const environment = {
 export const enum Role {
   simple,
   Sponsor,
+
   Organization,
 }
 

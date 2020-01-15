@@ -21,17 +21,19 @@ import {EventFormComponent} from "./event-form/event-form.component";
 import {OrganizationProfileComponent} from "./organization-profile/organization-profile.component";
 import {FileLoderComponent} from "./file-loder/file-loder.component";
 import {OrganizationManageProfileComponent} from "./organization-manage-profile/organization-manage-profile.component";
+import {ModifyEventComponent} from "./modify-event/modify-event.component";
 
 const routes: Routes =[
     { path: 'file' , component: FileLoderComponent},
-    { path: 'add',   component:    EventFormComponent},
+    { path: 'addevent',   component:    EventFormComponent},
+    { path: 'addevent/:id',   component:    EventFormComponent},
     { path: 'homee',                          component: HomeComponent },
     { path: 'events',                        component: EventsComponent },
     { path: 'organizations',                 component: OrganizationsComponent },
     { path: 'sponsors',                      component: SponsorsComponent },
     { path: 'about-us',                      component: AboutUsComponent },
     { path: 'user-profile',                  component: ProfileComponent },
-    {path: 'organization/:id',       component: OrganizationProfileComponent},
+    { path: 'organization/:id',       component: OrganizationProfileComponent},
     { path: 'register/sponsor',              component: SignupSponsorComponent },
     { path: 'register/organization',              component: SignupComponent },
     { path: 'landing',                       component: LandingComponent },
@@ -41,6 +43,7 @@ const routes: Routes =[
     { path: 'organization-manage-profile', component: OrganizationManageProfileComponent},
     { path: 'login',                         component: LoginComponent },
     { path: 'home', component: HomePageComponent},
+    { path : 'manageevent' , component : ModifyEventComponent},
     { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

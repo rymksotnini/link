@@ -5,6 +5,7 @@ import {Event} from "../models/Event";
 import {EventServiceService} from "../event-service.service";
 import {Moment} from "moment";
 import {HttpClient} from "@angular/common/http";
+import {ActivatedRoute, Router} from "@angular/router";
 
 // import custom validator to validate that password and confirm password fields match
 
@@ -22,7 +23,30 @@ export class EventFormComponent implements OnInit {
     images;
     filesponso;
     multipleImages = [];
-    constructor(private eventService : EventServiceService, private http: HttpClient) { }
+    update : boolean = false ;
+    id : number =0;
+    constructor(private eventService : EventServiceService,  private router: Router, private http: HttpClient ,  private activatedRoute: ActivatedRoute) { }
+    ngOnInit()
+    {   this.event = new Event(this.id,"",null,null,"","","","","",0,0)
+        this.activatedRoute.params.subscribe(
+            (res) =>
+            {
+                if(res.id)
+                {
+                    this.eventService.getEvent(res.id).subscribe(
+                        (res) =>
+                        {
+                            this.event = res ;
+                            this.update = true ;
+                            this.id = res.id
+                            this.eventImage = res.image;
+                            this.filesponso  = res.sponsoringFile ;
+                        }
+                    )
+                }
+            }
+        )
+    }
     selectImage(event) {
         if (event.target.files.length > 0) {
             const file = event.target.files[0];
@@ -43,6 +67,7 @@ export class EventFormComponent implements OnInit {
     }
 
     sendFile(form : NgForm){
+        console.log("what");
         const formData = new FormData();
         formData.append('file', this.filesponso);
 
@@ -50,6 +75,7 @@ export class EventFormComponent implements OnInit {
             (res) =>
             {
                 this.sponsoringFile = res.name
+
                 this.EventCreation(form);
             } ,
             (err) => console.log(err)
@@ -82,29 +108,39 @@ export class EventFormComponent implements OnInit {
             (err) => console.log(err)
         );
     }
-    ngOnInit() {
 
-    }
-
-    // convenience getter for easy access to form fields
 
     EventCreation(form : NgForm) {
         this.submitted = true;
-        console.log(form.controls.startDate.value)
         this.moment = new Date(form.controls.startDate.value.day, form.controls.startDate.value.month, form.controls.startDate.value.year, 5, 0, 0)
-
-        this.event = new Event(0,form.controls.name.value,this.moment,  this.moment , form.controls.place.value , form.controls.category.value ,form.controls.description.value,this.eventImage,this.sponsoringFile
+         console.log("whyyy")
+        this.event = new Event(this.id,form.controls.name.value,this.moment,  this.moment , form.controls.place.value , form.controls.category.value ,form.controls.description.value,this.eventImage,this.sponsoringFile
         , Number(form.controls.budget.value ),Number(0) )
-        this.eventService.create(this.event).subscribe(
-            (result) =>
+        if(!this.update) {
+            this.eventService.create(this.event).subscribe(
+                (result) => {
+                    console.log("added")
+                    alert('Event Created successfully!! :-)\n\n');
+                    this.router.navigate(['/events']);
+
+
+                }
+            );
+        }
+        else {
+            this.eventService.update(this.event , this.event.id).subscribe(
+                (result) =>
+                {
+                    alert('Event Updated successfully!! :-)\n\n');
+                    this.router.navigate(['/events']);
+                },
+                (err) =>
             {
-                console.log("added")
+
             }
-        );
-        alert('Event Created successfully!! :-)\n\n');
+            )
+
+        }
     }
 
-    onReset() {
-        this.submitted = false;
-    }
 }

@@ -35,6 +35,11 @@
                                 <div class=" col-8 ">
                                     <br>
                                     <a class=" text-dark display-4" href="javascript:void(0)">{{event.name}}</a>
+
+                                    <div style="margin-left: 400px; ">
+                                        <a href="#" style="margin-right: 20px;"><i class="ni ni-calendar-grid-58 mr-2"></i>{{event.startTime | date :  "dd.MM.y" }}</a>
+                                        <a href="#" ><i class="ni ni-square-pin mr-2"></i>{{event.place}}</a>
+                                    </div>
                                     <p class="lead text-muted">{{event.description}}</p>
                                     <div class="progress-wrapper">
                                         <div class="progress-info">
@@ -77,19 +82,13 @@
                                         <ul class="navbar-nav ml-lg-auto">
                                             <li class="nav-item">
                                                 <a class="nav-link text-dark nav-link-icon" href="javascript:void(0)">
-                                                    <i class="ni ni-favourite-28"></i>
-                                                    <span class="nav-link-inner--text d-lg-none">Discover</span>
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link text-dark nav-link-icon" href="javascript:void(0)">
                                                     <i class="ni ni-notification-70"></i>
                                                     <span class="nav-link-inner--text d-lg-none">Profile</span>
                                                 </a>
                                             </li>
                                             <li class="nav-item" ngbDropdown placement="bottom-right">
                                                 <a class="nav-link  text-dark nav-link-icon no-caret" ngbDropdownToggle id="nav-inner-success_dropdown_1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <i class="ni ni-settings-gear-65"></i>
+                                                    <i class="ni ni ni-favourite-28"></i>
                                                     <span class="nav-link-inner--text d-lg-none">Settings</span>
                                                 </a>
                                                 <div class="dropdown-menu-right" aria-labelledby="nav-inner-success_dropdown_1" ngbDropdownMenu>

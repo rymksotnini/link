@@ -25,12 +25,12 @@
                             </div>
                             <form #formulaireEvent="ngForm">
                                 <small class="d-block text-uppercase font-weight-bold mb-3">Name</small>
-                                    <div class="form-group" [ngClass]="{'focused':focus===true}">
+                                    <div class="form-group"  [ngClass]="{'focused':focus===true}">
                                         <div class="input-group mb-4">
                                             <div class="input-group-prepend">
-                                                <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+                                                <span class="input-group-text"><i class="ni ni-note-03"></i></span>
                                             </div>
-                                            <input required name="name" ngModel class="form-control" placeholder="Search" type="text" (focus)="focus=true" (blur)="focus=false">
+                                            <input [(ngModel)]="this.event.name" required name="name" ngModel class="form-control" placeholder="name" type="text" (focus)="focus=true" (blur)="focus=false">
                                         </div>
                                     </div>
                                 <small class="d-block text-uppercase font-weight-bold mb-3">START DATE</small>
@@ -39,7 +39,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                                     </div>
-                                    <input required name="startDate" ngModel class="form-control date-picker" placeholder="Select date" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" (focus)="focus2=true" (blur)="focus2=false" type="text" (select)="onDateSelection($event)" autocomplete="off"/>
+                                    <input [(ngModel)]="this.event.startTime" required name="startDate" ngModel class="form-control date-picker" placeholder="Select date" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker" (click)="d.toggle()" (focus)="focus2=true" (blur)="focus2=false" type="text" (select)="onDateSelection($event)" autocomplete="off"/>
                                 </div>
                             </div>
                                 <small class="d-block text-uppercase font-weight-bold mb-3">END DATE</small>
@@ -48,17 +48,18 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
                                         </div>
-                                        <input required name="endDate" ngModel class="form-control date" placeholder="Select date"  [(ngModel)]="model1" ngbDatepicker #d1="ngbDatepicker" (click)="d1.toggle()" (focus)="focus2=true" (blur)="focus2=false" type="text" (select)="onDateSelection($event)" autocomplete="off"/>
+                                        <input [(ngModel)]="this.event.endTime" required name="endDate" ngModel class="form-control date" placeholder="Select date"  [(ngModel)]="model1" ngbDatepicker #d1="ngbDatepicker" (click)="d1.toggle()" (focus)="focus2=true" (blur)="focus2=false" type="text" (select)="onDateSelection($event)" autocomplete="off"/>
                                     </div>
                                 </div>
                                 <small class="d-block text-uppercase font-weight-bold mb-3">PLACE</small>
                                 <div class="form-group" [ngClass]="{'focused':focus===true}">
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+                                            <span class="input-group-text"><i class="ni ni-building"></i></span>
                                         </div>
-                                        <input required name="place" ngModel class="form-control" placeholder="Search" type="text" (focus)="focus=true" (blur)="focus=false">
+                                        <input [(ngModel)]="this.event.place" required name="place" ngModel class="form-control" placeholder="place" type="text" (focus)="focus=true" (blur)="focus=false">
                                     </div>
+
                                 </div>
                                 <small class="d-block text-uppercase font-weight-bold mb-3">category</small>
                                 <div class="form-group" [ngClass]="{'focused':focus===true}">
@@ -66,38 +67,38 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
                                         </div>
-                                        <input required name="category" ngModel class="form-control" placeholder="Search" type="text" (focus)="focus=true" (blur)="focus=false">
+                                        <input [(ngModel)]="this.event.category" required name="category" ngModel class="form-control" placeholder="Category" type="text" (focus)="focus=true" (blur)="focus=false">
                                     </div>
                                 </div>
                                 <small class="d-block text-uppercase font-weight-bold mb-3">DESCRIPTION</small>
                                 <div class="form-group" [ngClass]="{'focused':focus===true}">
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+                                            <span class="input-group-text"><i class="ni ni-books"></i></span>
                                         </div>
-                                        <textarea required  name="description" ngModel class="form-control" placeholder="Search" type="text" (focus)="focus=true" (blur)="focus=false"> </textarea>
+                                        <textarea [(ngModel)]="this.event.description" required  name="description" ngModel class="form-control" placeholder="write event description" type="text" (focus)="focus=true" (blur)="focus=false"> </textarea>
                                     </div>
                                 </div>
                                 <small class="d-block text-uppercase font-weight-bold mb-3">Budget</small>
                                 <div class="form-group" [ngClass]="{'focused':focus===true}">
                                     <div class="input-group mb-4">
                                         <div class="input-group-prepend">
-                                            <span class="input-group-text"><i class="ni ni-money-coins"></i></span>
+                                            <span class="input-group-text  "><i class="ni ni-money-coins"></i></span>
                                         </div>
-                                        <input required  name="budget" ngModel class="form-control" placeholder="specify budget in dinar" type="number" (focus)="focus=true" (blur)="focus=false">
+                                        <input required [(ngModel)]="this.event.budget" name="budget" ngModel class="form-control " placeholder="specify budget in dinar" type="number" (focus)="focus=true" (blur)="focus=false">
                                     </div>
                                 </div>
                                 <small class="d-block text-uppercase font-weight-bold mb-3">Event Image</small>
                                 <div class="form-group" [ngClass]="{'focused':focus===true}">
                                     <div>
-                                        <input type="file" name="image" (change)="selectImage($event)" />
+                                        <input [(ngModel)]="this.event.image" type="file" name="image" (change)="selectImage($event)" />
                                     </div>
                                     <br>
                                 </div>
                                 <small class="d-block text-uppercase font-weight-bold mb-3">Sponsoring File</small>
                                 <div class="form-group" [ngClass]="{'focused':focus===true}">
                                     <div>
-                                        <input type="file" name="image" (change)="selectFile($event)" />
+                                        <input [(ngModel)]="this.event.sponsoringFile" type="file" name="image" (change)="selectFile($event)" />
                                     </div>
                                     <br>
                                 </div>

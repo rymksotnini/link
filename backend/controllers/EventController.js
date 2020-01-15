@@ -47,8 +47,8 @@ app.post('/add',(req, res) => {
         fundings : req.body.fundings
 
     }).then(event => {
-        res.status(200).send("event created  successfully ");
-
+        console.log("created")
+        res.json(event)
     }).catch(err => {
         console.log(err);
         res.status(500).json({msg: "error", details: err});
@@ -63,11 +63,54 @@ app.get('/:id',(req, res) =>
     }).catch(err => {
         console.log(err);
         res.status(500).json({msg: "error", details: err});
+        res.status(500).json({msg: "error", details: err});
     })
 );
+app.delete('/delete/:id', (req, res) => {
+    const id = req.params.id;
+    models.Event.destroy({
+        where: {id: id}
+    }).then(
+        event =>{
+
+            console.log("destroy "+ event)
+            res.json(event)
+        }
+    ).catch(err => {
+        console.log(err);
+        res.status(500).json({msg: "error", details: err});
+    });
+});
 
 // Update an event with Id  (NOT TESTED )
 app.put('/update/:id', (req, res) => {
+        const id = req.params.id;
+        models.Event.update(
+            {   name : req.body.name,
+                startTime: req.body.startTime,
+                endTime: req.body.endTime,
+                place: req.body.place,
+                category:  req.body.category,
+                description: req.body.description,
+                image :  req.body.image,
+                sponsoringFile: req.body.sponsoringFile,
+                budget: req.body.budget,
+                fundings : req.body.fundings,
+
+            },
+            { where: {id: req.params.id} }
+        ).then(() => {
+
+                console.log("update")
+                res.json({})
+
+        }).catch(err => {
+            console.log(err);
+            res.status(500).json({msg: "error", details: err});
+        });
+});
+
+app.put('/updateSponsor/:id', (req, res) => {
     const id = req.params.id;
     models.Event.update(
         {   name : req.body.name,
@@ -79,10 +122,13 @@ app.put('/update/:id', (req, res) => {
             image :  req.body.image,
             sponsoringFile: req.body.sponsoringFile,
             budget: req.body.budget,
-            fundings : req.body.fundings
+            fundings : req.body.fundings,
+            Sponsor : req.body.Sponsor
 
         },
-        { where: {id: req.params.id} }
+        { where: {id: req.params.id},
+          include : [{model: 'Sponsor'}]
+        }
     ).then(() => {
         console.log("helloooooooo");
         res.status(200).send("event updated");

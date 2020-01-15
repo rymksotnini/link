@@ -33,4 +33,8 @@ export class SponsorService {
     return this.http.put(this.resourceUrl + '/update', sponsor);
   }
 
+  deleteSponsor(id:number):Observable<any>{
+    return this.http.delete(this.resourceUrl+'/deleteByUserId/'+id)
+  }
+
 }

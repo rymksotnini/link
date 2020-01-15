@@ -63,6 +63,7 @@ export class OrganizationProfileComponent implements OnInit {
               this.organizationService.deleteMyself(user.body.id).subscribe(
                   (res)=> {
                       this.router.navigate(['home']);
+                      this.loginService.logout()
                   }
               );
           }

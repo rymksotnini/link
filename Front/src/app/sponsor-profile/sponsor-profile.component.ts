@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Sponsor} from "../models/Sponsor";
 import {SponsorService} from "../services/sponsor.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {LoginService} from "../services/login.service";
 import {HttpClient} from "@angular/common/http";
 import {DomSanitizer} from "@angular/platform-browser";
@@ -22,7 +22,8 @@ export class SponsorProfileComponent implements OnInit {
                 private route: ActivatedRoute,
                 private loginService: LoginService,
                 private http : HttpClient,
-                private sanitizer : DomSanitizer) {
+                private sanitizer : DomSanitizer,
+                private router: Router) {
     }
 
     ngOnInit() {
@@ -55,5 +56,19 @@ export class SponsorProfileComponent implements OnInit {
                 sponsor.image = this.sanitizer.bypassSecurityTrustResourceUrl(this.imageUrl)
             })
             .catch(err => console.error("download error = ", err))
+    }
+
+    deleteMyself(){
+        this.loginService.getCurrentUser().subscribe(
+            (user) => {
+                this.sponsorService.deleteSponsor(user.body.id).subscribe(
+                    (res)=> {
+                        this.router.navigate(['home']);
+
+                        this.loginService.logout()
+                    }
+                );
+            }
+        )
     }
 }

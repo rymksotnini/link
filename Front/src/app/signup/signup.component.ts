@@ -55,6 +55,7 @@ export class SignupComponent implements OnInit {
         this.organization.city=formulaire.controls['organizationCity'].value;
         this.organization.country=formulaire.controls['organizationCountry'].value;
         this.organization.slogan=formulaire.controls['organizationSlogan'].value;
+        this.organization.image = "./assets/img/icons/common/organizer.png";
         this.organization.user = this.user;
         console.log(this.organization);
 

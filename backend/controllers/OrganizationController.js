@@ -118,6 +118,7 @@ router.post('/add', (request, response) => {
         followers: 0,
         events: 0,
         sponsors: 0,
+        image: request.body.image,
         User: {
             UserName: request.body.user.UserName,
             email: request.body.user.email,

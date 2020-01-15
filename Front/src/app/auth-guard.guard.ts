@@ -13,7 +13,10 @@ export class AuthGuardGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-   /* const currentUser = this.LoginService.getCurrentUser();
+    const storage = JSON.parse(localStorage.getItem('obj'));
+    const token = storage['0']['token'];
+    return (!! token);
+    /* const currentUser = this.LoginService.getCurrentUser();
     if (currentUser) {
       // check if route is restricted by role
       if (next.data.roles && next.data.roles.indexOf(currentUser) === -1) {

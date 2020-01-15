@@ -12,7 +12,7 @@ export class EventServiceService {
     constructor(private http: HttpClient) { }
 
     create(event: Event): Observable<HttpResponse<Event>> {
-         console.log("test")
+
         return this.http.post<Event>(this.resourceUrl+'/add', JSON.parse(JSON.stringify(event)), { observe: 'response' });
     }
 

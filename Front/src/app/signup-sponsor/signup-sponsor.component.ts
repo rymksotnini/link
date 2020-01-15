@@ -64,14 +64,20 @@ export class SignupSponsorComponent implements OnInit {
         this.sponsor.image = "./assets/img/sponsors/default-profile-sponsor.jpg";
 
         this.sponsor.user = this.user;
-        /* console.log(this.user);
-         // this.userService.create(this.user);
-         this.userService.create(this.user).subscribe(
-             res=> console.log("test add user",res)
-         ) */
+
         console.log(this.sponsor)
-        this.sponsorService.addSponsor(this.sponsor).subscribe(
-            res => console.log("test add sponsor", res)
+        this.sponsorService.addSponsor(this.sponsor).subscribe((res)=>
+            {
+                console.log("organization added")
+                this.loginService.signUp(this.user).subscribe(
+                    result => {
+                        const token = result.body["token"];
+                        var obj = [{'token': token}, {'user': this.user.email}]
+                        localStorage.setItem('obj', JSON.stringify(obj));
+                        this.router.navigate(['/'])
+                    },
+                    error => console.log(error))
+            }
         )
 
         //connection and redirection to home !!

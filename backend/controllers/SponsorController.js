@@ -3,6 +3,7 @@ const app = express.Router();
 const sequelize = require('../connection');
 const models = require('../models/index');
 const User = require('../models').User;
+const {sign} = require("jsonwebtoken");
 // Body parser to get the data form , it's like a middleware
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -71,14 +72,29 @@ app.post('/add', (request, response) => {
             }, {
                 include: [User]
             }
-        ).then(user => {
-            response.status(200).send("sponsor created  successfully ");
+        ).then((sponsor) => {
+
+            if (!sponsor.User) {
+                console.log("NoUser");
+                return response.status(404).send({reason: 'user not found'})
+            }
+            sponsor.User.password = undefined;
+            const jsontoken = sign({result: sponsor.User.name}, "secret", {
+                expiresIn: "1h"
+            });
+            console.log(jsontoken)
+            return response.json({
+                success: 1,
+                message: "login successfully",
+                token: jsontoken
+            });
+            response.status(200).send("user created  successfully ");
+
         }).catch(err => {
             console.log(err);
             response.status(500).json({msg: "error", details: err});
-        })
-    }
-);
+        });
+    })
 
 // Delete a sponsor by ID
 app.delete('/delete/:id', (req, res) => {

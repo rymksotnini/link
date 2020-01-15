@@ -16,11 +16,11 @@ import {SponsorProfileComponent} from "./sponsor-profile/sponsor-profile.compone
 import {SponsorManageProfileComponent} from "./sponsor-manage-profile/sponsor-manage-profile.component";
 import {SignupSponsorComponent} from "./signup-sponsor/signup-sponsor.component";
 import {HomePageComponent} from "./home-page/home-page.component";
-
 import {EventFormComponent} from "./event-form/event-form.component";
 import {OrganizationProfileComponent} from "./organization-profile/organization-profile.component";
 import {FileLoderComponent} from "./file-loder/file-loder.component";
 import {OrganizationManageProfileComponent} from "./organization-manage-profile/organization-manage-profile.component";
+import {OrganizerRoleGuard} from "./OrganizerRoleGuard.";
 
 const routes: Routes =[
     { path: 'file' , component: FileLoderComponent},
@@ -38,7 +38,7 @@ const routes: Routes =[
     { path: 'sponsor-details/:id', component: SponsorProfileComponent},
     { path: 'sponsor-profile', component: SponsorProfileComponent},
     { path: 'sponsor-manage-profile', component: SponsorManageProfileComponent},
-    { path: 'organization-manage-profile', component: OrganizationManageProfileComponent},
+    { path: 'organization-manage-profile', component: OrganizationManageProfileComponent,canActivate :[OrganizerRoleGuard]},
     { path: 'login',                         component: LoginComponent },
     { path: 'home', component: HomePageComponent},
     { path: '', redirectTo: 'home', pathMatch: 'full' }

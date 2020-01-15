@@ -1,29 +1,30 @@
 var express = require('express');
 var app = express.Router();
 var sequelize = require('../connection');//DB Connection
+const {verifyToken} = require("../token_validation");
 var role_;
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 
-const models =require('../models/index');
+const models = require('../models/index');
 
-function blobToFile(theBlob, fileName){
+function blobToFile(theBlob, fileName) {
     //A Blob() is almost a File() - it's just missing the two properties below which we will add
     theBlob.lastModifiedDate = new Date();
     theBlob.name = fileName;
     return theBlob;
 }
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "http://localhost:4200");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
 
 //fetch all events
-app.get('/',(req,res)=>
+app.get('/', (req, res) =>
     models.Event.findAll()
         .then(events =>
 
@@ -32,19 +33,19 @@ app.get('/',(req,res)=>
 
 // Insert a user
 
-app.post('/add',(req, res) => {
+app.post('/add', verifyToken, (req, res) => {
 
     models.Event.create({
-        name : req.body.name,
+        name: req.body.name,
         startTime: req.body.startTime,
         endTime: req.body.endTime,
         place: req.body.place,
-        category:  req.body.category,
+        category: req.body.category,
         description: req.body.description,
-        image :  req.body.image,
+        image: req.body.image,
         sponsoringFile: req.body.sponsoringFile,
-        budget: req.body.budget ,
-        fundings : req.body.fundings
+        budget: req.body.budget,
+        fundings: req.body.fundings
 
     }).then(event => {
         console.log("created")
@@ -62,7 +63,6 @@ app.get('/:id',(req, res) =>
         res.json(event);
     }).catch(err => {
         console.log(err);
-        res.status(500).json({msg: "error", details: err});
         res.status(500).json({msg: "error", details: err});
     })
 );
@@ -141,7 +141,7 @@ app.put('/updateSponsor/:id', (req, res) => {
 
 
 // Delete an event by ID (tested with = > get to change later with delete)
-app.get('/delete/:id', (req, res) => {
+app.get('/delete/:id', verifyToken, (req, res) => {
     const id = req.params.id;
     models.Event.destroy({
         where: {id: id}
@@ -155,4 +155,4 @@ app.get('/delete/:id', (req, res) => {
 
 
 // we should export this router !
-module.exports=app;
+module.exports = app;

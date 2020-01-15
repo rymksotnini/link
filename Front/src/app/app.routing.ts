@@ -21,6 +21,7 @@ import {EventFormComponent} from "./event-form/event-form.component";
 import {OrganizationProfileComponent} from "./organization-profile/organization-profile.component";
 import {FileLoderComponent} from "./file-loder/file-loder.component";
 import {OrganizationManageProfileComponent} from "./organization-manage-profile/organization-manage-profile.component";
+import {OrganizerRoleGuard} from "./OrganizerRoleGuard.";
 import {ModifyEventComponent} from "./modify-event/modify-event.component";
 
 const routes: Routes =[
@@ -40,7 +41,7 @@ const routes: Routes =[
     { path: 'sponsor-details/:id', component: SponsorProfileComponent},
     { path: 'sponsor-profile', component: SponsorProfileComponent},
     { path: 'sponsor-manage-profile', component: SponsorManageProfileComponent},
-    { path: 'organization-manage-profile', component: OrganizationManageProfileComponent},
+    { path: 'organization-manage-profile', component: OrganizationManageProfileComponent,canActivate :[OrganizerRoleGuard]},
     { path: 'login',                         component: LoginComponent },
     { path: 'home', component: HomePageComponent},
     { path : 'manageevent' , component : ModifyEventComponent},

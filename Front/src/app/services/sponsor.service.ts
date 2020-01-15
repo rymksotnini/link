@@ -21,12 +21,20 @@ export class SponsorService {
     return this.http.get<Sponsor>(this.resourceUrl+'/'+id);
   }
 
+  getSponsorByUserId (id : number) : Observable<Sponsor>{
+    return this.http.get<Sponsor>(this.resourceUrl+'/findByUserLogged/'+id);
+  }
+
   addSponsor(sponsor : Sponsor) : Observable<HttpResponse<Sponsor>> {
     return this.http.post<Sponsor>(this.resourceUrl+'/add', JSON.parse(JSON.stringify(sponsor)), { observe: 'response' });
   }
 
   updateSponsor(sponsor : Sponsor): Observable<any> {
     return this.http.put(this.resourceUrl + '/update', sponsor);
+  }
+
+  deleteSponsor(id:number):Observable<any>{
+    return this.http.delete(this.resourceUrl+'/deleteByUserId/'+id)
   }
 
 }

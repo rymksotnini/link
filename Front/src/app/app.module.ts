@@ -29,9 +29,10 @@ import { SponsorProfileComponent } from './sponsor-profile/sponsor-profile.compo
 import { SponsorManageProfileComponent } from './sponsor-manage-profile/sponsor-manage-profile.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SignupSponsorComponent } from './signup-sponsor/signup-sponsor.component';
-
 import { EventFormComponent } from './event-form/event-form.component';
 import { OrganizationProfileComponent } from './organization-profile/organization-profile.component';
+import { LoginInterceptorProider} from "./interceptors/login.interceptor";
+import {OrganizerRoleGuard} from "./OrganizerRoleGuard.";
 import { FileLoderComponent } from './file-loder/file-loder.component';
 import {MatListModule} from '@angular/material/list';
 import { StripeCardComponent } from './stripe-card/stripe-card.component';
@@ -81,10 +82,10 @@ import { ModifyEventComponent } from './modify-event/modify-event.component';
     BrowserAnimationsModule,
     MatDialogModule,
     HttpClientModule,
-    MatListModule
+      MatListModule
+  ],
 
-],
-  providers: [],
+  providers: [LoginInterceptorProider,OrganizerRoleGuard],
   entryComponents: [SignUpPopupComponent],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,4 @@
-
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {Event} from "../models/Event";
 import {EventServiceService} from "../event-service.service";
@@ -67,7 +66,6 @@ export class EventFormComponent implements OnInit {
     }
 
     sendFile(form : NgForm){
-        console.log("what");
         const formData = new FormData();
         formData.append('file', this.filesponso);
 
@@ -75,7 +73,6 @@ export class EventFormComponent implements OnInit {
             (res) =>
             {
                 this.sponsoringFile = res.name
-
                 this.EventCreation(form);
             } ,
             (err) => console.log(err)

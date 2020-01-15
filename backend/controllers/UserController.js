@@ -45,7 +45,7 @@ app.post('/add',(req, res) => {
         password: req.body.password,
         role: role_,
     }).then(user => {
-        res.status(200).send("user created  successfully ");
+        res.json((user))
 
     }).catch(err => {
         console.log(err);
@@ -63,6 +63,8 @@ app.get('/:id',(req, res) =>
         res.status(500).json({msg: "error", details: err});
     })
 );
+
+
 
 // Update a user with Id  (NOT TESTED )
 app.put('/update/:id', (req, res) => {

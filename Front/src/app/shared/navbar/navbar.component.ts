@@ -25,17 +25,8 @@ export class NavbarComponent implements OnInit {
 
 
     constructor(public location: Location, private router: Router, private matDialog: MatDialog, private loginService: LoginService) {
-        this.router.routeReuseStrategy.shouldReuseRoute = function () {
-            return false;
-        };
-        this.mySubscription = this.router.events.subscribe((event) => {
-            if (event instanceof NavigationEnd) {
-                this.router.navigated = false;
-            }
-        });
 
     }
-
 
     ngOnInit() {
         this.router.events.subscribe((event) => {

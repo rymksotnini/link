@@ -22,7 +22,7 @@ export class OrganizerRoleGuard implements CanActivate {
             console.log(this.currentUserRole+""=="Organization")
         })
         console.log(this.currentUserRole+""=="Organization")
-        return (this.currentUserRole+""!="Organization");
+        return (this.currentUserRole+""=="Organization");
 
     }
 }

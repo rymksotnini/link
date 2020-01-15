@@ -29,7 +29,7 @@ export class OrganizationService {
     }
 
     getAll():Observable<Organization[]>{
-        return this.http.get<Organization[]>(this.resourceUrl+'/All/')
+        return this.http.get<Organization[]>(this.resourceUrl+'/All')
     }
 
     getLoggedOrganization(id:number):Observable<Organization>{

@@ -68,11 +68,9 @@ export class SignupSponsorComponent implements OnInit {
         console.log(this.sponsor)
         this.sponsorService.addSponsor(this.sponsor).subscribe((res)=>
             {
-
                 console.log("organization added")
                 this.loginService.signUp(this.user).subscribe(
                     result => {
-
                         const token = result.body["token"];
                         var obj = [{'token': token}, {'user': this.user.email}]
                         localStorage.setItem('obj', JSON.stringify(obj));

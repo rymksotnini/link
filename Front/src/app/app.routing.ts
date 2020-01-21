@@ -23,8 +23,10 @@ import {FileLoderComponent} from "./file-loder/file-loder.component";
 import {OrganizationManageProfileComponent} from "./organization-manage-profile/organization-manage-profile.component";
 import {OrganizerRoleGuard} from "./OrganizerRoleGuard.";
 import {ModifyEventComponent} from "./modify-event/modify-event.component";
+import {CertificationComponent} from "./certification/certification.component";
 
 const routes: Routes =[
+    { path: 'certificate' , component:CertificationComponent } ,
     { path: 'file' , component: FileLoderComponent},
     { path: 'addevent',   component:    EventFormComponent},
     { path: 'addevent/:id',   component:    EventFormComponent},

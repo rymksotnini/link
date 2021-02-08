@@ -7,7 +7,7 @@ import  {User} from "../models/User";
   providedIn: 'root'
 })
 export class UserService {
-  public resourceUrl =  'http://localhost:3000/user';
+  public resourceUrl =  'http://0.0.0.0:3000/user';
   constructor(private http: HttpClient) { }
 
   create(user: User): Observable<HttpResponse<User>> {

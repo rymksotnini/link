@@ -30,7 +30,7 @@ app.post('/', (req, res) => {
             const result = req.body.password == user.password;
             if (result) {
                 console.log("validCredentials");
-                user.password = undefined;
+
                 const jsontoken = sign({result: user.name}, "secret", {
                     expiresIn: "1h"
                 });
@@ -80,7 +80,7 @@ app.get('/currentUser/:email', (req, res) =>
             email: req.params.email
         }
     }).then(user => {
-        user.password = "";
+
         res.json(user);
         console.log(user);
     }).catch(err => {

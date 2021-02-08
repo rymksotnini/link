@@ -11,7 +11,9 @@ import {Observable} from "rxjs";
 export class LoginInterceptor implements HttpInterceptor{
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        if(localStorage.getItem('obj')) {
+        console.log("request !!"+req.url);
+
+        if((localStorage.getItem('obj'))&& !(  req.url.includes("generateKey"))) {
             const storage = JSON.parse(localStorage.getItem('obj'));
             const token = storage['0']['token'];
 

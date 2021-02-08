@@ -1,0 +1,83 @@
+<main>
+    <section class="section section-shaped section-lg">
+        <div class="shape shape-style-1 bg-gradient-default">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="container pt-lg-md">
+
+            <div class="row justify-content-center">
+
+                <div class="col-lg-10">
+                    <div class="card bg-secondary shadow border-0"style="padding-top: 30px ;   ">
+
+                        <div class="card-body justify-content-center px-lg-5 py-lg-5">
+                            <div class="  col-md-10 white order-md-2">
+                                <h2 class="  text-uppercase font-weight-bold ">
+                                     Request Your Certificate and Key
+                                </h2>
+                            </div>
+                            <form #CertFotm="ngForm">
+							  <small class="d-block text-uppercase font-weight-bold mb-3">Country</small>
+                                <div class="form-group" [ngClass]="{'focused':focus===true}">
+                                    <div class="input-group mb-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-compass-04"></i></span>
+                                        </div>
+                                        <textarea  required  name="c" ngModel class="form-control" placeholder="IE" type="text" (focus)="focus=true" (blur)="focus=false"> </textarea>
+                                    </div>
+                                </div>
+                                <small class="d-block text-uppercase font-weight-bold mb-3">State Or Province Name</small>
+                                <div class="form-group" [ngClass]="{'focused':focus===true}">
+                                    <div class="input-group mb-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-compass-04"></i></span>
+                                        </div>
+                                        <input required name="st" ngModel class="form-control" placeholder="Dublin" type="text" (focus)="focus=true" (blur)="focus=false">
+                                    </div>
+                                </div>
+                                <small class="d-block text-uppercase font-weight-bold mb-3">Locality</small>
+                                <div class="form-group" [ngClass]="{'focused':focus===true}">
+                                    <div class="input-group mb-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="ni ni-compass-04"></i></span>
+                                        </div>
+                                        <textarea  required  name="l" ngModel class="form-control" placeholder="Dublin" type="text" (focus)="focus=true" (blur)="focus=false"> </textarea>
+                                    </div>
+                                </div>
+                                <small class="d-block text-uppercase font-weight-bold mb-3">Organization</small>
+                                <div class="form-group" [ngClass]="{'focused':focus===true}">
+                                    <div class="input-group mb-4">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text  "><i class="ni ni-building"></i></span>
+                                        </div>
+                                        <input required  name="o" ngModel class="form-control " placeholder="company" type="text" (focus)="focus=true" (blur)="focus=false">
+                                    </div>
+                                </div>
+                                    <small class="d-block text-uppercase font-weight-bold mb-3">Organizational Unit</small>
+                                    <div class="form-group" [ngClass]="{'focused':focus===true}">
+                                        <div class="input-group mb-4">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text  "><i class="ni ni-folder-17"></i></span>
+                                            </div>
+                                            <input required  name="ou" ngModel class="form-control " placeholder="R&D" type="text" (focus)="focus=true" (blur)="focus=false">
+                                        </div>
+                                    </div>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-white my-4 changeColor" (click)="OnSubmit(CertFotm)" [disabled]="!CertFotm.form.valid">Submit the request</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

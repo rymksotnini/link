@@ -24,6 +24,7 @@ export class SponsorProfileComponent implements OnInit {
                 private http : HttpClient,
                 private sanitizer : DomSanitizer,
                 private router: Router) {
+
     }
 
     ngOnInit() {
@@ -71,4 +72,5 @@ export class SponsorProfileComponent implements OnInit {
             }
         )
     }
+
 }

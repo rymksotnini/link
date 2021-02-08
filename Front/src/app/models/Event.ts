@@ -1,3 +1,5 @@
+import {Sponsor} from "./Sponsor";
+
 export class Event {
     public  id : number = 0 ;
     public name: string;
@@ -10,6 +12,7 @@ export class Event {
     public sponsoringFile : string ;
     public budget : number ;
     public  fundings : number ;
+    public sponsors : Sponsor [] ;
 
     constructor(id : number  = 0 , name : string , startTime: Date , endTime: Date ,  place: string ,  category : string ,   description : string , image : any , sponsoringFile : string  , budget : number ,  fundings : number )
     {
@@ -24,6 +27,7 @@ export class Event {
         this.sponsoringFile = sponsoringFile;
         this.budget = budget ;
         this.fundings = fundings;
+
     }
 
 

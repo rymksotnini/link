@@ -42,11 +42,18 @@
 
               <div *ngIf="loginService.isLoggedIn && isOrganizer" class=" dropdown-menu">
                 <div class="dropdown-menu-sm">
-                  <a [routerLink]="['/add']" class="align-items-center dropdown-item">
+                  <a [routerLink]="['/addevent']" class="align-items-center dropdown-item">
 
                     <div class="ml-2" style="padding-top: 10px">
 
                       <h6 class="text-gray-dark right"><i class="fa fa-plus" style="padding-right:15px "></i>add event</h6>
+                    </div>
+                  </a>
+                  <a [routerLink]="['/manageevent']" class="align-items-center dropdown-item">
+
+                    <div class="ml-2" style="padding-top: 10px">
+
+                      <h6 class="text-gray-dark right"><i class="fa fa-plus" style="padding-right:15px "></i>Manage My Events</h6>
                     </div>
                   </a>
 

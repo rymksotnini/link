@@ -37,6 +37,9 @@ import { FileLoderComponent } from './file-loder/file-loder.component';
 import {MatListModule} from '@angular/material/list';
 import { StripeCardComponent } from './stripe-card/stripe-card.component';
 import { OrganizationManageProfileComponent } from './organization-manage-profile/organization-manage-profile.component';
+import { CalanderComponent } from './calander/calander.component';
+import { ModifyEventComponent } from './modify-event/modify-event.component';
+import { CertificationComponent } from './certification/certification.component';
 
 
 @NgModule({
@@ -65,7 +68,10 @@ import { OrganizationManageProfileComponent } from './organization-manage-profil
     FileLoderComponent,
     StripeCardComponent,
     OrganizationProfileComponent,
-    OrganizationManageProfileComponent
+    OrganizationManageProfileComponent,
+    CalanderComponent,
+    ModifyEventComponent,
+    CertificationComponent
   ],
   imports: [
     BrowserModule,

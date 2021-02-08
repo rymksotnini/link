@@ -48,17 +48,9 @@ app.post('/add', verifyToken, (req, res) => {
         fundings: req.body.fundings
 
     }).then(event => {
-        if (event) {
-            console.log("event ! : in add : " , event);
-            return res.json({
-                success: 1,
-                message: "event added successfully"
-            });
-
-        }
-
+        console.log("created")
+        res.json(event)
     }).catch(err => {
-        console.log("noooooooooooooo");
         console.log(err);
         res.status(500).json({msg: "error", details: err});
     })
@@ -66,7 +58,7 @@ app.post('/add', verifyToken, (req, res) => {
 });
 
 // Find a event by Id
-app.get('/:id', (req, res) =>
+app.get('/:id',(req, res) =>
     models.Event.findByPk(req.params.id).then(event => {
         res.json(event);
     }).catch(err => {
@@ -74,25 +66,69 @@ app.get('/:id', (req, res) =>
         res.status(500).json({msg: "error", details: err});
     })
 );
+app.delete('/delete/:id', (req, res) => {
+    const id = req.params.id;
+    models.Event.destroy({
+        where: {id: id}
+    }).then(
+        event =>{
+
+            console.log("destroy "+ event)
+            res.json(event)
+        }
+    ).catch(err => {
+        console.log(err);
+        res.status(500).json({msg: "error", details: err});
+    });
+});
 
 // Update an event with Id  (NOT TESTED )
-app.put('/update/:id', verifyToken, (req, res) => {
+app.put('/update/:id', (req, res) => {
+        const id = req.params.id;
+        models.Event.update(
+            {   name : req.body.name,
+                startTime: req.body.startTime,
+                endTime: req.body.endTime,
+                place: req.body.place,
+                category:  req.body.category,
+                description: req.body.description,
+                image :  req.body.image,
+                sponsoringFile: req.body.sponsoringFile,
+                budget: req.body.budget,
+                fundings : req.body.fundings,
+
+            },
+            { where: {id: req.params.id} }
+        ).then(() => {
+
+                console.log("update")
+                res.json({})
+
+        }).catch(err => {
+            console.log(err);
+            res.status(500).json({msg: "error", details: err});
+        });
+});
+
+app.put('/updateSponsor/:id', (req, res) => {
     const id = req.params.id;
     models.Event.update(
-        {
-            name: req.body.name,
+        {   name : req.body.name,
             startTime: req.body.startTime,
             endTime: req.body.endTime,
             place: req.body.place,
-            category: req.body.category,
+            category:  req.body.category,
             description: req.body.description,
-            image: req.body.image,
+            image :  req.body.image,
             sponsoringFile: req.body.sponsoringFile,
             budget: req.body.budget,
-            fundings: req.body.fundings
+            fundings : req.body.fundings,
+            Sponsor : req.body.Sponsor
 
         },
-        {where: {id: req.params.id}}
+        { where: {id: req.params.id},
+          include : [{model: 'Sponsor'}]
+        }
     ).then(() => {
         console.log("helloooooooo");
         res.status(200).send("event updated");
@@ -101,6 +137,7 @@ app.put('/update/:id', verifyToken, (req, res) => {
         res.status(500).json({msg: "error", details: err});
     });
 });
+
 
 
 // Delete an event by ID (tested with = > get to change later with delete)
